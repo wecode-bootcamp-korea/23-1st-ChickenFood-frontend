@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Header from './pages/header/Header';
-import Main from './pages/main/Main';
-import Products from './pages/products/Products';
-import Productdetail from './pages/products/productdetail/Productdetail';
+import Header from './pages/Header/Header';
+import Main from './pages/Main/Main';
+import Products from './pages/Products/Products';
+import Productdetail from './pages/Products/Productdetail/Productdetail';
 
 class Routes extends React.Component {
   render() {

@@ -1,0 +1,53 @@
+@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
+  display: flex;
+  justify-content: $JCdefault;
+  align-items: $AIdefault;
+}
+
+.layout_header {
+  @include flexCenterBox(center, start);
+}
+
+.layout_header .headerFlexBox {
+  width: 1000px;
+  border: 1px solid black;
+}
+
+.layout_header .headerFlexBox .authFlexBox {
+  @include flexCenterBox(flex-end, start);
+  width: 1000px;
+  border: 1px solid black;
+}
+
+.layout_header .headerFlexBox .authFlexBox .layout_auth {
+  @include flexCenterBox(start, center);
+  height: 38px;
+}
+
+.layout_header .headerFlexBox .authFlexBox .layout_auth li {
+  margin-right: 20px;
+}
+
+.layout_header .headerFlexBox .navFlexBox {
+  @include flexCenterBox(space-evenly, center);
+}
+
+.layout_header .headerFlexBox .navFlexBox span {
+  padding: 33px 0;
+}
+
+.layout_header .headerFlexBox .navFlexBox .layout_nav {
+  display: flex;
+}
+
+.layout_header .headerFlexBox .navFlexBox .layout_nav li {
+  margin-right: 20px;
+}
+
+.layout_header .headerFlexBox .navFlexBox .navIconWrap {
+  display: flex;
+}
+
+.layout_header .headerFlexBox .navFlexBox .navIconWrap a {
+  padding: 0 10px;
+}

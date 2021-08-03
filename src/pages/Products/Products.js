@@ -2,7 +2,7 @@ import React from 'react';
 
 class Products extends React.Component {
   render() {
-    return;
+    return <div>Products Page</div>;
   }
 }
 

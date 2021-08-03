@@ -1,0 +1,110 @@
+@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
+  display: flex;
+  justify-content: $JCdefault;
+  align-items: $AIdefault;
+}
+
+.layout_config {
+  @include flexCenterBox(center, start);
+  background-color: rgb(246, 246, 246);
+}
+
+.layout_config .configFlexBox {
+  @include flexCenterBox(start, center);
+  flex-direction: column;
+  width: 1140px;
+}
+
+.layout_config .configFlexBox .signUpFlexBox {
+  @include flexCenterBox(start, center);
+  flex-direction: column;
+  margin: 0 300px;
+}
+
+.layout_config .configFlexBox .signUpFlexBox h1 {
+  margin: 70px auto 10px;
+  font-size: 2rem;
+}
+
+.layout_config .configFlexBox .signUpFlexBox .inputFlexBox {
+  min-width: 600px;
+  margin: 10px auto 15px;
+}
+
+.layout_config .configFlexBox .signUpFlexBox .inputFlexBox h4 {
+  margin-bottom: 10px;
+  padding: 0 7px;
+  font-size: 1.4rem;
+}
+
+.layout_config .configFlexBox .signUpFlexBox .inputFlexBox input {
+  width: 97%;
+  margin: 7px 0;
+  padding: 36px 19px 28px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 0;
+  &:focus {
+    outline: 1px solid black;
+  }
+}
+
+.layout_config .configFlexBox .signUpFlexBox .inputFlexBox .idFlexBox {
+  position: relative;
+}
+
+.layout_config
+  .configFlexBox
+  .signUpFlexBox
+  .inputFlexBox
+  .idFlexBox
+  .configLabel {
+  position: absolute;
+  top: 43px;
+  left: 25px;
+  color: #888;
+  font-size: 13px;
+}
+
+.layout_config
+  .configFlexBox
+  .signUpFlexBox
+  .inputFlexBox
+  .idFlexBox
+  .configLabel
+  .required {
+  color: #ff5931;
+}
+
+.layout_config
+  .configFlexBox
+  .signUpFlexBox
+  .inputFlexBox
+  .userIdPw
+  .idFlexBox
+  .userIdInput {
+  width: 70%;
+}
+
+.layout_config
+  .configFlexBox
+  .signUpFlexBox
+  .inputFlexBox
+  .userIdPw
+  .idFlexBox
+  .userIdCheck {
+  width: 25%;
+}
+
+.layout_config .configFlexBox .signUpFlexBox .userInfoSubmit {
+  width: 100%;
+  padding: 18px 41px;
+}
+
+.layout_config .configFlexBox .signUpFlexBox .Btn {
+  color: white;
+  background-color: black;
+  font-size: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+}

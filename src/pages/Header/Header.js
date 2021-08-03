@@ -4,10 +4,10 @@ import './header.scss';
 class Header extends React.Component {
   render() {
     return (
-      <header className="layout_header">
+      <header className="layoutHeader">
         <div className="headerFlexBox">
           <div className="authFlexBox">
-            <ul className="layout_auth">
+            <ul className="layoutAuth">
               <li>
                 <a href="#">로그인</a>
               </li>
@@ -30,7 +30,7 @@ class Header extends React.Component {
             <span>logoImage</span>
             {/* <img className="sloganImage"></img> span이랑 교체 예정*/}
             <span>sloganImage</span>
-            <ul className="layout_nav">
+            <ul className="layoutNav">
               <li>
                 <a href="#">상품</a>
               </li>

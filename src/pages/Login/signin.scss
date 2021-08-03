@@ -1,0 +1,108 @@
+@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
+  display: flex;
+  justify-content: $JCdefault;
+  align-items: $AIdefault;
+}
+
+.layoutLogin {
+  @include flexCenterBox(center, start);
+  background-color: rgb(246, 246, 246);
+
+  .loginFlexBox {
+    @include flexCenterBox(start, center);
+    flex-direction: column;
+    width: 1140px;
+
+    h1 {
+      margin: 70px auto 10px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .loginForm {
+      @include flexCenterBox(start, center);
+      flex-direction: column;
+      margin: 0 300px;
+      min-width: 600px;
+      margin: 10px auto 15px;
+
+      input {
+        position: relative;
+        margin: 7px 5px;
+        min-width: 600px;
+        width: 100%;
+        border: 1px solid rgb(221, 221, 221);
+        outline: none;
+        &:focus {
+          z-index: 2;
+        }
+      }
+
+      .loginInputBox {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input {
+          padding: 36px 19px 28px;
+        }
+
+        .inputFlexBox {
+          position: relative;
+
+          .configLabel {
+            position: absolute;
+            top: 47px;
+            left: 25px;
+            color: #888;
+            font-size: 13px;
+            z-index: 1;
+          }
+        }
+      }
+      .loginBtnBox {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .Btn {
+          padding: 18px 41px;
+          font-weight: bold;
+          font-size: 1rem;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .idLogin {
+          border: none;
+          background-color: rgb(253, 184, 18);
+        }
+
+        .phoneLogin {
+          color: white;
+          border: none;
+          background-color: black;
+        }
+      }
+
+      .signUpFindIdPw {
+        display: flex;
+        flex-direction: row;
+
+        li {
+          margin: 20px 0;
+
+          a {
+            padding: 0 20px;
+            font-size: 15px;
+          }
+        }
+
+        .border {
+          border-right: 1px solid rgb(221, 221, 221);
+        }
+      }
+    }
+  }
+}

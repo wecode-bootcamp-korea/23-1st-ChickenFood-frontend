@@ -36,13 +36,22 @@
         }
 
         input {
+          position: relative;
           width: 97%;
           margin: 7px 5px;
           padding: 36px 19px 28px;
           border: 1px solid rgb(221, 221, 221);
           border-radius: 0;
-          &:focus {
+
+          &:focus-within {
+            z-index: 2;
             outline: 1px solid black;
+          }
+        }
+
+        .Btn {
+          &:focus-within {
+            outline: none;
           }
         }
 
@@ -51,10 +60,11 @@
 
           .configLabel {
             position: absolute;
-            top: 43px;
-            left: 25px;
+            top: 46px;
+            left: 28px;
             color: #888;
             font-size: 13px;
+            z-index: 1;
 
             .required {
               color: #ff5931;
@@ -80,6 +90,9 @@
         font-size: 1rem;
         &:hover {
           cursor: pointer;
+        }
+        &:focus-within {
+          outline: none;
         }
       }
     }

@@ -1,0 +1,64 @@
+.productDetail {
+  display: flex;
+  justify-content: center;
+  background-color: #f6f6f6;
+}
+
+.productLeft {
+  margin-top: 70px;
+
+  .imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 450px;
+    height: 450px;
+
+    .sampleImage {
+      width: 350px;
+      height: 350px;
+      background-color: rgb(255, 206, 82);
+    }
+  }
+}
+
+.productRight {
+  margin-top: 70px;
+  right: 75px;
+  width: 500px;
+  height: 700px;
+  background-color: white;
+  justify-content: left;
+
+  .sectionsWrapper {
+    margin: 20px;
+    .sectionOne {
+      border-bottom: 1px solid gray;
+      .productName,
+      .productPrice {
+        font-size: 22px;
+        font-weight: bolder;
+      }
+    }
+
+    .sectionTwo {
+      border-bottom: 2px solid gray;
+      .coupon {
+        .couponBtn {
+          background-color: white;
+          width: 250px;
+          height: 30px;
+        }
+      }
+    }
+
+    .sectionThird {
+      border-bottom: 2px solid gray;
+    }
+
+    .sectionFourth {
+      border-bottom: 2px solid gray;
+    }
+  }
+}

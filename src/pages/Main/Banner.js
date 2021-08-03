@@ -1,25 +1,37 @@
 import React from 'react';
+import BannerImg from './BannerImg';
 
 class Banner extends React.Component {
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     bannerImgs: [],
+  //   };
+  // }
+
+  // componentDidMount() {
+  //   fetch(),
+  //     {
+  //       method: 'GET',
+  //     };
+  // }
+
   render() {
     return (
       <>
         <div className="mainBanner">
-          <ul className="bannerBox">
-            <li className="bannerImg">
-              <img src="/images/banner1.jpg" alt="bannerImg" />
-            </li>
-            <div className="arrowBox">
-              <span
-                className="left"
-                style={{ backgroundImage: 'url(/images/left.jpg)' }}
-              />
-              <span
-                className="right"
-                style={{ backgroundImage: 'url(/images/right.jpg)' }}
-              />
-            </div>
-          </ul>
+          <BannerImg />
+          <div className="arrowBox">
+            <span
+              className="left"
+              style={{ backgroundImage: 'url(/images/left.png)' }}
+            />
+            <span
+              className="right"
+              style={{ backgroundImage: 'url(/images/right.png)' }}
+            />
+          </div>
         </div>
       </>
     );

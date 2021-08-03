@@ -6,7 +6,7 @@ import './main.scss';
 class Main extends React.Component {
   render() {
     return (
-      <div className="MainPage">
+      <div className="mainPage">
         <Banner />
         <BestItem />
       </div>

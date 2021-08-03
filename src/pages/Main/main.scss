@@ -1,30 +1,16 @@
-.MainPage {
+.mainPage {
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
   width: 1920px;
   overflow: hidden;
-  .bannerBox {
+  .mainBanner {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     margin-bottom: 30px;
-    // transform: translate(-200vw);
-    .bannerBox {
-      // width: 100vw;
-      img {
-        // width: 100%;
-      }
-    }
-    // .bannerBtn {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   width: 1140px;
-    //   position: absolute;
-    //   top: 250px;
-    // }
     .arrowBox {
       display: flex;
       justify-content: space-between;
@@ -35,69 +21,86 @@
       .left,
       .right {
         background-repeat: no-repeat;
-        width: 50px;
-        height: 50px;
-        background-size: 50px;
-        opacity: 1;
+        width: 84px;
+        height: 81px;
       }
     }
-  }
-
-  .bestTitle {
-    padding: 30px 10px 20px 10px;
-    margin: 0 60px 0 60px;
-    font-size: 32px;
-  }
-  .bestProducts {
-    width: 1140px;
-    .productsListWrap {
-      padding: 15px 0 20px 0;
-      margin: 0 47.5px 0 47.5px;
-      ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        li {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 104px;
-          .circle {
-            width: 68px;
-            height: 68px;
-          }
-          p {
-            font-size: 15px;
-            margin-top: 8px;
-          }
-        }
-      }
-    }
-    .productCarousel {
+    .bannerBox {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      margin-bottom: 60px;
-      .left,
-      .right {
-        background-repeat: no-repeat;
-        width: 50px;
-        height: 50px;
-        background-size: 50px;
+      // overflow: hidden;
+      // transform: translate(-200vw);
+    }
+  }
+  .bestContainer {
+    width: 1140px;
+    .bestTitle {
+      padding: 30px 10px 20px 10px;
+      margin: 0 60px 0 60px;
+      font-size: 32px;
+    }
+    .bestProducts {
+      position: relative;
+      .productsListWrap {
+        padding: 15px 0 20px 0;
+        margin: 0 47.5px 0 47.5px;
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 104px;
+            .circle {
+              width: 68px;
+              height: 68px;
+            }
+            p {
+              font-size: 15px;
+              margin-top: 8px;
+            }
+          }
+        }
       }
-      .productImgWrap {
-        width: 240px;
-        margin: 20px 0 0 20px;
-        .productImg {
+      .productCarousel {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 60px 0 60px;
+        margin-bottom: 60px;
+        .left {
+          background-repeat: no-repeat;
+          width: 70px;
+          height: 68px;
+          position: absolute;
+          left: 0px;
+
+          transform: translateY(-50%);
+        }
+        .right {
+          background-repeat: no-repeat;
+          width: 70px;
+          height: 68px;
+          position: absolute;
+          right: 0px;
+          transform: translateY(-50%);
+        }
+        .productImgWrap {
           width: 240px;
-        }
-        .productName {
-          font-size: 15px;
-        }
-        .productPrice {
-          font-size: 18px;
-          font-weight: bold;
+          margin: 20px 0 0 0;
+          .productImg {
+            width: 240px;
+          }
+          .productName {
+            font-size: 15px;
+          }
+          .productPrice {
+            font-size: 18px;
+            font-weight: bold;
+          }
         }
       }
     }

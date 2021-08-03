@@ -7,7 +7,7 @@ class BestProductCarousel extends React.Component {
       <div className="productCarousel">
         <span
           className="left"
-          style={{ backgroundImage: 'url(/images/left.jpg)' }}
+          style={{ backgroundImage: 'url(/images/left.png)' }}
         />
         <BestProduct />
         <BestProduct />
@@ -15,7 +15,7 @@ class BestProductCarousel extends React.Component {
         <BestProduct />
         <span
           className="right"
-          style={{ backgroundImage: 'url(/images/right.jpg)' }}
+          style={{ backgroundImage: 'url(/images/right.png)' }}
         />
       </div>
     );

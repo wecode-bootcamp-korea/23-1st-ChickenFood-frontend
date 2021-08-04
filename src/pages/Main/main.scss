@@ -1,102 +1,121 @@
 .mainPage {
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: relative;
   width: 1920px;
-  overflow: hidden;
+
   .mainBanner {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    width: 1920px;
     margin-bottom: 30px;
+    overflow: hidden;
+
     .arrowBox {
-      display: flex;
-      justify-content: space-between;
       position: absolute;
       top: 45%;
+      display: flex;
+      justify-content: space-between;
       width: 1140px;
       height: 50px;
+
       .left,
       .right {
-        background-repeat: no-repeat;
         width: 84px;
         height: 81px;
+        background-repeat: no-repeat;
       }
     }
+
     .bannerBox {
+      position: relative;
       display: flex;
       flex-direction: row;
-      // overflow: hidden;
-      // transform: translate(-200vw);
+      transition: 0.5s;
     }
   }
+
   .bestContainer {
     width: 1140px;
+
     .bestTitle {
-      padding: 30px 10px 20px 10px;
       margin: 0 60px 0 60px;
+      padding: 30px 10px 20px 10px;
       font-size: 32px;
     }
+
     .bestProducts {
       position: relative;
+
       .productsListWrap {
-        padding: 15px 0 20px 0;
         margin: 0 47.5px 0 47.5px;
+        padding: 15px 0 20px 0;
+
         ul {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+
           li {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 104px;
+
             .circle {
               width: 68px;
               height: 68px;
             }
+
             p {
-              font-size: 15px;
               margin-top: 8px;
+              font-size: 15px;
             }
           }
         }
       }
+
       .productCarousel {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 0 60px 0 60px;
         margin-bottom: 60px;
+        padding: 0 60px 0 60px;
+
         .left {
-          background-repeat: no-repeat;
-          width: 70px;
-          height: 68px;
           position: absolute;
           left: 0px;
-
-          transform: translateY(-50%);
-        }
-        .right {
-          background-repeat: no-repeat;
           width: 70px;
           height: 68px;
-          position: absolute;
-          right: 0px;
+          background-repeat: no-repeat;
           transform: translateY(-50%);
         }
+
+        .right {
+          position: absolute;
+          right: 0px;
+          width: 70px;
+          height: 68px;
+          background-repeat: no-repeat;
+          transform: translateY(-50%);
+        }
+
         .productImgWrap {
           width: 240px;
           margin: 20px 0 0 0;
+
           .productImg {
             width: 240px;
           }
+
           .productName {
             font-size: 15px;
           }
+
           .productPrice {
             font-size: 18px;
             font-weight: bold;

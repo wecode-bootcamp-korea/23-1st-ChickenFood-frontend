@@ -2,12 +2,11 @@ import React from 'react';
 
 class BannerImg extends React.Component {
   render() {
+    const { src, bannerName } = this.props;
     return (
-      <ul className="bannerBox">
-        <li className="bannerImg">
-          <img src="/images/banner1.jpg" alt="bannerImg" />
-        </li>
-      </ul>
+      <li className="bannerImg">
+        <img src={src} alt={bannerName} />
+      </li>
     );
   }
 }

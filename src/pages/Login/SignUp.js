@@ -11,8 +11,9 @@ class SignUp extends React.Component {
 
   getValue = e => {
     const { name, value } = e.target;
-    let userInfo = this.state.userInfo;
-    userInfo[name] = value;
+    this.setState({
+      userInfo: { ...this.state.userInfo, [name]: value },
+    });
   };
 
   // 비밀번호 확인 유효성 검사 기능 구현
@@ -27,23 +28,34 @@ class SignUp extends React.Component {
   };
 
   submitUserInfo = e => {
-    e.preventDefault();
-    // fetch();
+    fetch('http://10.58.1.207:8000/members/agreement', {
+      method: 'POST',
+      body: JSON.stringify(this.state.userInfo),
+    })
+      .then(res => res.json())
+      .then(response => {
+        if (response.message === 'SUCCESS') {
+          alert('회원가입에 성공했습니다. 환영합니다.');
+        } else {
+          alert('다시 입력해주세요!');
+        }
+      });
   };
 
   render() {
+    console.log(this.state.userInfo);
     return (
       <>
         <section className="layoutConfig">
           <div className="configFlexBox">
-            <form className="signUpFlexBox">
+            <div className="signUpFlexBox">
               <h1>회원가입</h1>
               <div className="inputFlexBox">
                 <h4>회원정보 입력</h4>
                 <div className="userIdPw">
                   <div className="idFlexBox">
                     <label className="configLabel" htmlFor="userId">
-                      <span>아이디</span>
+                      <span>아이디 (문자열을 포함해야 합니다.)</span>
                       <span className="required"> *</span>
                     </label>
                     <input
@@ -93,7 +105,7 @@ class SignUp extends React.Component {
                     </label>
                     <input
                       name="phone_number"
-                      type="number"
+                      type="text"
                       id="userPhoneNumber"
                       onChange={this.getValue}
                     />
@@ -135,13 +147,12 @@ class SignUp extends React.Component {
                   </div>
                 </div>
               </div>
-              <input
-                type="submit"
+              <button
                 className="userInfoSubmit Btn"
                 value="회원가입"
                 onClick={this.submitUserInfo}
               />
-            </form>
+            </div>
           </div>
         </section>
       </>

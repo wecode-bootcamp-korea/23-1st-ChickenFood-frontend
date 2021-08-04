@@ -6,14 +6,14 @@ class Footer extends React.Component {
     return (
       <footer className="footerWraper">
         <div className="footerNavWraper">
-          <div className="footerNavList">
+          <ul className="footerNavList">
             <li className="footerNavItem">공지사항</li>
             <li className="footerNavItem">이용약관</li>
             <li className="footerNavItem policy">개인정보처리방침</li>
             <li className="footerNavItem">영상정보처리방침</li>
             <li className="footerNavItem">매장안내</li>
             <li className="footerNavItem">고객센터</li>
-            <li className="smallSelect">
+            <li className="footerNavItem">
               <select className="globalSite">
                 <option>Global Skinfood</option>
                 <option>US</option>
@@ -24,34 +24,38 @@ class Footer extends React.Component {
                 <option>Vietnam</option>
               </select>
             </li>
-            <li className="smallSelect">
+            <li className="footerNavItem">
               <select className="language">
                 <option value="Language">Language</option>
                 <option value="Korean">Korean</option>
                 <option value="English">English</option>
               </select>
             </li>
-          </div>
+          </ul>
         </div>
         <div className="companyInfo">
           <ul className="infoList">
-            <div className="infoList firstLine">
-              <li className="infoItem">상호 (주)스킨푸드</li>
-              <li className="infoItem first">대표이사 유근직</li>
-              <li className="infoItem first">Tel 080-012-7878</li>
-              <li className="infoItem first">Fax 02-597-4199</li>
+            <div className="infoList line">
+              <span className="infoItem">상호 (주)스킨푸드</span>
+              <span className="infoItem rightBar">대표이사 유근직</span>
+              <span className="infoItem rightBar">Tel 080-012-7878</span>
+              <span className="infoItem rightBar">Fax 02-597-4199</span>
             </div>
-            <div className="infoList secondLine">
-              <li className="infoItem">
+            <div>
+              <span className="infoItem">
                 주소 경기도 안성시 미양면 제2공단1길 104 스킨푸드
-              </li>
+              </span>
             </div>
-            <div className="infoList thirdLine">
-              <li className="infoItem">사업자등록번호 125-81-54503</li>
-              <li className="infoItem third">통신사업자번호 제2005-00050호</li>
-              <li className="infoItem third">개인정보 보호 책임자 김현지</li>
+            <div className="infoList line">
+              <span className="infoItem">사업자등록번호 125-81-54503</span>
+              <span className="infoItem rightBar">
+                통신사업자번호 제2005-00050호
+              </span>
+              <span className="infoItem rightBar">
+                개인정보 보호 책임자 김현지
+              </span>
             </div>
-            <li className="infoItem">제휴문의 webmaster@theskinfood.com</li>
+            <span className="infoItem">제휴문의 webmaster@theskinfood.com</span>
           </ul>
           <div className="cs">
             <div className="csTitle">고객센터</div>

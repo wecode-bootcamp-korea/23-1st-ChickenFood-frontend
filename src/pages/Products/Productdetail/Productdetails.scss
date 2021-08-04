@@ -4,6 +4,10 @@
   background-color: #f6f6f6;
 }
 
+.contentsTitle {
+  margin-right: 50px;
+}
+
 .productLeft {
   margin-top: 70px;
 
@@ -13,7 +17,7 @@
     align-items: center;
     background-color: white;
     width: 450px;
-    height: 450px;
+    height: 480px;
 
     .sampleImage {
       width: 350px;
@@ -25,40 +29,110 @@
 
 .productRight {
   margin-top: 70px;
-  right: 75px;
   width: 500px;
-  height: 700px;
+  height: 480px;
   background-color: white;
   justify-content: left;
 
   .sectionsWrapper {
     margin: 20px;
     .sectionOne {
-      border-bottom: 1px solid gray;
-      .productName,
+      padding: 10px 0px;
+      border-bottom: 1px solid rgb(184, 184, 184);
+
+      .productPrice {
+        margin-top: 7px;
+      }
+
+      .productName {
+        font-size: 22px;
+        font-weight: bolder;
+        display: flex;
+        justify-content: space-between;
+
+        .heart {
+          margin-right: 20px;
+        }
+      }
+
       .productPrice {
         font-size: 22px;
         font-weight: bolder;
       }
+      .heart {
+        width: 18px;
+      }
+      .share {
+        width: 18px;
+      }
     }
 
     .sectionTwo {
-      border-bottom: 2px solid gray;
+      padding: 10px 0px;
+      border-bottom: 1px solid rgb(184, 184, 184);
+
       .coupon {
+        display: flex;
+        margin-bottom: 10px;
+        align-items: center;
+
+        .download {
+          width: 18px;
+        }
         .couponBtn {
-          background-color: white;
-          width: 250px;
+          border: none;
+          background-color: #feb814;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 300px;
           height: 30px;
+          margin-left: 25px;
+
+          .download {
+            margin-left: 20px;
+          }
+        }
+      }
+      .tags {
+        margin-bottom: 10px;
+      }
+
+      .shipping {
+        margin-bottom: 10px;
+
+        .shippingFee {
+          margin-left: 11px;
+        }
+      }
+
+      .review {
+        margin-bottom: 10px;
+      }
+
+      .star {
+        margin-left: 22px;
+      }
+    }
+
+    .sectionThree {
+      padding: 10px 0px;
+      border-bottom: 1px solid rgb(184, 184, 184);
+    }
+
+    .sectionFour {
+      padding: 10px 0px;
+      border-bottom: 1px solid rgb(184, 184, 184);
+
+      .selectedProduct {
+        .title {
+          margin-bottom: 10px;
         }
       }
     }
 
-    .sectionThird {
-      border-bottom: 2px solid gray;
-    }
-
-    .sectionFourth {
-      border-bottom: 2px solid gray;
+    .sectionFive {
+      padding: 10px 0px;
     }
   }
 }

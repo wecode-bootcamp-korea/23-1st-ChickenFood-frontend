@@ -1,0 +1,19 @@
+[
+  {
+    "name": "로얄허니 프로폴리스 인리치 크림 미스트(120ml)",
+    "price": 22000,
+    "thumbnail": "",
+    "brand_name": "스킨푸드",
+    "type_name": "미스트",
+    "detail_image": "../images/loyal_honey.png"
+  },
+
+  {
+    "name": "시어버터 퍼퓸드 핸드크림1+1",
+    "price": 4500,
+    "thumbnail": "",
+    "brand_name": "록시땅",
+    "type_name": "핸드크림",
+    "detail_image": "../images/sheabutter_cream.png"
+  }
+]

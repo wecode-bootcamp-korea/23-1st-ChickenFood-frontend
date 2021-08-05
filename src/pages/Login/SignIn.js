@@ -2,6 +2,23 @@ import React from 'react';
 import './signin.scss';
 
 class SignIn extends React.Component {
+  submitUserInfo = e => {
+    fetch('http://10.58.2.122:8000/members/agreement', {
+      method: 'POST',
+      body: JSON.stringify(this.state.userInfo),
+    })
+      .then(res => res.json())
+      .then(response => {
+        if (response.message === 'SUCCESS') {
+          alert('회원가입에 성공했습니다. 환영합니다.');
+          console.log(response);
+        } else {
+          alert('다시 입력해주세요!');
+          console.log(response);
+        }
+      });
+  };
+
   render() {
     return (
       <>

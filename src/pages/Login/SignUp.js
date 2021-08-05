@@ -51,14 +51,16 @@ class SignUp extends React.Component {
           <div className="configFlexBox">
             <div className="signUpFlexBox">
               <h1>회원가입</h1>
-              <div className="inputFlexBox">
+              <div className="layoutInput">
                 <h4>회원정보 입력</h4>
-                <div className="userIdPw">
-                  <div className="idFlexBox">
-                    <label className="configLabel" htmlFor="userId">
-                      <span>아이디 (문자열을 포함해야 합니다.)</span>
-                      <span className="required"> *</span>
-                    </label>
+                <div className="idInput">
+                  <form className="inputFlexBox">
+                    <div className="configLabel">
+                      <label htmlFor="userId">
+                        <span className="required">* </span>
+                        <span>아이디 (문자열을 포함해야 합니다.)</span>
+                      </label>
+                    </div>
                     <input
                       name="name"
                       type="text"
@@ -66,87 +68,97 @@ class SignUp extends React.Component {
                       className="userIdInput"
                       onChange={this.getValue}
                     />
-                    <input
-                      type="button"
-                      className="userIdCheck Btn"
-                      value="중복확인"
-                      onChange={this.getValue}
-                    />
-                  </div>
-                  <div className="idFlexBox">
-                    <label className="configLabel" htmlFor="userPw">
-                      <span>비밀번호 (8자리 이상 입력해 주세요.)</span>
-                      <span className="required"> *</span>
-                    </label>
-                    <input
-                      name="password"
-                      type="password"
-                      id="userPw"
-                      onChange={this.getValue}
-                    />
-                  </div>
-                  <div className="idFlexBox">
-                    <label className="configLabel" htmlFor="userPwCheck">
-                      <span>비밀번호 확인</span>
-                      <span className="required"> *</span>
-                    </label>
-                    <input
-                      name="passwordCheck"
-                      type="password"
-                      id="userPwCheck"
-                      onBlur={this.pwValidationCheck}
-                    />
-                  </div>
+                  </form>
+                  <button
+                    type="button"
+                    className="userIdCheck Btn"
+                    onChange={this.getValue}
+                  >
+                    중복확인
+                  </button>
                 </div>
-                <div className="natlAddress">
-                  <div className="idFlexBox">
-                    <label className="configLabel" htmlFor="userPhoneNumber">
+                <form className="inputFlexBox">
+                  <div className="configLabel">
+                    <label htmlFor="userPw">
+                      <span className="required">* </span>
+                      <span>비밀번호 (8자리 이상 입력해 주세요.)</span>
+                    </label>
+                  </div>
+                  <input
+                    name="password"
+                    type="password"
+                    id="userPw"
+                    onChange={this.getValue}
+                  />
+                </form>
+                <form className="inputFlexBox">
+                  <div className="configLabel">
+                    <label htmlFor="userPwCheck">
+                      <span className="required">* </span>
+                      <span>비밀번호 확인</span>
+                    </label>
+                  </div>
+                  <input
+                    name="passwordCheck"
+                    type="password"
+                    id="userPwCheck"
+                    onBlur={this.pwValidationCheck}
+                  />
+                </form>
+                <form className="inputFlexBox">
+                  <div className="configLabel">
+                    <label htmlFor="userPhoneNumber">
+                      <span className="required">* </span>
                       <span>전화번호 (ex. 010-1234-5678)</span>
-                      <span className="required"> *</span>
                     </label>
-                    <input
-                      name="phone_number"
-                      type="text"
-                      id="userPhoneNumber"
-                      onChange={this.getValue}
-                    />
                   </div>
-                  <div className="idFlexBox">
-                    <label className="configLabel" htmlFor="userEmail">
+                  <input
+                    name="phone_number"
+                    type="text"
+                    id="userPhoneNumber"
+                    onChange={this.getValue}
+                  />
+                </form>
+                <form className="inputFlexBox">
+                  <div className="configLabel">
+                    <label htmlFor="userEmail">
+                      <span className="required">* </span>
                       <span>이메일</span>
-                      <span className="required"> *</span>
                     </label>
-                    <input
-                      name="email"
-                      type="text"
-                      id="userEmail"
-                      onChange={this.getValue}
-                    />
                   </div>
-                  <div className="idFlexBox">
+                  <input
+                    name="email"
+                    type="text"
+                    id="userEmail"
+                    onChange={this.getValue}
+                  />
+                </form>
+                <form className="inputFlexBox">
+                  <div lassName="configLabel">
                     <label className="configLabel" htmlFor="userAddress">
                       <span>주소</span>
-                      <span className="required"> *</span>
                     </label>
-                    <input
-                      name="address"
-                      type="text"
-                      id="userAddress"
-                      onChange={this.getValue}
-                    />
                   </div>
-                  <div className="idFlexBox">
-                    <label className="configLabel" htmlFor="recommendUserId">
+                  <input
+                    name="address"
+                    type="text"
+                    id="userAddress"
+                    onChange={this.getValue}
+                  />
+                </form>
+                <form className="inputFlexBox">
+                  <div className="configLabel">
+                    <label htmlFor="recommendUserId">
                       <span>추천인 아이디</span>
                     </label>
-                    <input
-                      name="recommender_name"
-                      type="text"
-                      id="recommendUserId"
-                      onChange={this.getValue}
-                    />
                   </div>
-                </div>
+                  <input
+                    name="recommender_name"
+                    type="text"
+                    id="recommendUserId"
+                    onChange={this.getValue}
+                  />
+                </form>
               </div>
               <button
                 className="userInfoSubmit Btn"

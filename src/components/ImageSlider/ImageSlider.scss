@@ -1,0 +1,18 @@
+.slider {
+  display: flex;
+
+  .moveButton {
+    border: 0;
+    outline: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    .left {
+      background-image: url('../../assets/images/icon_arrow_left_circle.png');
+    }
+
+    .right {
+      background-image: url('../../assets/images/icon_arrow_right_circle.png');
+    }
+  }
+}

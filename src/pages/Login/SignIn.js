@@ -2,18 +2,32 @@ import React from 'react';
 import './signin.scss';
 
 class SignIn extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      userInfo: {},
+    };
+  }
+
+  getValue = e => {
+    const { name, value } = e.target;
+    this.setState({
+      userInfo: { ...this.state.userInfo, [name]: value },
+    });
+  };
+
   submitUserInfo = e => {
-    fetch('http://10.58.2.122:8000/members/agreement', {
+    fetch('http://10.58.2.122:8000/members/login', {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
       .then(res => res.json())
       .then(response => {
         if (response.message === 'SUCCESS') {
-          alert('회원가입에 성공했습니다. 환영합니다.');
+          alert('로그인되었습니다.');
           console.log(response);
         } else {
-          alert('다시 입력해주세요!');
+          alert('아이디와 비밀번호를 확인해주세요!');
           console.log(response);
         }
       });
@@ -25,32 +39,46 @@ class SignIn extends React.Component {
         <section className="layoutLogin">
           <div className="loginFlexBox">
             <h1>로그인</h1>
-            <form className="loginForm">
+            <div className="loginForm">
               <div className="loginInputBox">
                 <div className="inputFlexBox">
-                  <label className="configLabel" for="userId">
-                    <span>아이디</span>
-                  </label>
-                  <input type="text" id="userId" />
+                  <div className="configLabel">
+                    <label for="userId">
+                      <span>아이디</span>
+                    </label>
+                  </div>
+                  <input
+                    name="member"
+                    type="text"
+                    id="userId"
+                    onChange={this.getValue}
+                  />
                 </div>
                 <div className="inputFlexBox">
-                  <label className="configLabel" for="userPw">
-                    <span>비밀번호</span>
-                  </label>
-                  <input type="password" id="userPw" />
+                  <div className="configLabel">
+                    <label for="userPw">
+                      <span>비밀번호</span>
+                    </label>
+                  </div>
+                  <input
+                    name="password"
+                    type="password"
+                    id="userPw"
+                    onChange={this.getValue}
+                  />
                 </div>
               </div>
               <div className="loginBtnBox">
-                <input
+                <button
                   className="idLogin Btn"
                   type="submit"
-                  value="아이디 로그인"
-                />
-                <input
-                  className="phoneLogin Btn"
-                  type="submit"
-                  value="휴대폰 로그인"
-                />
+                  onClick={this.submitUserInfo}
+                >
+                  아이디 로그인
+                </button>
+                <button className="phoneLogin Btn" type="submit">
+                  휴대폰 로그인
+                </button>
               </div>
               <ul className="signUpFindIdPw">
                 <li>
@@ -67,7 +95,7 @@ class SignIn extends React.Component {
                   <a href="#">비밀번호 찾기</a>
                 </li>
               </ul>
-            </form>
+            </div>
           </div>
         </section>
       </>

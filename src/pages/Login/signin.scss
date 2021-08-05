@@ -22,24 +22,20 @@
     .loginForm {
       @include flexCenterBox(start, center);
       flex-direction: column;
-      margin: 0 300px;
       min-width: 600px;
-      margin: 10px auto 15px;
+      margin: 5px auto 15px;
 
       input {
         position: relative;
-        margin: 7px 5px;
         min-width: 600px;
-        width: 100%;
+        width: 97%;
+        margin: 7px 5px;
         border: 1px solid rgb(221, 221, 221);
         outline: none;
-        &:focus {
-          z-index: 2;
-        }
       }
 
       .loginInputBox {
-        display: flex;
+        @include flexCenterBox(flex-start, center);
         flex-direction: column;
         width: 100%;
 
@@ -48,27 +44,28 @@
         }
 
         .inputFlexBox {
-          position: relative;
+          margin-top: 6px;
 
           .configLabel {
-            position: absolute;
             top: 47px;
             left: 25px;
             color: #888;
             font-size: 13px;
-            z-index: 1;
           }
         }
       }
+
       .loginBtnBox {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 97%;
 
         .Btn {
+          margin: 7px 0;
           padding: 18px 41px;
           font-weight: bold;
           font-size: 1rem;
+
           &:hover {
             cursor: pointer;
           }

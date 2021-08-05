@@ -1,6 +1,6 @@
 import React from 'react';
-import BestProductCarousel from './BestProductCarousel';
-import ProductCircle from './ProductCircle';
+import BestProductCarousel from '../BestProductCarousel/BestProductCarousel';
+import './BestItem.scss';
 
 class BestItem extends React.Component {
   constructor() {
@@ -11,11 +11,10 @@ class BestItem extends React.Component {
     };
   }
   componentDidMount() {
-    fetch('/data/productCircle.json', {
-      method: 'GET',
-    })
+    fetch('/data/productCircle.json')
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         this.setState({
           circle: res,
         });
@@ -28,17 +27,14 @@ class BestItem extends React.Component {
           <a href="">이번주 베스트</a>
         </div>
         <div className="bestProducts">
-          <div className="productsListWrap">
-            <ul>
-              {this.state.circle.map((el, index) => (
-                <ProductCircle
-                  key={index + el.imgName}
-                  name={el.imgName}
-                  src={el.imgSrc}
-                />
-              ))}
-            </ul>
-          </div>
+          <ul className="catalogs">
+            {this.state.circle.map(el => (
+              <li key={el.id}>
+                <img className="circle" src={el.image} alt="circle" />
+                <p>{el.name}</p>
+              </li>
+            ))}
+          </ul>
           <BestProductCarousel />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerImg from './BannerImg';
+import './Banner.scss';
 
 class Banner extends React.Component {
   constructor() {
@@ -12,9 +12,7 @@ class Banner extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/bannerImg.json', {
-      method: 'GET',
-    })
+    fetch('/data/bannerImg.json')
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -63,25 +61,16 @@ class Banner extends React.Component {
             className="bannerBox"
             style={{ transform: `translate(${transNum}px)` }}
           >
-            {bannerImg.map((el, index) => (
-              <BannerImg
-                key={index + el.imgName}
-                src={el.imgSrc}
-                bannerName={el.imgName}
-              />
+            {bannerImg.map(el => (
+              // <BannerImg key={el.id} src={el.imgSrc} bannerName={el.imgName} />
+              <li className="bannerImg" key={el.id}>
+                <img src={el.imgSrc} alt={el.imgName} />
+              </li>
             ))}
           </ul>
           <div className="arrowBox">
-            <span
-              className="left"
-              style={{ backgroundImage: 'url(/images/left.png)' }}
-              onClick={prvBtn}
-            />
-            <span
-              className="right"
-              style={{ backgroundImage: 'url(/images/right.png)' }}
-              onClick={nextBtn}
-            />
+            <span className="left" onClick={prvBtn} />
+            <span className="right" onClick={nextBtn} />
           </div>
         </div>
       </>

@@ -1,52 +1,52 @@
 [
   {
-    "userId": 1,
-    "imgSrc": "/images/circle.png",
-    "imgName": "스킨케어"
+    "id": 1,
+    "image": "/images/circle.png",
+    "name": "스킨케어"
   },
   {
-    "userId": 2,
-    "imgSrc": "/images/circle.png",
-    "imgName": "마스크"
+    "id": 2,
+    "image": "/images/circle.png",
+    "name": "마스크"
   },
   {
-    "userId": 3,
-    "imgSrc": "/images/circle.png",
-    "imgName": "선"
+    "id": 3,
+    "image": "/images/circle.png",
+    "name": "선"
   },
   {
-    "userId": 4,
-    "imgSrc": "/images/circle.png",
-    "imgName": "클렌징"
+    "id": 4,
+    "image": "/images/circle.png",
+    "name": "클렌징"
   },
   {
-    "userId": 5,
-    "imgSrc": "/images/circle.png",
-    "imgName": "바디"
+    "id": 5,
+    "image": "/images/circle.png",
+    "name": "바디"
   },
   {
-    "userId": 6,
-    "imgSrc": "/images/circle.png",
-    "imgName": "헤어"
+    "id": 6,
+    "image": "/images/circle.png",
+    "name": "헤어"
   },
   {
-    "userId": 7,
-    "imgSrc": "/images/circle.png",
-    "imgName": "남성"
+    "id": 7,
+    "image": "/images/circle.png",
+    "name": "남성"
   },
   {
-    "userId": 8,
-    "imgSrc": "/images/circle.png",
-    "imgName": "베이스 메이크업"
+    "id": 8,
+    "image": "/images/circle.png",
+    "name": "베이스 메이크업"
   },
   {
-    "userId": 9,
-    "imgSrc": "/images/circle.png",
-    "imgName": "컬러 메이크업"
+    "id": 9,
+    "image": "/images/circle.png",
+    "name": "컬러 메이크업"
   },
   {
-    "userId": 10,
-    "imgSrc": "/images/circle.png",
-    "imgName": "미용 부자재"
+    "id": 10,
+    "image": "/images/circle.png",
+    "name": "미용 부자재"
   }
 ]

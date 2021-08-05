@@ -1,56 +1,56 @@
 [
   {
-    "userId": 1,
+    "id": 1,
     "imgSrc": "/images/banner1.jpg",
     "imgName": "banner1"
   },
   {
-    "userId": 2,
+    "id": 2,
     "imgSrc": "/images/banner2.jpg",
     "imgName": "banner2"
   },
   {
-    "userId": 3,
+    "id": 3,
     "imgSrc": "/images/banner3.jpg",
     "imgName": "banner3"
   },
   {
-    "userId": 4,
+    "id": 4,
     "imgSrc": "/images/banner4.jpg",
     "imgName": "banner4"
   },
   {
-    "userId": 5,
+    "id": 5,
     "imgSrc": "/images/banner5.jpg",
     "imgName": "banner5"
   },
   {
-    "userId": 6,
+    "id": 6,
     "imgSrc": "/images/banner6.jpg",
     "imgName": "banner6"
   },
   {
-    "userId": 7,
+    "id": 7,
     "imgSrc": "/images/banner7.jpg",
     "imgName": "banner7"
   },
   {
-    "userId": 8,
+    "id": 8,
     "imgSrc": "/images/banner8.jpg",
     "imgName": "banner8"
   },
   {
-    "userId": 9,
+    "id": 9,
     "imgSrc": "/images/banner9.jpg",
     "imgName": "banner9"
   },
   {
-    "userId": 10,
+    "id": 10,
     "imgSrc": "/images/banner10.jpg",
     "imgName": "banner10"
   },
   {
-    "userId": 11,
+    "id": 11,
     "imgSrc": "/images/banner11.jpg",
     "imgName": "banner11"
   }

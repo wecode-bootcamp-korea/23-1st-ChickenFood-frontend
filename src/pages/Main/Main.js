@@ -1,7 +1,7 @@
 import React from 'react';
-import Banner from './Banner';
-import BestItem from './BestItem';
-import './main.scss';
+import Banner from './Banner/Banner';
+import BestItem from './BestItem/BestItem';
+import './Main.scss';
 
 class Main extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductList.scss';
-import OneProduct from './OneProduct/OneProduct';
+import OneProduct from '../OneProduct/OneProduct';
 
 class ProductList extends React.Component {
   constructor(props) {

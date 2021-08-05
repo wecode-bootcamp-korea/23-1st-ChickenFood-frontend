@@ -80,17 +80,21 @@
           }
         }
       }
+
       .userInfoSubmit {
         width: 97%;
         padding: 18px 41px;
       }
+
       .Btn {
         color: white;
         background-color: black;
         font-size: 1rem;
+
         &:hover {
           cursor: pointer;
         }
+
         &:focus-within {
           outline: none;
         }

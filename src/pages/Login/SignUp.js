@@ -28,7 +28,7 @@ class SignUp extends React.Component {
   };
 
   submitUserInfo = e => {
-    fetch('http://10.58.1.207:8000/members/agreement', {
+    fetch('http://10.58.2.122:8000/members/agreement', {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
@@ -36,14 +36,15 @@ class SignUp extends React.Component {
       .then(response => {
         if (response.message === 'SUCCESS') {
           alert('회원가입에 성공했습니다. 환영합니다.');
+          console.log(response);
         } else {
           alert('다시 입력해주세요!');
+          console.log(response);
         }
       });
   };
 
   render() {
-    console.log(this.state.userInfo);
     return (
       <>
         <section className="layoutConfig">
@@ -149,9 +150,11 @@ class SignUp extends React.Component {
               </div>
               <button
                 className="userInfoSubmit Btn"
-                value="회원가입"
+                placeholder="회원가입"
                 onClick={this.submitUserInfo}
-              />
+              >
+                회원가입
+              </button>
             </div>
           </div>
         </section>

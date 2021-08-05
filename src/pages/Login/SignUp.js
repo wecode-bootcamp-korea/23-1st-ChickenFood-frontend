@@ -1,4 +1,7 @@
 import React from 'react';
+import SignInput from '../../components/Sign/SignInput';
+import SignBtn from '../../components/Sign/SignBtn';
+import inputData_list from '../../components/Sign/InputData';
 import './signup.scss';
 
 class SignUp extends React.Component {
@@ -54,119 +57,47 @@ class SignUp extends React.Component {
               <div className="layoutInput">
                 <h4>회원정보 입력</h4>
                 <div className="idInput">
-                  <form className="inputFlexBox">
-                    <div className="configLabel">
-                      <label htmlFor="userId">
-                        <span className="required">* </span>
-                        <span>아이디 (문자열을 포함해야 합니다.)</span>
-                      </label>
-                    </div>
-                    <input
-                      name="name"
-                      type="text"
-                      id="userId"
-                      className="userIdInput"
-                      onChange={this.getValue}
-                    />
-                  </form>
-                  <button
+                  <SignInput
+                    label="userId"
+                    name="name"
+                    type="text"
+                    className="userIdInput"
+                    noti="아이디 (문자열을 포함해야 합니다.)"
+                    necessary="required"
+                    getValue={this.getValue}
+                  />
+
+                  <SignBtn
                     type="button"
                     className="userIdCheck Btn"
-                    onChange={this.getValue}
-                  >
-                    중복확인
-                  </button>
+                    getValue={this.getValue}
+                    text="중복확인"
+                  />
                 </div>
-                <form className="inputFlexBox">
-                  <div className="configLabel">
-                    <label htmlFor="userPw">
-                      <span className="required">* </span>
-                      <span>비밀번호 (8자리 이상 입력해 주세요.)</span>
-                    </label>
-                  </div>
-                  <input
-                    name="password"
-                    type="password"
-                    id="userPw"
-                    onChange={this.getValue}
-                  />
-                </form>
-                <form className="inputFlexBox">
-                  <div className="configLabel">
-                    <label htmlFor="userPwCheck">
-                      <span className="required">* </span>
-                      <span>비밀번호 확인</span>
-                    </label>
-                  </div>
-                  <input
-                    name="passwordCheck"
-                    type="password"
-                    id="userPwCheck"
-                    onBlur={this.pwValidationCheck}
-                  />
-                </form>
-                <form className="inputFlexBox">
-                  <div className="configLabel">
-                    <label htmlFor="userPhoneNumber">
-                      <span className="required">* </span>
-                      <span>전화번호 (ex. 010-1234-5678)</span>
-                    </label>
-                  </div>
-                  <input
-                    name="phone_number"
-                    type="text"
-                    id="userPhoneNumber"
-                    onChange={this.getValue}
-                  />
-                </form>
-                <form className="inputFlexBox">
-                  <div className="configLabel">
-                    <label htmlFor="userEmail">
-                      <span className="required">* </span>
-                      <span>이메일</span>
-                    </label>
-                  </div>
-                  <input
-                    name="email"
-                    type="text"
-                    id="userEmail"
-                    onChange={this.getValue}
-                  />
-                </form>
-                <form className="inputFlexBox">
-                  <div lassName="configLabel">
-                    <label className="configLabel" htmlFor="userAddress">
-                      <span>주소</span>
-                    </label>
-                  </div>
-                  <input
-                    name="address"
-                    type="text"
-                    id="userAddress"
-                    onChange={this.getValue}
-                  />
-                </form>
-                <form className="inputFlexBox">
-                  <div className="configLabel">
-                    <label htmlFor="recommendUserId">
-                      <span>추천인 아이디</span>
-                    </label>
-                  </div>
-                  <input
-                    name="recommender_name"
-                    type="text"
-                    id="recommendUserId"
-                    onChange={this.getValue}
-                  />
-                </form>
+
+                {inputData_list.map(el => {
+                  return (
+                    <SignInput
+                      key={el.id}
+                      label={el.label}
+                      name={el.name}
+                      type={el.type}
+                      className={el.className}
+                      noti={el.noti}
+                      necessary={el.necessary}
+                      getValue={this.getValue}
+                      validation={this.pwValidationCheck}
+                    />
+                  );
+                })}
               </div>
-              <button
+
+              <SignBtn
+                type="button"
                 className="userInfoSubmit Btn"
-                placeholder="회원가입"
-                onClick={this.submitUserInfo}
-              >
-                회원가입
-              </button>
+                getValue={this.submitUserInfo}
+                text="회원가입"
+              />
             </div>
           </div>
         </section>

@@ -35,71 +35,8 @@
           text-align: left;
         }
 
-        input {
-          position: relative;
-          width: 100%;
-          margin: 7px 0;
-          padding: 36px 19px 28px;
-          border: 1px solid rgb(221, 221, 221);
-          border-radius: 0;
-
-          &:focus-within {
-            outline: 1px solid black;
-          }
-        }
-
         .idInput {
           @include flexCenterBox(flex-start, center);
-
-          .userIdInput {
-            width: 450px;
-            margin-right: 5px;
-          }
-
-          .userIdCheck {
-            width: 25%;
-            height: 75px;
-            margin: 22px 5px 10px 0;
-          }
-        }
-
-        .inputFlexBox {
-          @include flexCenterBox(flex-start, flex-start);
-          flex-direction: column;
-          margin: 5px;
-
-          .configLabel {
-            top: 46px;
-            left: 28px;
-            color: #888;
-            font-size: 13px;
-
-            .required {
-              color: #ff5931;
-            }
-          }
-        }
-      }
-
-      .userInfoSubmit {
-        width: 97%;
-        margin-bottom: 50px;
-        padding: 18px 41px;
-      }
-
-      .Btn {
-        color: white;
-        border: none;
-        border-radius: 2;
-        background-color: black;
-        font-size: 1rem;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &:focus-within {
-          outline: none;
         }
       }
     }

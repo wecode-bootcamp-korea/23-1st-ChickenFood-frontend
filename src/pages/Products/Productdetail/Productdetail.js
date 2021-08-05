@@ -2,7 +2,27 @@ import React from 'react';
 import './Productdetails.scss';
 
 class Productdetail extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {},
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/mockData_detail_page.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ data: data.result });
+      });
+  }
+
   render() {
+    const { data } = this.state;
+    // const data = this.state.data;
+    console.log(this.state.data);
     return (
       <div className="productDetail">
         {/* 왼쪽 */}
@@ -21,13 +41,13 @@ class Productdetail extends React.Component {
             {/* 섹션1 */}
             <div className="sectionOne">
               <div className="productName">
-                수비드 마스크 시트
+                {data.name}
                 <div className="iconsWrapper">
                   <img className="heart" alt="heart" src="./images/heart.png" />
                   <img className="share" alt="share" src="./images/share.png" />
                 </div>
               </div>
-              <div className="productPrice">￦1,100</div>
+              <div className="productPrice">₩{data.price}</div>
             </div>
             {/* 섹션2 */}
             <div className="sectionTwo">
@@ -45,10 +65,10 @@ class Productdetail extends React.Component {
               <div className="tags">
                 <span className="contentsTitle">관련태그</span>
                 <span className="tagsWrapper">
-                  <span>#비건</span>
-                  <span>#데일리템</span>
-                  <span>#생기맑음</span>
-                  <span>#촉촉</span>
+                  <span className="tagEach">#비건</span>
+                  <span className="tagEach">#데일리템</span>
+                  <span className="tagEach">#생기맑음</span>
+                  <span className="tagEach">#촉촉</span>
                 </span>
               </div>
               <div className="shipping">
@@ -59,30 +79,45 @@ class Productdetail extends React.Component {
               </div>
               <div className="review">
                 <span className="contentsTitle">리뷰</span>
-                <span className="start">★★★★★ (3건)</span>
+                <span className="star">★★★★★</span>
+                <span className="reviewUnit">(7건)</span>
               </div>
             </div>
             {/* 섹션3 */}
             <div className="sectionThree">
-              <div className="options"></div>
-            </div>
-            {/* 섹션4 */}
-            <div className="sectionFour">
-              <div className="selectedProduct">
-                <div>
-                  <span className="contentsTitle title">토마토</span>
-                  <i class="fas fa-times-circle"></i>
-                </div>
-                <div>
-                  <div className="productQuantity"> 이부분에 수량조절기능</div>
+              <div className="sectionFour">
+                <div className="selectedProduct">
+                  <div>
+                    <div className="contentsTitle title">{data.name}</div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <div className="productQuantity">
+                      <span className="plusAndMinusWrapper">
+                        <img
+                          className="plusAndMinus"
+                          src="./images/Minus-sign-in-a-circle.svg.png"
+                        />
+                        <span className="quantity">1</span>
+                        <img
+                          className="plusAndMinus"
+                          src="./images/plus_in_circle.png"
+                        />
+                      </span>
+                      <span className="plusAndMinusPrice">{data.price}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* 섹션5 */}
-            <div className="sectionFive">
+            {/* 섹션4 */}
+            <div className="sectionFour">
               <div className="productTotal">
-                <span className="contentsTitle">합계</span>
-                <span>수량 : 2</span>
+                <span className="quantityWrapper">
+                  <span className="contentsTitle">합계</span>
+                  <span>수량</span>
+                  <span> 2</span>
+                </span>
                 <span className="totalAmount">₩2,200</span>
               </div>
               <div className="BtnsWrapper">

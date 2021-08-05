@@ -6,6 +6,7 @@
 
 .contentsTitle {
   margin-right: 50px;
+  font-weight: bolder;
 }
 
 .productLeft {
@@ -30,15 +31,16 @@
 .productRight {
   margin-top: 70px;
   width: 500px;
-  height: 480px;
-  background-color: white;
+  height: 550px;
+  background-color: #f6f6f6;
   justify-content: left;
 
   .sectionsWrapper {
     margin: 20px;
+
     .sectionOne {
       padding: 10px 0px;
-      border-bottom: 1px solid rgb(184, 184, 184);
+      border-bottom: 1px solid #e4e4e4;
 
       .productPrice {
         margin-top: 7px;
@@ -49,37 +51,40 @@
         font-weight: bolder;
         display: flex;
         justify-content: space-between;
-
-        .heart {
-          margin-right: 20px;
-        }
       }
 
       .productPrice {
         font-size: 22px;
         font-weight: bolder;
       }
-      .heart {
-        width: 18px;
-      }
-      .share {
-        width: 18px;
+
+      .iconsWrapper {
+        width: 60px;
+        .heart {
+          width: 18px;
+          margin-right: 10px;
+        }
+        .share {
+          width: 18px;
+        }
       }
     }
 
     .sectionTwo {
       padding: 10px 0px;
-      border-bottom: 1px solid rgb(184, 184, 184);
+      border-bottom: 1px solid #e4e4e4;
 
       .coupon {
         display: flex;
-        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
         align-items: center;
 
         .download {
           width: 18px;
         }
         .couponBtn {
+          cursor: pointer;
           border: none;
           background-color: #feb814;
           display: flex;
@@ -95,11 +100,19 @@
         }
       }
       .tags {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+
+        .tagEach {
+          background-color: white;
+          margin-right: 8px;
+          border-radius: 10px;
+          padding: 5px;
+          cursor: pointer;
+        }
       }
 
       .shipping {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
         .shippingFee {
           margin-left: 11px;
@@ -107,32 +120,92 @@
       }
 
       .review {
-        margin-bottom: 10px;
-      }
+        margin-bottom: 15px;
 
-      .star {
-        margin-left: 22px;
+        .star {
+          margin-left: 22px;
+        }
+
+        .reviewUnit {
+          margin-left: 5px;
+        }
       }
     }
 
     .sectionThree {
       padding: 10px 0px;
-      border-bottom: 1px solid rgb(184, 184, 184);
     }
 
     .sectionFour {
       padding: 10px 0px;
-      border-bottom: 1px solid rgb(184, 184, 184);
+      border-bottom: 1px solid #e4e4e4;
+
+      .productTotal {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+
+        .totalAmount {
+          font-size: 26px;
+        }
+      }
 
       .selectedProduct {
+        .productQuantity {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .plusAndMinusWrapper {
+            width: 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .plusAndMinus {
+            width: 18px;
+          }
+
+          .plusAndMinusPrice {
+            font-size: 20px;
+          }
+        }
+
         .title {
           margin-bottom: 10px;
         }
       }
-    }
 
-    .sectionFive {
-      padding: 10px 0px;
+      .BtnsWrapper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .putInCart {
+          cursor: pointer;
+          margin-right: 10px;
+          font-size: 18px;
+          border: none;
+          background-color: black;
+          color: white;
+          width: 220px;
+          height: 50px;
+          font-weight: bolder;
+        }
+
+        .olderNow {
+          cursor: pointer;
+          font-size: 18px;
+          border: none;
+          background-color: #feb814;
+          color: black;
+          width: 220px;
+          height: 50px;
+          font-weight: bolder;
+        }
+      }
     }
   }
 }

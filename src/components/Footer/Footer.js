@@ -34,7 +34,7 @@ class Footer extends React.Component {
           </ul>
         </div>
         <div className="companyInfo">
-          <ul className="infoList">
+          <div className="infoList">
             <div className="infoList line">
               <span className="infoItem">상호 (주)스킨푸드</span>
               <span className="infoItem rightBar">대표이사 유근직</span>
@@ -56,11 +56,11 @@ class Footer extends React.Component {
               </span>
             </div>
             <span className="infoItem">제휴문의 webmaster@theskinfood.com</span>
-          </ul>
+          </div>
           <div className="cs">
             <div className="csTitle">고객센터</div>
             <div className="csPhone">080-012-7878</div>
-            <div className="csWorkTime">
+            <div className="csWorkTimes">
               <p className="dailyWorkTime">평일 09:00 ~ 17:30</p>
               <p className="lunchTime">점심시간 11:30 ~ 12:30</p>
             </div>

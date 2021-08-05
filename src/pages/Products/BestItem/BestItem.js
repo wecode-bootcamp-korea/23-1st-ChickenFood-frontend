@@ -1,4 +1,5 @@
 import React from 'react';
+import './BestItem.scss';
 import ImageSlider from '../../../components/ImageSlider/ImageSlider';
 
 class BestItem extends React.Component {
@@ -6,9 +7,7 @@ class BestItem extends React.Component {
     return (
       <div className="topContents">
         <div className="productsRecommend">
-          <h1 className="bestItem">
-            베스트 <span className="itemText">아이템</span>
-          </h1>
+          <h1 className="bestItem">베스트 아이템</h1>
           <div className="imageSliderContainer">
             <ImageSlider />
           </div>

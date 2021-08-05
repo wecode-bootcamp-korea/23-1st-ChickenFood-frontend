@@ -8,6 +8,7 @@ class BestProductCarousel extends React.Component {
 
     this.state = {
       bestProduct: [],
+      pageNum: 4,
     };
   }
 
@@ -21,16 +22,43 @@ class BestProductCarousel extends React.Component {
       });
   }
 
+  nextBtn = () => {
+    const { pageNum, bestProduct } = this.state;
+    let index = pageNum;
+    if (index >= bestProduct.length) {
+      index = 0;
+    }
+    index = index + 4;
+    this.setState({
+      pageNum: index,
+    });
+  };
+
+  prvBtn = () => {
+    const { pageNum } = this.state;
+    let index = pageNum;
+    if (index === 4) {
+      index = 12;
+    }
+    index = index - 4;
+    this.setState({
+      pageNum: index,
+    });
+  };
+
   render() {
-    const { bestProduct } = this.state;
+    const { pageNum, bestProduct } = this.state;
+    const { prvBtn, nextBtn } = this;
     let transNum = 0;
+
+    if (pageNum > 4) {
+      transNum = -1020;
+    }
+
     return (
       <>
         <div className="productCarousel">
-          <span
-            className="left"
-            // style={{ backgroundImage: 'url(/images/left.png)' }}
-          />
+          <span className="left" onClick={prvBtn} />
           <ul
             className="productWrap"
             style={{ transform: `translate(${transNum}px)` }}
@@ -44,10 +72,7 @@ class BestProductCarousel extends React.Component {
               />
             ))}
           </ul>
-          <span
-            className="right"
-            // style={{ backgroundImage: 'url(/images/right.png)' }}
-          />
+          <span className="right" onClick={nextBtn} />
         </div>
       </>
     );

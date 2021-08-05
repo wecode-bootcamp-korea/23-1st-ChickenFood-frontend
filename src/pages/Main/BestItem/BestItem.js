@@ -14,7 +14,6 @@ class BestItem extends React.Component {
     fetch('/data/productCircle.json')
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         this.setState({
           circle: res,
         });
@@ -30,7 +29,12 @@ class BestItem extends React.Component {
           <ul className="catalogs">
             {this.state.circle.map(el => (
               <li key={el.id}>
-                <img className="circle" src={el.image} alt="circle" />
+                <img
+                  className="circle"
+                  src={el.image}
+                  alt="circle"
+                  // onClick={}
+                />
                 <p>{el.name}</p>
               </li>
             ))}

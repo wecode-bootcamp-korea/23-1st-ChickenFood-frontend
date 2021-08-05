@@ -50,9 +50,10 @@ class Banner extends React.Component {
   render() {
     const { bannerImg, pageNum } = this.state;
     const { prvBtn, nextBtn } = this;
-    let transNum = 1920;
+    let transNum = 1920 * ((bannerImg.length - 1) / 2);
+
     if (pageNum > 1) {
-      transNum = 1920 - 1920 * (pageNum - 1);
+      transNum = 1920 * ((bannerImg.length - 1) / 2) - 1920 * (pageNum - 1);
     }
 
     return (

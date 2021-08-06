@@ -30,6 +30,22 @@ class SignUp extends React.Component {
     }
   };
 
+  idValidationCheck = () => {
+    fetch('http://10.58.2.122:8000/members/agreement', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(response => {
+        if (response.message !== 'EXIST_MEMBER') {
+          alert('사용 가능한 아이디입니다.');
+          console.log(response);
+        } else {
+          alert('이미 사용 중인 아이디입니다.');
+          console.log(response);
+        }
+      });
+  };
+
   submitUserInfo = e => {
     fetch('http://10.58.2.122:8000/members/agreement', {
       method: 'POST',
@@ -40,6 +56,8 @@ class SignUp extends React.Component {
         if (response.message === 'SUCCESS') {
           alert('회원가입에 성공했습니다. 환영합니다.');
           console.log(response);
+        } else if (response.message === 'INVALID_RECOMMEND') {
+          alert('존재하지 않는 추천인 아이디입니다!');
         } else {
           alert('다시 입력해주세요!');
           console.log(response);
@@ -70,7 +88,7 @@ class SignUp extends React.Component {
                   <SignBtn
                     type="button"
                     className="userIdCheck Btn"
-                    getValue={this.getValue}
+                    submit={this.idValidationCheck}
                     text="중복확인"
                   />
                 </div>
@@ -95,7 +113,7 @@ class SignUp extends React.Component {
               <SignBtn
                 type="button"
                 className="userInfoSubmit Btn"
-                getValue={this.submitUserInfo}
+                submit={this.submitUserInfo}
                 text="회원가입"
               />
             </div>

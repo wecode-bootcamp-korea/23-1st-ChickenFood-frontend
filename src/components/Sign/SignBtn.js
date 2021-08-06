@@ -8,7 +8,7 @@ class SignBtn extends React.Component {
         <button
           type={this.props.type}
           className={this.props.className}
-          onClick={this.props.getValue}
+          onClick={this.props.submit}
         >
           {this.props.text}
         </button>

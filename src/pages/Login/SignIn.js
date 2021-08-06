@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './signin.scss';
 
-class SignIn extends React.Component {
+class SignIn extends Component {
   constructor() {
     super();
     this.state = {
@@ -43,9 +43,7 @@ class SignIn extends React.Component {
               <div className="loginInputBox">
                 <div className="inputFlexBox">
                   <div className="configLabel">
-                    <label for="userId">
-                      <span>아이디</span>
-                    </label>
+                    <label for="userId">아이디</label>
                   </div>
                   <input
                     name="member"
@@ -56,9 +54,7 @@ class SignIn extends React.Component {
                 </div>
                 <div className="inputFlexBox">
                   <div className="configLabel">
-                    <label for="userPw">
-                      <span>비밀번호</span>
-                    </label>
+                    <label for="userPw">비밀번호</label>
                   </div>
                   <input
                     name="password"
@@ -70,13 +66,13 @@ class SignIn extends React.Component {
               </div>
               <div className="loginBtnBox">
                 <button
-                  className="idLogin Btn"
+                  className="id loginBtn"
                   type="submit"
                   onClick={this.submitUserInfo}
                 >
                   아이디 로그인
                 </button>
-                <button className="phoneLogin Btn" type="submit">
+                <button className="phone loginBtn" type="submit">
                   휴대폰 로그인
                 </button>
               </div>

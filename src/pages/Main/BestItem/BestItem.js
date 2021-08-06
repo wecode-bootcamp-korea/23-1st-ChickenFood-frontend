@@ -8,6 +8,7 @@ class BestItem extends React.Component {
 
     this.state = {
       circle: [],
+      productNum: '',
     };
   }
   componentDidMount() {
@@ -19,7 +20,17 @@ class BestItem extends React.Component {
         });
       });
   }
+
+  isBtnClick = e => {
+    let btnKey = e.currentTarget.dataset.key;
+    this.setState({
+      productNum: btnKey,
+    });
+  };
+
   render() {
+    const { circle, productNum } = this.state;
+    const { isBtnClick } = this;
     return (
       <div className="bestContainer">
         <div className="bestTitle">
@@ -27,19 +38,16 @@ class BestItem extends React.Component {
         </div>
         <div className="bestProducts">
           <ul className="catalogs">
-            {this.state.circle.map(el => (
-              <li key={el.id}>
-                <img
-                  className="circle"
-                  src={el.image}
-                  alt="circle"
-                  // onClick={}
-                />
-                <p>{el.name}</p>
+            {circle.map(el => (
+              <li>
+                <button onClick={isBtnClick} data-key={el.id}>
+                  <img className="circle" src={el.image} alt="circle" />
+                  <p>{el.name}</p>
+                </button>
               </li>
             ))}
           </ul>
-          <BestProductCarousel />
+          <BestProductCarousel key={productNum} id={productNum} />
         </div>
       </div>
     );

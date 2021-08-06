@@ -27,6 +27,13 @@
         align-items: center;
         width: 104px;
 
+        button {
+          border: none;
+          background-color: inherit;
+          padding: 0;
+          cursor: pointer;
+        }
+
         .circle {
           width: 68px;
           height: 68px;

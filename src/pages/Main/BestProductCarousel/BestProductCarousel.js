@@ -13,7 +13,9 @@ class BestProductCarousel extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/bestProduct.json')
+    const { id } = this.props;
+    const idNum = id ? id : 1;
+    fetch(`/data/${idNum}.json`)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -54,7 +56,6 @@ class BestProductCarousel extends React.Component {
     if (pageNum > 4) {
       transNum = -1020;
     }
-
     return (
       <>
         <div className="productCarousel">

@@ -1,41 +1,22 @@
 import React from 'react';
-import subCategory_list from './subCategoryData';
-import subCategoryNav_list from './subCategoryNavData';
+import navData_list from './NavData';
 import ListComponent from './ListComponent';
-import SubLiComponent from './SubLiComponent';
 import './nav.scss';
 
 class Nav extends React.Component {
   constructor() {
     super();
-    this.state = {
-      navAuthData: '',
-    };
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3000/data/navAuthData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          navAuthData: res,
-        });
-      });
+    this.state = {};
   }
 
   render() {
-    const { navAuthData } = this.state;
+    const { navData } = this.state;
     return (
       <header className="layoutHeader">
         <div className="headerFlexBox">
           <ul className="authFlexBox">
-            {[navAuthData].map(el => {
-              console.log(el.id);
-              return (
-                <ListComponent key={el.id} data={el.name} path={el.path} />
-              );
+            {navData_list.auth.map(el => {
+              return <ListComponent data={el} />;
             })}
           </ul>
         </div>
@@ -44,11 +25,8 @@ class Nav extends React.Component {
             <img className="logoImage" src="images/chickenfood_logo.png" />
           </div>
           <ul className="layoutNav">
-            {subCategoryNav_list.map(el => {
-              console.log(el.id);
-              return (
-                <ListComponent key={el.id} data={el.name} paht={el.path} />
-              );
+            {navData_list.nav.map(el => {
+              return <ListComponent data={el} />;
             })}
           </ul>
           <ul className="navIconWrap">
@@ -75,9 +53,31 @@ class Nav extends React.Component {
               <img src="images/test_welcome.png" />
             </div>
             <div className="sub listBox">
-              {subCategory_list.map((el, index) => {
-                return <SubLiComponent key={index} category={el} />;
-              })}
+              <ul className="sub productList">
+                {navData_list.subCategory.productList.map(el => {
+                  return <ListComponent data={el} />;
+                })}
+              </ul>
+              <ul className="sub event">
+                {navData_list.subCategory.event.map(el => {
+                  return <ListComponent data={el} />;
+                })}
+              </ul>
+              <ul className="sub review">
+                {navData_list.subCategory.review.map(el => {
+                  return <ListComponent data={el} />;
+                })}
+              </ul>
+              <ul className="sub community">
+                {navData_list.subCategory.community.map(el => {
+                  return <ListComponent data={el} />;
+                })}
+              </ul>
+              <ul className="sub aboutCompany">
+                {navData_list.subCategory.aboutCompany.map(el => {
+                  return <ListComponent data={el} />;
+                })}
+              </ul>
             </div>
           </nav>
         </div>

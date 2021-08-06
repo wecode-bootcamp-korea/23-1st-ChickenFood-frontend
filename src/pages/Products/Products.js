@@ -9,9 +9,6 @@ class Products extends React.Component {
       <div className="wrapper">
         <BestItem />
         <ProductList />
-        <div className="more">
-          <button className="moreButton">100 개 더보기 ▼</button>
-        </div>
       </div>
     );
   }

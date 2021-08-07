@@ -1,4 +1,5 @@
 import React from 'react';
+import navAuthData_list from './navAuthData';
 import subCategory_list from './subCategoryData';
 import subCategoryNav_list from './subCategoryNavData';
 import ListComponent from './ListComponent';
@@ -9,45 +10,54 @@ class Nav extends React.Component {
   constructor() {
     super();
     this.state = {
-      navAuthData: '',
+      subCategoryMode: 'layoutSubCategoryDefault',
+      // navAuthData: '',
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/data/navAuthData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          navAuthData: res,
-        });
-      });
-  }
+  // componentDidMount = () => {
+  //   fetch('http://localhost:3000/data/navAuthData.json', {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       this.setState({
+  //         navAuthData: res,
+  //       });
+  //     });
+  // }
+
+  modeDefault = () => {
+    this.setState({ subCategoryMode: 'layoutSubCategoryDefault' });
+  };
+
+  modeActive = () => {
+    this.setState({ subCategoryMode: 'layoutSubCategoryActive' });
+  };
 
   render() {
-    const { navAuthData } = this.state;
+    // const { navAuthData } = this.state;
     return (
       <header className="layoutHeader">
-        <div className="headerFlexBox">
+        <div className="headerFlexBox" onMouseEnter={this.modeDefault}>
           <ul className="authFlexBox">
-            {[navAuthData].map(el => {
-              console.log(el.id);
+            {navAuthData_list.map(el => {
               return (
                 <ListComponent key={el.id} data={el.name} path={el.path} />
               );
             })}
           </ul>
         </div>
-        <nav className="navFlexBox">
+        <nav className="navFlexBox" onMouseEnter={this.modeActive}>
           <div className="imgBox">
-            <img className="logoImage" src="images/chickenfood_logo.png" />
+            <a href="#">
+              <img className="logoImage" src="images/chickenfood_logo.png" />
+            </a>
           </div>
           <ul className="layoutNav">
             {subCategoryNav_list.map(el => {
-              console.log(el.id);
               return (
-                <ListComponent key={el.id} data={el.name} paht={el.path} />
+                <ListComponent key={el.id} data={el.name} path={el.path} />
               );
             })}
           </ul>
@@ -69,8 +79,8 @@ class Nav extends React.Component {
             </li>
           </ul>
         </nav>
-        <div className="layoutSubCategoryActive">
-          <nav className="sub Category">
+        <div className={this.state.subCategoryMode}>
+          <nav className="sub Category" onMouseLeave={this.modeDefault}>
             <div className="sub imgBox">
               <img src="images/test_welcome.png" />
             </div>

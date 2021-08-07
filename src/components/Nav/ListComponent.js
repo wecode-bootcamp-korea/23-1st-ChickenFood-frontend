@@ -3,7 +3,6 @@ import './nav.scss';
 
 class ListComponent extends React.Component {
   render() {
-    const { keys } = this.props;
     return (
       <>
         <li>

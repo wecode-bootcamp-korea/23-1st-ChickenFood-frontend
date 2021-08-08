@@ -9,12 +9,23 @@ import './Productdetails.scss';
 // 4. 다른 옵션 선택 할 때마다 data.price금액이 계속 더해짐
 // 배열? number니까 스트링은 안되고.. 배열에 넣는게 맞나?
 
+// 상품 수량 조절
+// 1. 상품 수량조절기 (+)를 클릭하면
+// 2. 수량 숫자에 1씩 더해짐
+// 3. 그리고 맨 아래 total값에도 data.price값이 더해짐
+// 4. (-)버튼 누르면 총 합계에서 data.price값이 빠짐
+
+// 수량 숫자가 1일때는 (-)버튼 비활성화
+// close아이콘 클릭시 영역 한 줄 제거
+
 class Productdetail extends React.Component {
   constructor() {
     super();
     this.state = {
       data: {},
       emptyList: [],
+      type: [],
+      totalPrice: 0,
     };
   }
 
@@ -24,14 +35,20 @@ class Productdetail extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ data: data.items });
+        this.setState({ data: data.items, type: data.items.type_name });
       });
   }
 
-  test = e => {
+  select = e => {
     console.log(123);
     console.log(e.target.value);
-    this.setState({ emptyList: this.state.emptyList.concat(e.target.value) });
+    this.setState({
+      emptyList: this.state.emptyList.concat({
+        type: e.target.value,
+        quantity: 1,
+      }),
+      totalPrice: this.state.totalPrice + this.state.data.price,
+    });
   };
 
   render() {
@@ -96,20 +113,34 @@ class Productdetail extends React.Component {
               </div>
               <div className="review">
                 <span className="contentsTitle">리뷰</span>
-                <span className="star">★★★★★</span>
+                <span className="starWrapper">
+                  <img className="star" src="./images/star.png" />
+                  <img className="star" src="./images/star.png" />
+                  <img className="star" src="./images/star.png" />
+                  <img className="star" src="./images/star.png" />
+                  <img className="star" src="./images/star.png" />
+                </span>
                 <span className="reviewUnit">(7건)</span>
               </div>
             </div>
             {/* 섹션3 */}
+            {/* 셀렉트박스 */}
             <div className="sectionThree">
               <div>
                 <div className="optionWrapper">
-                  <select className="selectBox" onChange={this.test}>
+                  <select className="selectBox" onChange={this.select}>
                     <option value="옵션선택">옵션을 선택해주세요</option>
-                    <option value="옵션1">{data.type_name}</option>
-                    <option value="옵션2">{data.type_name}</option>
-                    <option value="옵션3">{data.type_name}</option>
-                    <option value="옵션4">{data.type_name}</option>
+                    {this.state.type.map((item, index) => {
+                      return (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      );
+                    })}
+                    {/* <option value={data.type_name}>{data.type_name}</option>
+                    <option value={data.type_name}>{data.type_name}</option>
+                    <option value={data.type_name}>{data.type_name}</option>
+                    <option value={data.type_name}>{data.type_name}</option> */}
                   </select>
                 </div>
               </div>
@@ -119,18 +150,56 @@ class Productdetail extends React.Component {
             </div>
             <div></div>
             {/* 섹션4 */}
+            {/* 수량조절/합계금액 영역 */}
             <div className="sectionFour">
-              <div className="selectedProduct">
+              {this.state.emptyList.map((item, index) => {
+                return (
+                  <div className="selectedProduct" key={index}>
+                    <div className="selectedProductName">
+                      <span className="contentsTitle">{item.type}</span>
+                      <img
+                        className="close"
+                        src="./images/close-cross-symbol-in-a-circle.png"
+                        alt="close"
+                      />
+                    </div>
+
+                    <div className="plusAndMinusWrapper">
+                      <span className="plusAndMinuss">
+                        <img
+                          className="plusAndMinus"
+                          src="./images/minus.png"
+                          alt="plus"
+                        />
+                        <span className="quantity">{item.quantity}</span>
+                        <img
+                          className="plusAndMinus"
+                          src="./images/plus.png"
+                          alt="minus"
+                        />
+                      </span>
+
+                      <span>
+                        <span className="plusAndMinusPrice">
+                          ₩{Math.floor(data.price).toLocaleString('ko-KR')}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+              {/* 수량조절/합계금액 영역 */}
+              {/* <div className="selectedProduct">
                 <div className="selectedProductName">
-                  <span className="contentsTitle">석류향</span>
+                  <span className="contentsTitle">{data.type_name}</span>
                   <img
-                    className="plusAndMinus close"
+                    className="close"
                     src="./images/close-cross-symbol-in-a-circle.png"
                   />
                 </div>
 
                 <div className="plusAndMinusWrapper">
-                  <span className="plusAndMinus">
+                  <span className="plusAndMinuss">
                     <img className="plusAndMinus" src="./images/minus.png" />
                     <span className="quantity">1</span>
                     <img className="plusAndMinus" src="./images/plus.png" />
@@ -142,14 +211,16 @@ class Productdetail extends React.Component {
                     </span>
                   </span>
                 </div>
-              </div>
+              </div> */}
               <div className="productTotal">
                 <span className="quantityWrapper">
                   <span className="contentsTitle">합계</span>
                   <span>수량</span>
                   <span>0</span>
                 </span>
-                <span className="totalAmount">₩0</span>
+                <span className="totalAmount">
+                  ₩{Math.floor(this.state.totalPrice).toLocaleString('ko-KR')}
+                </span>
               </div>
               <div className="BtnsWrapper">
                 <button className="putInCart">장바구니 담기</button>

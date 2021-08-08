@@ -62,7 +62,6 @@ class Banner extends React.Component {
             style={{ transform: `translate(${transNum}px)` }}
           >
             {bannerImg.map(el => (
-              // <BannerImg key={el.id} src={el.imgSrc} bannerName={el.imgName} />
               <li className="bannerImg" key={el.id}>
                 <img src={el.imgSrc} alt={el.imgName} />
               </li>

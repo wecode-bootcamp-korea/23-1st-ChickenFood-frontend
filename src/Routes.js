@@ -5,6 +5,7 @@ import Header from './pages/Header/Header';
 import Main from './pages/Main/Main';
 import Products from './pages/Products/Products';
 import Productdetail from './pages/Products/Productdetail/Productdetail';
+import Cart from './pages/cart/Cart';
 
 class Routes extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class Routes extends React.Component {
           <Route exact path="/header" component={Header} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/productdetail" component={Productdetail} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
       </Router>
     );

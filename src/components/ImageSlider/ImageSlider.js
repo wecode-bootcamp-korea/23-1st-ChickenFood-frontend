@@ -1,4 +1,5 @@
 import React from 'react';
+import './ImageSlider.scss';
 class ImageSlider extends React.Component {
   constructor(props) {
     super(props);
@@ -41,13 +42,15 @@ class ImageSlider extends React.Component {
     return (
       <div className="slideContainer">
         <div className="slider">
-          <span className="moveButton left" onClick={() => this.moveButton(-1)}>
-            ❮
-          </span>
+          <span
+            className="moveButton left"
+            onClick={() => this.moveButton(-1)}
+          ></span>
           <img src={slideImage[slideIndex]} alt="productslide" />
-          <span className="moveButton right" onClick={() => this.moveButton(1)}>
-            ❯
-          </span>
+          <span
+            className="moveButton right"
+            onClick={() => this.moveButton(1)}
+          ></span>
         </div>
       </div>
     );

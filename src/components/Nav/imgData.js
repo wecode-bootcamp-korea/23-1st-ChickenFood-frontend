@@ -3,7 +3,7 @@ const imgData_list = {
     {
       id: 1,
       classname: 'logoImage',
-      path: '#',
+      path: 'Main',
       src: 'images/chickenfood_logo.png',
     },
   ],
@@ -19,7 +19,7 @@ const imgData_list = {
       id: 4,
       classname: 'shoppingListIcon',
       path: '#',
-      src: 'images/video-player.png',
+      src: 'images/cart.png',
     },
   ],
 };

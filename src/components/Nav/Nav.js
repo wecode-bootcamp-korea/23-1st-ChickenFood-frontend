@@ -1,4 +1,5 @@
 import React from 'react';
+import imgData_list from './imgData';
 import navAuthData_list from './navAuthData';
 import subCategory_list from './subCategoryData';
 import subCategoryNav_list from './subCategoryNavData';
@@ -15,6 +16,7 @@ class Nav extends React.Component {
     };
   }
 
+  // Mock데이터로 추후 변경 예정
   // componentDidMount = () => {
   //   fetch('http://localhost:3000/data/navAuthData.json', {
   //     method: 'GET',
@@ -36,7 +38,6 @@ class Nav extends React.Component {
   };
 
   render() {
-    // const { navAuthData } = this.state;
     return (
       <header className="layoutHeader">
         <div className="headerFlexBox" onMouseEnter={this.modeDefault}>
@@ -49,11 +50,18 @@ class Nav extends React.Component {
           </ul>
         </div>
         <nav className="navFlexBox" onMouseEnter={this.modeActive}>
-          <div className="imgBox">
-            <a href="#">
-              <img className="logoImage" src="images/chickenfood_logo.png" />
-            </a>
-          </div>
+          <ul className="imgBox">
+            {imgData_list.logoImage.map(el => {
+              return (
+                <ListComponent
+                  key={el.id}
+                  classname={el.classname}
+                  path={el.path}
+                  src={el.src}
+                />
+              );
+            })}
+          </ul>
           <ul className="layoutNav">
             {subCategoryNav_list.map(el => {
               return (
@@ -62,21 +70,16 @@ class Nav extends React.Component {
             })}
           </ul>
           <ul className="navIconWrap">
-            <li>
-              <a href="#">
-                <img className="youtubeIcon" src="images/video-player.png" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img className="searchIcon" src="images/search.png" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img className="shoppingListIcon" src="images/cart.png" />
-              </a>
-            </li>
+            {imgData_list.navIconImage.map(el => {
+              return (
+                <ListComponent
+                  key={el.id}
+                  classname={el.classname}
+                  path={el.path}
+                  src={el.src}
+                />
+              );
+            })}
           </ul>
         </nav>
         <div className={this.state.subCategoryMode}>

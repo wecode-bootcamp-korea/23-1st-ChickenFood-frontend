@@ -9,6 +9,7 @@ class SignUp extends React.Component {
     super();
     this.state = {
       userInfo: {},
+      signUpUrl: 'http://10.58.2.122:8000/members/agreement',
     };
   }
 
@@ -29,7 +30,7 @@ class SignUp extends React.Component {
   };
 
   idValidationCheck = () => {
-    fetch('http://10.58.2.122:8000/members/agreement', {
+    fetch(this.state.signUpUrl, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -45,7 +46,7 @@ class SignUp extends React.Component {
   };
 
   submitUserInfo = e => {
-    fetch('http://10.58.2.122:8000/members/agreement', {
+    fetch(this.state.signUpUrl, {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
@@ -53,6 +54,8 @@ class SignUp extends React.Component {
       .then(response => {
         if (response.message === 'SUCCESS') {
           alert('회원가입에 성공했습니다. 환영합니다.');
+          // localStorage.setItem('token', response.access_token);
+          // this.props.history.push('/main');
           console.log(response);
         } else if (response.message === 'INVALID_RECOMMEND') {
           alert('존재하지 않는 추천인 아이디입니다!');
@@ -62,6 +65,18 @@ class SignUp extends React.Component {
         }
       });
   };
+
+  // fetch('UPDATE_CART_API', {
+  //   method: 'POST',
+  //   headers: {
+  //     Authorization: localStorage.getItem('token'),
+  //   }
+  //   body: JSON.stringify({
+  //     cartId: this.state.cartId,
+  //   })
+  // })
+  // .then()
+  // .then()
 
   render() {
     return (

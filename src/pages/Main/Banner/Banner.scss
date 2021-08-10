@@ -1,0 +1,39 @@
+.mainBanner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1920px;
+  margin-bottom: 30px;
+  overflow: hidden;
+
+  .bannerBox {
+    display: flex;
+    flex-direction: row;
+    transition: 0.5s;
+  }
+
+  .arrowBox {
+    position: absolute;
+    top: 45%;
+    display: flex;
+    justify-content: space-between;
+    width: 1140px;
+
+    .left,
+    .right {
+      width: 84px;
+      height: 81px;
+      background-repeat: no-repeat;
+    }
+
+    .left {
+      background-image: url(../../../assets/images/left.png);
+    }
+
+    .right {
+      background-image: url(../../../assets/images/right.png);
+      right: 0px;
+    }
+  }
+}

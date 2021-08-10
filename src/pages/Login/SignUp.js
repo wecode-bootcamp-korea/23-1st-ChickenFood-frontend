@@ -22,10 +22,8 @@ class SignUp extends React.Component {
   // 비밀번호 확인 유효성 검사 기능 구현
   pwValidationCheck = e => {
     const { value } = e.target;
-    let password = this.state.userInfo.password;
-    if (!value) {
-      console.log('');
-    } else if (password !== value) {
+    const { password } = this.state.userInfo;
+    if (password !== value) {
       alert('비밀번호가 일치하지 않습니다.');
     }
   };
@@ -67,59 +65,57 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <>
-        <section className="layoutConfig">
-          <div className="configFlexBox">
-            <div className="signUpFlexBox">
-              <h1>회원가입</h1>
-              <div className="layoutInput">
-                <h4>회원정보 입력</h4>
-                <div className="idInput">
-                  <SignInput
-                    label="userId"
-                    name="name"
-                    type="text"
-                    className="userIdInput"
-                    noti="아이디 (문자열을 포함해야 합니다.)"
-                    necessary="required"
-                    getValue={this.getValue}
-                  />
+      <section className="layoutConfig">
+        <div className="configFlexBox">
+          <div className="signUpFlexBox">
+            <h1>회원가입</h1>
+            <div className="layoutInput">
+              <h4>회원정보 입력</h4>
+              <div className="idInput">
+                <SignInput
+                  label="userId"
+                  name="name"
+                  type="text"
+                  classname="userIdInput"
+                  noti="아이디 (문자열을 포함해야 합니다.)"
+                  necessary="required"
+                  getValue={this.getValue}
+                />
 
-                  <SignBtn
-                    type="button"
-                    className="userIdCheck Btn"
-                    submit={this.idValidationCheck}
-                    text="중복확인"
-                  />
-                </div>
-
-                {inputData_list.map(el => {
-                  return (
-                    <SignInput
-                      key={el.id}
-                      label={el.label}
-                      name={el.name}
-                      type={el.type}
-                      className={el.className}
-                      noti={el.noti}
-                      necessary={el.necessary}
-                      getValue={this.getValue}
-                      validation={this.pwValidationCheck}
-                    />
-                  );
-                })}
+                <SignBtn
+                  type="button"
+                  classname="userIdCheck Btn"
+                  submit={this.idValidationCheck}
+                  text="중복확인"
+                />
               </div>
 
-              <SignBtn
-                type="button"
-                className="userInfoSubmit Btn"
-                submit={this.submitUserInfo}
-                text="회원가입"
-              />
+              {inputData_list.map(el => {
+                return (
+                  <SignInput
+                    key={el.id}
+                    label={el.label}
+                    name={el.name}
+                    type={el.type}
+                    classname={el.className}
+                    noti={el.noti}
+                    necessary={el.necessary}
+                    getValue={this.getValue}
+                    validation={this.pwValidationCheck}
+                  />
+                );
+              })}
             </div>
+
+            <SignBtn
+              type="button"
+              classname="userInfoSubmit Btn"
+              submit={this.submitUserInfo}
+              text="회원가입"
+            />
           </div>
-        </section>
-      </>
+        </div>
+      </section>
     );
   }
 }

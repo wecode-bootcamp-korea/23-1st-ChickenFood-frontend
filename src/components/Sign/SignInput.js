@@ -3,29 +3,33 @@ import './signinput.scss';
 
 class Sign extends React.Component {
   render() {
+    const {
+      label,
+      necessary,
+      noti,
+      name,
+      type,
+      classname,
+      getValue,
+      validation,
+    } = this.props;
     return (
-      <>
-        <div className="inputFlexBox">
-          <div className="configLabel">
-            <label htmlFor={this.props.label}>
-              <span className={this.props.necessary}>* </span>
-              <span>{this.props.noti}</span>
-            </label>
-          </div>
-          <input
-            name={this.props.name}
-            type={this.props.type}
-            id={this.props.label}
-            className={this.props.className}
-            onChange={this.props.getValue}
-            onBlur={
-              this.props.name === 'passwordCheck'
-                ? this.props.validation
-                : undefined
-            }
-          />
+      <div className="inputFlexBox">
+        <div className="configLabel">
+          <label htmlFor={label}>
+            <span className={necessary}>* </span>
+            <span>{noti}</span>
+          </label>
         </div>
-      </>
+        <input
+          name={name}
+          type={type}
+          id={label}
+          className={classname}
+          onChange={getValue}
+          onBlur={name === 'passwordCheck' ? validation : null}
+        />
+      </div>
     );
   }
 }

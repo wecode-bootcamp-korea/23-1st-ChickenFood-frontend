@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import SignBtn from '../../components/Sign/SignBtn';
+import SignInput from '../../components/Sign/SignInput';
+import signInData_list from '../../components/Sign/SignInData';
+import ListComponent from '../../components/Nav/ListComponent';
 import './signin.scss';
 
 class SignIn extends Component {
@@ -41,55 +45,39 @@ class SignIn extends Component {
             <h1>로그인</h1>
             <div className="loginForm">
               <div className="loginInputBox">
-                <div className="inputFlexBox">
-                  <div className="configLabel">
-                    <label for="userId">아이디</label>
-                  </div>
-                  <input
-                    name="member"
-                    type="text"
-                    id="userId"
-                    onChange={this.getValue}
-                  />
-                </div>
-                <div className="inputFlexBox">
-                  <div className="configLabel">
-                    <label for="userPw">비밀번호</label>
-                  </div>
-                  <input
-                    name="password"
-                    type="password"
-                    id="userPw"
-                    onChange={this.getValue}
-                  />
-                </div>
+                {signInData_list.inputData.map(el => {
+                  return (
+                    <SignInput
+                      key={el.id}
+                      label={el.label}
+                      name={el.name}
+                      type={el.type}
+                      noti={el.noti}
+                      necessary={el.necessary}
+                      onChange={this.getValue}
+                    />
+                  );
+                })}
               </div>
               <div className="loginBtnBox">
-                <button
-                  className="id loginBtn"
+                <SignBtn
                   type="submit"
-                  onClick={this.submitUserInfo}
-                >
-                  아이디 로그인
-                </button>
-                <button className="phone loginBtn" type="submit">
-                  휴대폰 로그인
-                </button>
+                  classname="id loginBtn"
+                  text="아이디 로그인"
+                  submit={this.submitUserInfo}
+                />
+                <SignBtn
+                  type="submit"
+                  classname="phone loginBtn"
+                  text="휴대폰 로그인"
+                />
               </div>
               <ul className="signUpFindIdPw">
-                <li>
-                  <a className="border" href="#">
-                    회원가입
-                  </a>
-                </li>
-                <li>
-                  <a className="border" href="#">
-                    아이디 찾기
-                  </a>
-                </li>
-                <li>
-                  <a href="#">비밀번호 찾기</a>
-                </li>
+                {signInData_list.listData.map(el => {
+                  return (
+                    <ListComponent key={el.id} path={el.path} data={el.data} />
+                  );
+                })}
               </ul>
             </div>
           </div>

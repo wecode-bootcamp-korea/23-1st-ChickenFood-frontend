@@ -1,5 +1,5 @@
-const parkIP = 'http://10.58.4.181:8000';
-const sonIP = 'http://10.50.1.180:8000';
+const parkIP = 'http://10.58.2.158:8000';
+const sonIP = 'http://10.58.2.249:8000';
 
 /** 
 회원 가입의 추천인(recommender)은 null값 허용
@@ -36,3 +36,5 @@ export const INSERT_CART = `${sonIP}/member/<int:member_id>/inventory`;
 export const VIEW_CART = `${sonIP}/member/<int:member_id>/inventory`;
 export const DELETE_CART = `${sonIP}/member/<int:member_id>/inventory/<int:inventory_id>`;
 export const UPDATE_CART = `${sonIP}/member/<int:member_id>/inventory/<int:inventory_id>`;
+
+export const LIKES_MYPAGE = `${parkIP}/likes`;

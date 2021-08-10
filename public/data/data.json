@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "캐롯 카로틴 핸드메이드솝 (100g)+gift 캐롯 카로틴 비누망키트 증정",
+      "thumbnail": "/images/item.jpg",
+      "price": "12000",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "캐롯 카로틴 핸드메이드솝 (100g)+gift 캐롯 카로틴 비누망키트 증정",
+      "thumbnail": "/images/item.jpg",
+      "price": "12000",
+      "quantity": 1
+    }
+  ]
+}

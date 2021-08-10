@@ -22,7 +22,7 @@ class BestItem extends React.Component {
   }
 
   isBtnClick = e => {
-    let btnKey = e.currentTarget.dataset.key;
+    let btnKey = e.currentTarget.dataset.name;
     this.setState({
       productNum: btnKey,
     });
@@ -39,8 +39,8 @@ class BestItem extends React.Component {
         <div className="bestProducts">
           <ul className="catalogs">
             {circle.map(el => (
-              <li>
-                <button onClick={isBtnClick} data-key={el.id}>
+              <li key={el.id}>
+                <button onClick={isBtnClick} data-name={el.id}>
                   <img className="circle" src={el.image} alt="circle" />
                   <p>{el.name}</p>
                 </button>

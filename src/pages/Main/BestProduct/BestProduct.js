@@ -5,7 +5,7 @@ class BestProduct extends React.Component {
   render() {
     const { id, imgsrc, product, price } = this.props;
     return (
-      <li className="productImgWrap" key={id}>
+      <li className="productImgWrap">
         <div className="productImgBox">
           <img src={imgsrc} alt="product" className="productImg" />
         </div>

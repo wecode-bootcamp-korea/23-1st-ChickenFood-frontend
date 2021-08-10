@@ -57,25 +57,23 @@ class BestProductCarousel extends React.Component {
       transNum = -1020;
     }
     return (
-      <>
-        <div className="productCarousel">
-          <span className="left" onClick={prvBtn} />
-          <ul
-            className="productWrap"
-            style={{ transform: `translate(${transNum}px)` }}
-          >
-            {bestProduct.map(el => (
-              <BestProduct
-                key={el.id}
-                product={el.name}
-                price={el.price}
-                imgsrc={el.thumbnail}
-              />
-            ))}
-          </ul>
-          <span className="right" onClick={nextBtn} />
-        </div>
-      </>
+      <div className="productCarousel">
+        <span className="left" onClick={prvBtn} />
+        <ul
+          className="productWrap"
+          style={{ transform: `translate(${transNum}px)` }}
+        >
+          {bestProduct.map(el => (
+            <BestProduct
+              key={el.id}
+              product={el.name}
+              price={el.price}
+              imgsrc={el.thumbnail}
+            />
+          ))}
+        </ul>
+        <span className="right" onClick={nextBtn} />
+      </div>
     );
   }
 }

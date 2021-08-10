@@ -48,8 +48,8 @@ class ProductList extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          products: data,
-          viewProduct: data.slice(0, 4),
+          products: data.items,
+          viewProduct: data.items.slice(0, 4),
         });
       });
   };

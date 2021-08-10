@@ -1,0 +1,128 @@
+@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
+  display: flex;
+  justify-content: $JCdefault;
+  align-items: $AIdefault;
+}
+
+@mixin subCatgoryModal($displayDefault: none) {
+  display: $displayDefault;
+  width: 1920px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+
+  .Category {
+    @include flexCenterBox(start, start);
+    width: 1140px;
+    margin: 0 auto;
+
+    .imgBox {
+      img {
+        width: 340px;
+        height: 180px;
+        padding-left: 20px;
+      }
+    }
+
+    .listBox {
+      @include flexCenterBox(center, start);
+      margin-left: 113px;
+
+      ul {
+        padding-right: 10px;
+        text-align: center;
+
+        li {
+          padding: 10px;
+          font-size: 13px;
+
+          a {
+            color: #888;
+          }
+        }
+      }
+
+      .productList {
+        margin-right: 23px;
+      }
+
+      .event {
+        margin-right: 31px;
+      }
+
+      .review {
+        margin-right: 31px;
+      }
+
+      .community {
+        margin-right: 38px;
+      }
+    }
+  }
+}
+
+.layoutHeader {
+  @include flexCenterBox(center, center);
+  flex-direction: column;
+
+  .headerFlexBox {
+    width: 1920px;
+    background-color: rgb(249, 249, 249);
+
+    .authFlexBox {
+      @include flexCenterBox(flex-end, center);
+      width: 1140px;
+      height: 38px;
+      margin: 0 auto;
+
+      li {
+        margin-right: 20px;
+
+        a {
+          padding: 4px 10px;
+          color: #888;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .navFlexBox {
+    @include flexCenterBox(space-between, center);
+    width: 1140px;
+
+    .layoutNav {
+      @include flexCenterBox(center, center);
+
+      li {
+        padding: 0 15px;
+
+        a {
+          padding: 33px 10px;
+          font-size: 1.1rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .navIconWrap {
+      @include flexCenterBox(center, center);
+
+      a {
+        padding: 0 10px;
+        font-size: 5px;
+
+        img {
+          width: 22px;
+        }
+      }
+    }
+  }
+
+  .layoutSubCategoryDefault {
+    @include subCatgoryModal();
+  }
+
+  .layoutSubCategoryActive {
+    @include subCatgoryModal(block);
+  }
+}

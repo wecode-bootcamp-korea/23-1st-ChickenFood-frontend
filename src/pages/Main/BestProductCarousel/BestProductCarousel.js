@@ -13,16 +13,29 @@ class BestProductCarousel extends React.Component {
   }
 
   componentDidMount() {
+    {
+      this.getCarouselData();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      {
+        this.getCarouselData();
+      }
+    }
+  }
+
+  getCarouselData = () => {
     const { id } = this.props;
-    const idNum = id ? id : 1;
-    fetch(`/data/${idNum}.json`)
+    fetch(`/data/${id}.json`)
       .then(res => res.json())
       .then(res => {
         this.setState({
           bestProduct: res,
         });
       });
-  }
+  };
 
   nextBtn = () => {
     const { pageNum, bestProduct } = this.state;

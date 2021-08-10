@@ -12,6 +12,12 @@ class BestItem extends React.Component {
     };
   }
   componentDidMount() {
+    {
+      this.getProductList();
+    }
+  }
+
+  getProductList = () => {
     fetch('/data/productCircle.json')
       .then(res => res.json())
       .then(res => {
@@ -19,7 +25,7 @@ class BestItem extends React.Component {
           circle: res,
         });
       });
-  }
+  };
 
   isBtnClick = e => {
     let btnKey = e.currentTarget.dataset.name;
@@ -33,9 +39,7 @@ class BestItem extends React.Component {
     const { isBtnClick } = this;
     return (
       <div className="bestContainer">
-        <div className="bestTitle">
-          <a href="">이번주 베스트</a>
-        </div>
+        <div className="bestTitle">{/* <a href="">이번주 베스트</a> */}</div>
         <div className="bestProducts">
           <ul className="catalogs">
             {circle.map(el => (
@@ -47,7 +51,7 @@ class BestItem extends React.Component {
               </li>
             ))}
           </ul>
-          <BestProductCarousel key={productNum} id={productNum} />
+          <BestProductCarousel id={productNum ? productNum : 1} />
         </div>
       </div>
     );

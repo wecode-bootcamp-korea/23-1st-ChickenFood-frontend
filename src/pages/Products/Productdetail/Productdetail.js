@@ -34,14 +34,22 @@ class Productdetail extends React.Component {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
-        this.setState({ data: data.items, type: data.items.type_name });
+      .then(res => {
+        this.setState({ data: res.items });
+      });
+
+    // http://10.58.7.206:8000/options
+
+    fetch('data/mockData_detail_page_second.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ type: res.option });
       });
   }
 
   select = e => {
-    console.log(123);
-    console.log(e.target.value);
     this.setState({
       emptyList: this.state.emptyList.concat({
         type: e.target.value,
@@ -53,7 +61,6 @@ class Productdetail extends React.Component {
 
   render() {
     // console.log('스테이트 데이터', this.state.data.name);
-    console.log(this.state.emptyList);
     const data = this.state.data;
     return (
       <div className="productDetail">
@@ -71,7 +78,7 @@ class Productdetail extends React.Component {
         <section className="productRight">
           <div className="sectionsWrapper">
             {/* 섹션1 */}
-            <div className="sectionOne">
+            <div className="sectionOne sections">
               <div className="productName">
                 {data.name}
                 <div className="iconsWrapper">
@@ -84,7 +91,7 @@ class Productdetail extends React.Component {
               </div>
             </div>
             {/* 섹션2 */}
-            <div className="sectionTwo">
+            <div className="sectionTwo sections">
               <div className="coupon">
                 <span className="contentsTitle">쿠폰</span>
                 <button className="couponBtn">
@@ -125,15 +132,15 @@ class Productdetail extends React.Component {
             </div>
             {/* 섹션3 */}
             {/* 셀렉트박스 */}
-            <div className="sectionThree">
+            <div className="sectionThree sections">
               <div>
                 <div className="optionWrapper">
                   <select className="selectBox" onChange={this.select}>
                     <option value="옵션선택">옵션을 선택해주세요</option>
                     {this.state.type.map((item, index) => {
                       return (
-                        <option key={index} value={item}>
-                          {item}
+                        <option key={index} value={item.name}>
+                          {item.name}
                         </option>
                       );
                     })}
@@ -151,7 +158,7 @@ class Productdetail extends React.Component {
             <div></div>
             {/* 섹션4 */}
             {/* 수량조절/합계금액 영역 */}
-            <div className="sectionFour">
+            <div className="sectionFour section">
               {this.state.emptyList.map((item, index) => {
                 return (
                   <div className="selectedProduct" key={index}>

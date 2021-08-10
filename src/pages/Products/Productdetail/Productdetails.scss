@@ -1,7 +1,7 @@
 .productDetail {
   display: flex;
-  justify-content: center;
   background-color: #f6f6f6;
+  justify-content: center;
 }
 
 .contentsTitle {
@@ -14,11 +14,11 @@
 
   .imageWrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
     width: 450px;
     height: 480px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
 
     .sampleImage {
       width: 350px;
@@ -29,6 +29,11 @@
 }
 
 .productRight {
+  .sections {
+    padding: 10px 0px;
+    border-bottom: 1px solid #e4e4e4;
+  }
+
   margin-top: 50px;
   width: 500px;
   height: 100%;
@@ -39,17 +44,14 @@
     margin: 20px;
 
     .sectionOne {
-      padding: 10px 0px;
-      border-bottom: 1px solid #e4e4e4;
-
       .productPrice {
         margin-top: 7px;
       }
 
       .productName {
+        display: flex;
         font-size: 22px;
         font-weight: bolder;
-        display: flex;
         justify-content: space-between;
       }
 
@@ -71,9 +73,6 @@
     }
 
     .sectionTwo {
-      padding: 10px 0px;
-      border-bottom: 1px solid #e4e4e4;
-
       .coupon {
         display: flex;
         margin-top: 10px;
@@ -84,15 +83,15 @@
           width: 18px;
         }
         .couponBtn {
-          cursor: pointer;
-          border: none;
-          background-color: #feb814;
           display: flex;
-          justify-content: center;
-          align-items: center;
           width: 300px;
           height: 30px;
           margin-left: 25px;
+          border: none;
+          background-color: #feb814;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
 
           .download {
             margin-left: 20px;
@@ -103,10 +102,10 @@
         margin-bottom: 20px;
 
         .tagEach {
-          background-color: white;
+          padding: 5px;
           margin-right: 8px;
           border-radius: 10px;
-          padding: 5px;
+          background-color: white;
           cursor: pointer;
         }
       }
@@ -120,8 +119,8 @@
       }
 
       .review {
-        margin-bottom: 15px;
         display: flex;
+        margin-bottom: 15px;
         align-items: center;
 
         .starWrapper {
@@ -139,19 +138,16 @@
     }
 
     .sectionThree {
-      border-bottom: 1px solid #e4e4e4;
-      padding: 10px 0px;
-
       .optionWrapper {
-        margin-top: 10px;
         display: flex;
+        margin-top: 10px;
         align-items: center;
         justify-content: center;
 
         .selectBox {
-          margin-bottom: 10px;
           width: 440px;
           height: 40px;
+          margin-bottom: 10px;
           border-color: #dddddd;
           outline: none;
         }
@@ -159,12 +155,10 @@
     }
 
     .sectionFour {
-      padding: 10px 0px;
-
       .productTotal {
         display: flex;
-        justify-content: space-between;
         margin: 20px 0px;
+        justify-content: space-between;
 
         .totalAmount {
           font-size: 26px;
@@ -178,26 +172,26 @@
 
         .selectedProductName {
           display: flex;
+          margin-bottom: 10px;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 10px;
 
           .close {
-            margin-right: 20px;
             width: 18px;
+            margin-right: 20px;
           }
         }
 
         .plusAndMinusWrapper {
-          width: 440px;
           display: flex;
-          justify-content: space-between;
+          width: 440px;
           margin: 20px 0px;
+          justify-content: space-between;
 
           .plusAndMinuss {
             display: flex;
-            justify-content: space-between;
             width: 100px;
+            justify-content: space-between;
 
             .plusAndMinus {
               width: 18px;
@@ -211,32 +205,32 @@
       }
 
       .BtnsWrapper {
-        margin-top: 20px;
         display: flex;
+        margin-top: 20px;
         justify-content: center;
         align-items: center;
 
         .putInCart {
-          cursor: pointer;
+          width: 220px;
+          height: 50px;
           margin-right: 10px;
-          font-size: 18px;
           border: none;
           background-color: black;
           color: white;
-          width: 220px;
-          height: 50px;
           font-weight: bolder;
+          font-size: 18px;
+          cursor: pointer;
         }
 
         .olderNow {
-          cursor: pointer;
-          font-size: 18px;
+          width: 220px;
+          height: 50px;
           border: none;
           background-color: #feb814;
           color: black;
-          width: 220px;
-          height: 50px;
           font-weight: bolder;
+          font-size: 18px;
+          cursor: pointer;
         }
       }
     }

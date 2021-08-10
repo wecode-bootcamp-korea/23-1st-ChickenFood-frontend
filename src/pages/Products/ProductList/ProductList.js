@@ -22,14 +22,6 @@ class ProductList extends React.Component {
 
   moreProduct = () => {
     const { products, viewProduct, moreView } = this.state;
-    console.log(
-      '전체상품 : ',
-      products.length,
-      '현재상품 :',
-      viewProduct.length,
-      '남은 상품 :',
-      products.length - viewProduct.length
-    );
     const remainProduct = [];
     const moreViewProduct = [];
     if (products.length - viewProduct.length > 4) {
@@ -63,9 +55,13 @@ class ProductList extends React.Component {
   };
 
   handleSorting = api => {
-    fetch(`./data/${api}.json`)
+    fetch('./data/data.json')
       .then(response => response.json())
-      .then(data => {});
+      .then(data => {
+        this.setState({
+          products: data,
+        });
+      });
     if (api === 'bestProduct1') {
       console.log('추천순');
       this.setState({

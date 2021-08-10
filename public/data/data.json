@@ -1,74 +1,74 @@
-[
-  {
-    "_id": "593e9297e17df20c4a237d42",
-    "index": 0,
-    "price": 937180,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property01.jpg",
-    "city": "Singer",
-    "address": "914 Argyle Road"
-  },
-  {
-    "_id": "593e9297ec4cca9c56bf61af",
-    "index": 1,
-    "price": 703725,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property02.jpg",
-    "city": "Machias",
-    "address": "255 Raleigh Place"
-  },
-  {
-    "_id": "593e929773c71925e5d7c11c",
-    "index": 2,
-    "price": 837111,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property03.jpg",
-    "city": "Bend",
-    "address": "580 Amber Street"
-  },
-  {
-    "_id": "593e92973d4d15eedb129aee",
-    "index": 3,
-    "price": 648223,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property04.jpg",
-    "city": "Ivanhoe",
-    "address": "854 Varanda Place"
-  },
-  {
-    "_id": "593e929728b7f8543b7907e1",
-    "index": 4,
-    "price": 771826,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property05.jpg",
-    "city": "Lydia",
-    "address": "857 Rockaway Parkway"
-  },
-  {
-    "_id": "593e92975996a6263d146444",
-    "index": 5,
-    "price": 686238,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property01.jpg",
-    "city": "Rosedale",
-    "address": "543 Harman Street"
-  },
-  {
-    "_id": "593e9297a13e246da5ba0884",
-    "index": 6,
-    "price": 595377,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property02.jpg",
-    "city": "Allison",
-    "address": "787 Gerald Court"
-  },
-  {
-    "_id": "593e9297afa51a013fcd07d5",
-    "index": 7,
-    "price": 696189,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property03.jpg",
-    "city": "Nicut",
-    "address": "416 Vandervoort Avenue"
-  },
-  {
-    "_id": "593e92972bd8fd05f2ab1a89",
-    "index": 8,
-    "price": 716114,
-    "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property04.jpg",
-    "city": "Canterwood",
-    "address": "437 Mill Street"
-  }
-]
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "로열허니 프로폴리스 인리치 크림 미스트 (120ml)",
+      "thumbnail": "/images/TestImage/1.png",
+      "price": "22000",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "캐롯 카로틴 핸드메이드솝 (100g)+gift 캐롯 카로틴 비누망키트 증정",
+      "thumbnail": "/images/TestImage/2.png",
+      "price": "12000",
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "수비드 마스크 시트 3+3",
+      "thumbnail": "/images/TestImage/3.png",
+      "price": "32000",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "시어버터 퍼퓸드 핸드크림 1+1",
+      "thumbnail": "/images/TestImage/4.png",
+      "price": "10000",
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "가든빈 젠틀 버블 폼 클렌저 (200ml)",
+      "thumbnail": "/images/TestImage/5.png",
+      "price": "24000",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "name": "가든빈 젠틀 세럼 클렌저 (190g)",
+      "thumbnail": "/images/TestImage/6.png",
+      "price": "24000",
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "name": "가든빈 젠틀 밤 클렌저 (100ml)",
+      "thumbnail": "/images/TestImage/7.png",
+      "price": "28000",
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "name": "이지 드레싱 마스크 시트, 코코넛 젤리 (37g)",
+      "thumbnail": "/images/TestImage/8.png",
+      "price": "2000",
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "name": "캐롯 카로틴 핸드메이드솝 (100g)+gift 캐롯 카로틴 비누망키트 증정",
+      "thumbnail": "/images/TestImage/9.png",
+      "price": "16000",
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "name": "판토테닉 워터 파슬리 마일드폼 (150ml)",
+      "thumbnail": "/images/item.jpg",
+      "price": "12000",
+      "quantity": 1
+    }
+  ]
+}

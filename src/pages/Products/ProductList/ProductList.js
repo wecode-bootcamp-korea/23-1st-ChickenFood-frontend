@@ -1,6 +1,6 @@
 import React from 'react';
-import './ProductList.scss';
 import OneProduct from '../OneProduct/OneProduct';
+import './ProductList.scss';
 import '../../../config.js';
 
 class ProductList extends React.Component {
@@ -30,19 +30,16 @@ class ProductList extends React.Component {
       '남은 상품 :',
       products.length - viewProduct.length
     );
-    let remainProduct = [];
-    let count = 0;
-    let moreViewProduct = [];
+    const remainProduct = [];
+    const moreViewProduct = [];
     if (products.length - viewProduct.length > 4) {
       for (let i = viewProduct.length; i < viewProduct.length + moreView; i++) {
-        remainProduct[count] = products[i];
-        count++;
+        remainProduct.push(products[i]);
       }
       moreViewProduct = [...viewProduct, ...remainProduct];
     } else {
       for (let i = viewProduct.length; i < products.length; i++) {
-        remainProduct[count] = products[i];
-        count++;
+        remainProduct.push(products[i]);
       }
       moreViewProduct = [...viewProduct, ...remainProduct];
       this.setState({
@@ -52,20 +49,15 @@ class ProductList extends React.Component {
     this.setState({
       viewProduct: moreViewProduct,
     });
-    count = 0;
   };
 
   getData = () => {
     fetch('./data/data.json')
       .then(response => response.json())
       .then(data => {
-        let product = [];
-        for (let i = 0; i < 4; i++) {
-          product[i] = data[i];
-        }
         this.setState({
           products: data,
-          viewProduct: product,
+          viewProduct: data.slice(0, 4),
         });
       });
   };
@@ -100,8 +92,6 @@ class ProductList extends React.Component {
   render() {
     const { products, viewProduct, moreButtonHidden } = this.state;
     console.log(this.state.selectedSort);
-    // console.log('초기 뷰리스트', this.state.viewProduct);
-    // console.log('상품', products[0]);
     return (
       <div className="bottomBackground">
         <div className="bottomContents">

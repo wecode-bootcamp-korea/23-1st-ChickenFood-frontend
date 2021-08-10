@@ -1,7 +1,7 @@
 import React from 'react';
 import './Productdetails.scss';
 
-// 금액 합계 로직 대애충
+// 금액 합계
 // 1. 빈 배열 생성
 // 2. 셀렉트박스에서 옵션 선택(클릭)할 때
 // 3. data.price의 금액을 빈 배열로 가져오삼
@@ -26,6 +26,7 @@ class Productdetail extends React.Component {
       emptyList: [],
       type: [],
       totalPrice: 0,
+      quantity: 1,
     };
   }
 
@@ -59,9 +60,29 @@ class Productdetail extends React.Component {
     });
   };
 
+  // 상품 수량 조절 함수
+  count = () => {
+    this.setState({
+      quantity: this.state.quantity + 1,
+      // totalPrice: this.state.quantity * this.state.totalPrice,
+    });
+  };
+
+  countMinus = () => {
+    if (this.state.quantity === 1) {
+      this.setState({ quantity: 1 });
+    } else {
+      this.setState({
+        quantity: this.state.quantity - 1,
+        // totalPrice: this.state.quantity * this.state.totalPrice,
+      });
+    }
+  };
+
   render() {
     // console.log('스테이트 데이터', this.state.data.name);
-    const data = this.state.data;
+    const { name, price } = this.state.data;
+    const { quantity } = this.state;
     return (
       <div className="productDetail">
         {/* 왼쪽 */}
@@ -80,14 +101,14 @@ class Productdetail extends React.Component {
             {/* 섹션1 */}
             <div className="sectionOne sections">
               <div className="productName">
-                {data.name}
+                {name}
                 <div className="iconsWrapper">
                   <img className="heart" alt="heart" src="./images/heart.png" />
                   <img className="share" alt="share" src="./images/share.png" />
                 </div>
               </div>
               <div className="productPrice">
-                ₩{Math.floor(data.price).toLocaleString('ko-KR')}
+                ₩{Math.floor(price).toLocaleString('ko-KR')}
               </div>
             </div>
             {/* 섹션2 */}
@@ -174,12 +195,14 @@ class Productdetail extends React.Component {
                     <div className="plusAndMinusWrapper">
                       <span className="plusAndMinuss">
                         <img
+                          onClick={this.countMinus}
                           className="plusAndMinus"
                           src="./images/minus.png"
                           alt="plus"
                         />
-                        <span className="quantity">{item.quantity}</span>
+                        <span className="quantity">{this.state.quantity}</span>
                         <img
+                          onClick={this.count}
                           className="plusAndMinus"
                           src="./images/plus.png"
                           alt="minus"
@@ -188,7 +211,7 @@ class Productdetail extends React.Component {
 
                       <span>
                         <span className="plusAndMinusPrice">
-                          ₩{Math.floor(data.price).toLocaleString('ko-KR')}
+                          ₩{Math.floor(price).toLocaleString('ko-KR')}
                         </span>
                       </span>
                     </div>
@@ -222,11 +245,9 @@ class Productdetail extends React.Component {
               <div className="productTotal">
                 <span className="quantityWrapper">
                   <span className="contentsTitle">합계</span>
-                  <span>수량</span>
-                  <span>0</span>
                 </span>
                 <span className="totalAmount">
-                  ₩{Math.floor(this.state.totalPrice).toLocaleString('ko-KR')}
+                  ₩{Math.floor(price * quantity).toLocaleString('ko-KR')}
                 </span>
               </div>
               <div className="BtnsWrapper">

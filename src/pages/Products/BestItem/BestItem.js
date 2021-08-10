@@ -21,7 +21,7 @@ class BestItem extends React.Component {
       .then(data => {
         let bestItems = [];
         for (let i = 0; i < 4; i++) {
-          bestItems[i] = data[i];
+          bestItems[i] = data.items[i];
         }
         this.setState({
           bestItem: bestItems,

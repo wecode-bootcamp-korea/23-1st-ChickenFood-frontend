@@ -9,7 +9,6 @@ class SignUp extends React.Component {
     super();
     this.state = {
       userInfo: {},
-      signUpUrl: 'http://10.58.2.122:8000/members/agreement',
     };
   }
 
@@ -30,23 +29,22 @@ class SignUp extends React.Component {
   };
 
   idValidationCheck = () => {
-    fetch(this.state.signUpUrl, {
-      method: 'GET',
+    fetch('http://10.58.2.249:8000/members/membercheck', {
+      method: 'POST',
+      body: JSON.stringify(this.state.userInfo),
     })
       .then(res => res.json())
       .then(response => {
-        if (response.message !== 'EXIST_MEMBER') {
-          alert('사용 가능한 아이디입니다.');
-          console.log(response);
-        } else {
+        if (response.message === 'EXIST_MEMBER') {
           alert('이미 사용 중인 아이디입니다.');
-          console.log(response);
+        } else {
+          alert('사용 가능한 아이디입니다.');
         }
       });
   };
 
   submitUserInfo = e => {
-    fetch(this.state.signUpUrl, {
+    fetch('http://10.58.2.249:8000/members/signup', {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
@@ -56,12 +54,10 @@ class SignUp extends React.Component {
           alert('회원가입에 성공했습니다. 환영합니다.');
           // localStorage.setItem('token', response.access_token);
           // this.props.history.push('/main');
-          console.log(response);
         } else if (response.message === 'INVALID_RECOMMEND') {
           alert('존재하지 않는 추천인 아이디입니다!');
         } else {
           alert('다시 입력해주세요!');
-          console.log(response);
         }
       });
   };

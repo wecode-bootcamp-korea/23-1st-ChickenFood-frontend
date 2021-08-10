@@ -37,4 +37,8 @@ export const VIEW_CART = `${sonIP}/member/<int:member_id>/inventory`;
 export const DELETE_CART = `${sonIP}/member/<int:member_id>/inventory/<int:inventory_id>`;
 export const UPDATE_CART = `${sonIP}/member/<int:member_id>/inventory/<int:inventory_id>`;
 
+/**
+ 위시리스트  
+ */
 export const LIKES_MYPAGE = `${parkIP}/likes`;
+export const LIKES_DELETE_MYPAGE = `${parkIP}/inventorys?id=`;

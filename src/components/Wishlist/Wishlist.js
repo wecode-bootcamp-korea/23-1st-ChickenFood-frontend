@@ -1,7 +1,7 @@
 import React from 'react';
 import WishProduct from './WishProduct/WishProduct';
 import './Wishlist.scss';
-import { LIKES_MYPAGE } from '../../config.js';
+import { LIKES_MYPAGE, LIKES_DELETE_MYPAGE } from '../../config.js';
 
 class Wishlist extends React.Component {
   constructor(props) {
@@ -9,33 +9,51 @@ class Wishlist extends React.Component {
 
     this.state = {
       visibleWishlist: true,
-      wishItem: [1, 2, 3, 4, 5, 6, 7],
+      wishItem: [],
     };
   }
 
   componentDidMount() {
     // console.log('api 주소', LIKES_MYPAGE);
-    fetch(LIKES_MYPAGE, {
-      method: 'GET',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
-      },
-    })
+    // fetch(LIKES_MYPAGE, {
+    //   method: 'GET',
+    //   headers: {
+    //     Authorization:
+    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
+    //   },
+    // })
+
+    localStorage.setItem('token', 'fjeawiojfioweaf');
+
+    fetch('./data/data.json')
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         this.setState({
-          wishItem: data.ITEMS,
+          wishItem: data.items,
         });
       });
   }
+
+  handleDelete = id => {
+    // fetch(`${LIKES_DELETE_MYPAGE}${id}}`, {
+    //   method: 'DELETE',
+    //   headers: {
+    //     Authorization: localStorage.getItem('token'),
+    //   },
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {});
+    console.log('아이템 삭제!!!', id);
+  };
+
   render() {
     const { visibleWishlist, wishItem } = this.state;
     console.log('위시리스트', wishItem);
     return (
       <div className="wishlistWraper">
         <h1 className="wishlistTitle">위시리스트</h1>
-        {visibleWishlist && (
+        {!visibleWishlist && (
           <div className="wishlistContainer">
             <img
               className="nowishimg"
@@ -54,6 +72,10 @@ class Wishlist extends React.Component {
           </div>
         )}
         <div className="cardContainer">
+          <div className="cardTop">
+            <button>전체 선택</button>
+            <button>선택 삭제</button>
+          </div>
           <div className="cardList">
             <div className="cardtop"></div>
             {wishItem.map((item, index) => {
@@ -63,6 +85,8 @@ class Wishlist extends React.Component {
                   name={item.name}
                   price={item.price}
                   image={item.thumbnail}
+                  id={item.id}
+                  deleteButton={this.handleDelete}
                 />
               );
             })}

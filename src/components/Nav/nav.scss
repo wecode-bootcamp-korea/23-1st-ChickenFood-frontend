@@ -5,15 +5,18 @@
 }
 
 @mixin subCatgoryModal($displayDefault: none) {
+  position: relative;
+  z-index: 2;
   display: $displayDefault;
   width: 1920px;
-  padding: 10px;
-  border-top: 1px solid #ddd;
+  margin: 0 auto;
 
   .Category {
-    @include flexCenterBox(start, start);
-    width: 1140px;
-    margin: 0 auto;
+    position: absolute;
+    @include flexCenterBox(center, start);
+    width: 1920px;
+    padding-right: 200px;
+    background-color: white;
 
     .imgBox {
       img {
@@ -89,6 +92,7 @@
   .navFlexBox {
     @include flexCenterBox(space-between, center);
     width: 1140px;
+    margin-bottom: 10px;
 
     .layoutNav {
       @include flexCenterBox(center, center);
@@ -118,11 +122,16 @@
     }
   }
 
-  .layoutSubCategoryDefault {
-    @include subCatgoryModal();
-  }
+  .subCatgoryContainer {
+    width: 1920px;
+    border-top: 1px solid #ddd;
 
-  .layoutSubCategoryActive {
-    @include subCatgoryModal(block);
+    .layoutSubCategoryDefault {
+      @include subCatgoryModal();
+    }
+
+    .layoutSubCategoryActive {
+      @include subCatgoryModal(block);
+    }
   }
 }

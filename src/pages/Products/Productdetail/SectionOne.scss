@@ -1,0 +1,32 @@
+.sectionOne {
+  .productName {
+    display: flex;
+    font-size: 22px;
+    font-weight: bolder;
+    justify-content: space-between;
+  }
+
+  .productPrice {
+    margin-top: 7px;
+    font-size: 22px;
+    font-weight: bolder;
+  }
+
+  .iconsWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+    .heart {
+      width: 18px;
+      margin-right: 10px;
+    }
+    .share {
+      width: 18px;
+      height: 18px;
+    }
+
+    .wishBtnWrapper {
+      width: 10px;
+    }
+  }
+}

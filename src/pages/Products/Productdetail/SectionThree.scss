@@ -1,0 +1,16 @@
+.sectionThree {
+  .optionWrapper {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+
+    .selectBox {
+      width: 440px;
+      height: 40px;
+      margin-bottom: 10px;
+      border-color: #dddddd;
+      outline: none;
+    }
+  }
+}

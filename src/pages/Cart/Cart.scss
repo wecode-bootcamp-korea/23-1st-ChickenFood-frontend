@@ -17,6 +17,7 @@
       font-size: 32px;
       font-weight: bold;
     }
+<<<<<<< HEAD
 
     .emptyCart {
       display: flex;
@@ -51,10 +52,13 @@
         cursor: pointer;
       }
     }
+=======
+>>>>>>> master
   }
 
   .cartBody {
     display: flex;
+<<<<<<< HEAD
 
     .orderBoxTitle {
       padding: 0 7px;
@@ -82,11 +86,48 @@
 
         .orderTopDelete {
           text-decoration: underline;
+=======
+    flex-direction: row;
+
+    .leftContainer {
+      width: 740px;
+
+      .leftTitle {
+        padding: 0 7px;
+        font-size: 21px;
+        font-weight: bold;
+      }
+
+      .orderBox {
+        margin-top: 28px;
+        padding-bottom: 8px;
+        border: 1px solid #eeeeee;
+
+        .orderTop {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 20px 28px;
+          font-size: 15px;
+
+          .orderTopLeft {
+            display: flex;
+            flex-direction: row;
+          }
+
+          .orderTopRight {
+            text-decoration: underline;
+          }
+>>>>>>> master
         }
       }
     }
 
+<<<<<<< HEAD
     .billContainer {
+=======
+    .rightContainer {
+>>>>>>> master
       width: 360px;
       margin-left: 40px;
 
@@ -112,8 +153,15 @@
             margin-top: 14px;
             font-size: 15px;
           }
+<<<<<<< HEAD
           span {
             font-size: 12px;
+=======
+          .shipping {
+            span {
+              font-size: 12px;
+            }
+>>>>>>> master
           }
 
           .priceNum {
@@ -144,9 +192,26 @@
           border: none;
           font-size: 18px;
           font-weight: bold;
+<<<<<<< HEAD
           cursor: pointer;
+=======
+>>>>>>> master
         }
       }
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+.checkBox {
+  width: 21px;
+  height: 21px;
+  margin-right: 12px;
+  background-image: url(../../assets/images/checkOff.png);
+}
+
+.checkHide {
+  opacity: 1;
+}
+>>>>>>> master

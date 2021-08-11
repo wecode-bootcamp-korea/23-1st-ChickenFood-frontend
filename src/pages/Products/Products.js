@@ -1,8 +1,16 @@
 import React from 'react';
+import BestItem from './BestItem/BestItem';
+import ProductList from './ProductList/ProductList';
+import './Products.scss';
 
 class Products extends React.Component {
   render() {
-    return;
+    return (
+      <div className="wrapper">
+        <BestItem />
+        <ProductList />
+      </div>
+    );
   }
 }
 

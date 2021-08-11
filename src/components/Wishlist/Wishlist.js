@@ -9,29 +9,30 @@ class Wishlist extends React.Component {
 
     this.state = {
       isEmptyWishlist: false,
-      wishItem: [{ id: 9, name: '치킨1', price: 10000, image: 'thumbnail' }],
+      wishItem: [],
     };
   }
 
   componentDidMount() {
-    // this.getData();
+    this.getData();
   }
 
   getData() {
-    // fetch(LIKES_MYPAGE, {
-    //   method: 'GET',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log('서버데이터', data);
-    //     this.setState({
-    //       wishItem: data.ITEMS,
-    //     });
-    //   });
+    fetch('http://10.58.2.249:8000/likes', {
+      method: 'GET',
+      headers: {
+        Authorization:
+          // 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('서버데이터', data);
+        this.setState({
+          wishItem: data.ITEMS,
+        });
+      });
   }
 
   handleDelete = id => {
@@ -50,17 +51,17 @@ class Wishlist extends React.Component {
   };
 
   handleCart = id => {
-    // fetch('http://10.58.2.249:8000/inventorys', {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
-    //   },
-    //   body: JSON.stringify({
-    //     product_id: id,
-    //     quantity: 1,
-    //   }),
-    // });
+    fetch('http://10.58.2.249:8000/inventorys', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+      body: JSON.stringify({
+        product_id: id,
+        quantity: 1,
+      }),
+    });
   };
 
   render() {

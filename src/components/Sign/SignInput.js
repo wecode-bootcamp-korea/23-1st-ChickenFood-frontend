@@ -13,6 +13,7 @@ class Sign extends React.Component {
       getValue,
       validation,
     } = this.props;
+
     return (
       <div className="inputFlexBox">
         <div className="configLabel">

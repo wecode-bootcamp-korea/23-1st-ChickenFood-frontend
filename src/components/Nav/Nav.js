@@ -5,6 +5,7 @@ import subCategory_list from './subCategoryData';
 import subCategoryNav_list from './subCategoryNavData';
 import ListComponent from './ListComponent';
 import SubLiComponent from './SubLiComponent';
+import '../../../src/config.js';
 import './nav.scss';
 
 class Nav extends React.Component {
@@ -82,17 +83,19 @@ class Nav extends React.Component {
             })}
           </ul>
         </nav>
-        <div className={this.state.subCategoryMode}>
-          <nav className="sub Category" onMouseLeave={this.modeDefault}>
-            <div className="sub imgBox">
-              <img src="images/test_welcome.png" />
-            </div>
-            <div className="sub listBox">
-              {subCategory_list.map((el, index) => {
-                return <SubLiComponent key={index} category={el} />;
-              })}
-            </div>
-          </nav>
+        <div className="subCatgoryContainer">
+          <div className={this.state.subCategoryMode}>
+            <nav className="sub Category" onMouseLeave={this.modeDefault}>
+              <div className="sub imgBox">
+                <img src="images/test_welcome.png" />
+              </div>
+              <div className="sub listBox">
+                {subCategory_list.map((el, index) => {
+                  return <SubLiComponent key={index} category={el} />;
+                })}
+              </div>
+            </nav>
+          </div>
         </div>
       </header>
     );

@@ -2,13 +2,13 @@ const navAuthData_list = [
   {
     id: '1',
     name: '로그인',
-    path: '',
+    path: '/signin',
   },
 
   {
     id: '2',
     name: '회원가입',
-    path: '',
+    path: '/signup',
   },
 
   {

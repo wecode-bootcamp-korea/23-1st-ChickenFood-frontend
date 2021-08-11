@@ -8,12 +8,16 @@ class Wishlist extends React.Component {
     super(props);
 
     this.state = {
-      isEmptyWishlist: true,
+      isEmptyWishlist: false,
       wishItem: [],
     };
   }
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData() {
     fetch(LIKES_MYPAGE, {
       method: 'GET',
       headers: {
@@ -22,11 +26,12 @@ class Wishlist extends React.Component {
       },
     })
       .then(res => res.json())
-      .then(data =>
+      .then(data => {
+        console.log('서버데이터', data);
         this.setState({
           wishItem: data.ITEMS,
-        })
-      );
+        });
+      });
   }
 
   handleDelete = id => {
@@ -39,7 +44,7 @@ class Wishlist extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        this.getData();
       });
 
     console.log('아이템 삭제!!!', id);
@@ -47,11 +52,16 @@ class Wishlist extends React.Component {
 
   render() {
     const { isEmptyWishlist, wishItem } = this.state;
-    console.log('위시리스트', wishItem);
+    let emptyWishlist = isEmptyWishlist;
+    if (wishItem.length === 0) {
+      emptyWishlist = true;
+    } else {
+      emptyWishlist = false;
+    }
     return (
       <div className="wishlistWraper">
         <h1 className="wishlistTitle">위시리스트</h1>
-        {isEmptyWishlist && (
+        {emptyWishlist === true ? (
           <div className="wishlistContainer">
             <img
               className="nowishimg"
@@ -68,24 +78,25 @@ class Wishlist extends React.Component {
               </p>
             </div>
           </div>
-        )}
-        <div className="cardContainer">
-          <div className="cardList">
-            <div className="cardtop"></div>
-            {wishItem.map(item => {
-              return (
-                <WishProduct
-                  key={item.id}
-                  name={item.name}
-                  price={item.price}
-                  image={item.thumbnail}
-                  id={item.id}
-                  deleteButton={this.handleDelete}
-                />
-              );
-            })}
+        ) : (
+          <div className="cardContainer">
+            <div className="cardList">
+              <div className="cardtop"></div>
+              {wishItem.map((item, index) => {
+                return (
+                  <WishProduct
+                    key={index}
+                    name={item.name}
+                    price={item.price}
+                    image={item.thumbnail}
+                    id={item.id}
+                    deleteButton={this.handleDelete}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }

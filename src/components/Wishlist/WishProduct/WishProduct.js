@@ -2,7 +2,7 @@ import React from 'react';
 
 class WishProduct extends React.Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { name, price, image, id, deleteButton } = this.props;
     return (
       <div className="wishCard">

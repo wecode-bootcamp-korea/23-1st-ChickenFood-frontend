@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "thumbnail": "/images/product2.jpg",
+    "name": "나는 2번",
+    "price": "\\32,000"
+  },
+  {
+    "id": 2,
+    "thumbnail": "/images/product.jpg",
+    "name": "로열허니 프로폴리스 인리치 에센스(50ml)",
+    "price": "\\32,000"
+  },
+  {
+    "id": 3,
+    "thumbnail": "/images/product3.jpg",
+    "name": "로열허니 프로폴리스 인리치 에센스(50ml)",
+    "price": "\\32,000"
+  },
+  {
+    "id": 4,
+    "thumbnail": "/images/product4.jpg",
+    "name": "로열허니 프로폴리스 인리치 에센스(50ml)",
+    "price": "\\32,000"
+  },
+  {
+    "id": 5,
+    "thumbnail": "/images/product5.jpg",
+    "name": "로열허니 프로폴리스 인리치 에센스(50ml)",
+    "price": "\\32,000"
+  },
+  {
+    "id": 6,
+    "thumbnail": "/images/product6.jpg",
+    "name": "로열허니 프로폴리스 인리치 에센스(50ml)",
+    "price": "\\32,000"
+  }
+]

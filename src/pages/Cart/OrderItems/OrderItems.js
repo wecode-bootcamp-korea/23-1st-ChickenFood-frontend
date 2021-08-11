@@ -2,42 +2,18 @@ import React from 'react';
 import './OrderItems.scss';
 
 class OrderItems extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      totalPrice: '',
-      cart: [],
-    };
-  }
-  // getCheckboxValue = e => {
-  //   const { cart } = this.state;
-  //   let totalCart = cart.push(this.props.total);
-  //   console.log('setstate전:', cart);
-  //   this.setState({
-  //     cart: totalCart,
-  //   });
-  //   console.log('setstate 후:', cart);
-  //   if (e.target.checked) {
-  //     this.props.test(cart);
-  //   }
-  //   if (!e.target.checked) {
-  //     this.props.test(0);
-  //   }
-  // };
-
-  testProp = e => {
-    if (e.target.checked) {
-      this.props.test(this.props.total);
-    }
-    if (!e.target.checked) {
-      this.props.test(0);
-    }
-  };
   render() {
-    const { id, itemNum, plusBtn, minusBtn, itemName, itemImg, total } =
-      this.props;
-    const { getCheckboxValue, testProp } = this;
+    const {
+      id,
+      itemNum,
+      plusBtn,
+      minusBtn,
+      itemName,
+      itemImg,
+      total,
+      totalSum,
+      deleteList,
+    } = this.props;
     return (
       <div className="orderItems">
         <div className="orderItemsLeft">
@@ -45,7 +21,8 @@ class OrderItems extends React.Component {
             <input
               type="checkbox"
               className="checkHide"
-              onClick={testProp}
+              name={id}
+              onClick={totalSum}
               value={total}
             ></input>
           </div>
@@ -65,7 +42,7 @@ class OrderItems extends React.Component {
           </div>
         </div>
         <div className="orderItemsRight">
-          <button className="closeBtn"></button>
+          <button className="closeBtn" onClick={() => deleteList(id)}></button>
           <div className="itemPrice">\{total}</div>
         </div>
       </div>

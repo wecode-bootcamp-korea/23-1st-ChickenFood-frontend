@@ -17,6 +17,40 @@
       font-size: 32px;
       font-weight: bold;
     }
+
+    .emptyCart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 108px;
+
+      .emptyCartTitle {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .emptyCartBody {
+        font-size: 15px;
+        margin-top: 5px;
+        line-height: 24px;
+        letter-spacing: -0.15px;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .goToBest {
+        width: 265px;
+        margin-top: 40px;
+        border: 1px solid black;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: white;
+        cursor: pointer;
+      }
+    }
   }
 
   .cartBody {
@@ -116,6 +150,7 @@
           border: none;
           font-size: 18px;
           font-weight: bold;
+          cursor: pointer;
         }
       }
     }

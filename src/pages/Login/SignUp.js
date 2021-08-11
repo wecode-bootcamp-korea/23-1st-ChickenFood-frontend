@@ -1,8 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import SignInput from '../../components/Sign/SignInput';
 import SignBtn from '../../components/Sign/SignBtn';
 import inputData_list from '../../components/Sign/InputData';
-import '../../../config.js';
+import '../../config.js';
 import './signup.scss';
 
 class SignUp extends React.Component {
@@ -132,4 +133,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

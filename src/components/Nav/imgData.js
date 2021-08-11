@@ -3,7 +3,7 @@ const imgData_list = {
     {
       id: 1,
       classname: 'logoImage',
-      path: 'Main',
+      path: '/',
       src: 'images/chickenfood_logo.png',
     },
   ],

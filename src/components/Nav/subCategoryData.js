@@ -4,7 +4,7 @@ const subCategoryData_list = [
       {
         id: 1,
         subCategory: '베스트',
-        path: '',
+        path: '/bestitem',
       },
       {
         id: 2,
@@ -14,7 +14,7 @@ const subCategoryData_list = [
       {
         id: 3,
         subCategory: '유형별',
-        path: '',
+        path: '/productlist',
       },
     ],
   },

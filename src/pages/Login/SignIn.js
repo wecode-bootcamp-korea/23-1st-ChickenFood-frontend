@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import SignBtn from '../../components/Sign/SignBtn';
 import SignInput from '../../components/Sign/SignInput';
 import signInData_list from '../../components/Sign/SignInData';
 import ListComponent from '../../components/Nav/ListComponent';
-import '../../../config.js';
+import '../../config';
 import './signin.scss';
 
 class SignIn extends Component {
@@ -88,4 +89,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

@@ -2,6 +2,7 @@ import React from 'react';
 import SignInput from '../../components/Sign/SignInput';
 import SignBtn from '../../components/Sign/SignBtn';
 import inputData_list from '../../components/Sign/InputData';
+import '../../../config.js';
 import './signup.scss';
 
 class SignUp extends React.Component {

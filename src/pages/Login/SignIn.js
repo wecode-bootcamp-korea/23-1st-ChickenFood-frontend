@@ -3,6 +3,7 @@ import SignBtn from '../../components/Sign/SignBtn';
 import SignInput from '../../components/Sign/SignInput';
 import signInData_list from '../../components/Sign/SignInData';
 import ListComponent from '../../components/Nav/ListComponent';
+import '../../../config.js';
 import './signin.scss';
 
 class SignIn extends Component {

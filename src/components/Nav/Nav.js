@@ -5,6 +5,7 @@ import subCategory_list from './subCategoryData';
 import subCategoryNav_list from './subCategoryNavData';
 import ListComponent from './ListComponent';
 import SubLiComponent from './SubLiComponent';
+import '../../../src/config.js';
 import './nav.scss';
 
 class Nav extends React.Component {

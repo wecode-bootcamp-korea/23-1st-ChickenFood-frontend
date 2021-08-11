@@ -1,8 +1,4 @@
-@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
-  display: flex;
-  justify-content: $JCdefault;
-  align-items: $AIdefault;
-}
+@import '../../styles/common.scss';
 
 .layoutLogin {
   @include flexCenterBox(center, start);
@@ -85,7 +81,6 @@
 
       .signUpFindIdPw {
         display: flex;
-        flex-direction: row;
 
         li {
           margin: 20px 0;

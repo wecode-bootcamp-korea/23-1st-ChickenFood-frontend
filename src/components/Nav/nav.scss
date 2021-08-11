@@ -1,8 +1,4 @@
-@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
-  display: flex;
-  justify-content: $JCdefault;
-  align-items: $AIdefault;
-}
+@import '../../styles/common.scss';
 
 @mixin subCatgoryModal($displayDefault: none) {
   position: relative;
@@ -15,7 +11,7 @@
     position: absolute;
     @include flexCenterBox(center, start);
     width: 1920px;
-    padding-right: 200px;
+    padding: 10px 200px 10px 0;
     background-color: white;
 
     .imgBox {
@@ -38,7 +34,7 @@
           padding: 10px;
           font-size: 13px;
 
-          a {
+          .pageMove {
             color: #888;
           }
         }
@@ -80,7 +76,7 @@
       li {
         margin-right: 20px;
 
-        a {
+        .pageMove {
           padding: 4px 10px;
           color: #888;
           font-size: 0.8rem;
@@ -100,7 +96,7 @@
       li {
         padding: 0 15px;
 
-        a {
+        .pageMove {
           padding: 33px 10px;
           font-size: 1.1rem;
           font-weight: bold;
@@ -111,7 +107,7 @@
     .navIconWrap {
       @include flexCenterBox(center, center);
 
-      a {
+      .pageMove {
         padding: 0 10px;
         font-size: 5px;
 
@@ -133,5 +129,9 @@
     .layoutSubCategoryActive {
       @include subCatgoryModal(block);
     }
+  }
+
+  .pageMove {
+    cursor: pointer;
   }
 }

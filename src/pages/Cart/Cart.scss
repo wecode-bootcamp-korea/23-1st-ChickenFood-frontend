@@ -30,8 +30,8 @@
       }
 
       .emptyCartBody {
-        font-size: 15px;
         margin-top: 5px;
+        font-size: 15px;
         line-height: 24px;
         letter-spacing: -0.15px;
 
@@ -55,42 +55,38 @@
 
   .cartBody {
     display: flex;
-    flex-direction: row;
 
-    .leftContainer {
+    .orderBoxTitle {
+      padding: 0 7px;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .orderBox {
+      margin-top: 28px;
+      padding-bottom: 8px;
+      border: 1px solid #eeeeee;
       width: 740px;
 
-      .leftTitle {
-        padding: 0 7px;
-        font-size: 21px;
-        font-weight: bold;
-      }
+      .orderTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 28px;
+        font-size: 15px;
 
-      .orderBox {
-        margin-top: 28px;
-        padding-bottom: 8px;
-        border: 1px solid #eeeeee;
-
-        .orderTop {
+        .orderTopSelect {
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
-          padding: 20px 28px;
-          font-size: 15px;
+        }
 
-          .orderTopLeft {
-            display: flex;
-            flex-direction: row;
-          }
-
-          .orderTopRight {
-            text-decoration: underline;
-          }
+        .orderTopDelete {
+          text-decoration: underline;
         }
       }
     }
 
-    .rightContainer {
+    .billContainer {
       width: 360px;
       margin-left: 40px;
 
@@ -116,10 +112,8 @@
             margin-top: 14px;
             font-size: 15px;
           }
-          .shipping {
-            span {
-              font-size: 12px;
-            }
+          span {
+            font-size: 12px;
           }
 
           .priceNum {
@@ -155,15 +149,4 @@
       }
     }
   }
-}
-
-.checkBox {
-  width: 21px;
-  height: 21px;
-  margin-right: 12px;
-  background-image: url(../../assets/images/checkOff.png);
-}
-
-.checkHide {
-  opacity: 1;
 }

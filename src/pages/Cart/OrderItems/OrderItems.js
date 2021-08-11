@@ -11,31 +11,25 @@ class OrderItems extends React.Component {
       itemName,
       itemImg,
       total,
-      totalSum,
       deleteList,
     } = this.props;
     return (
       <div className="orderItems">
         <div className="orderItemsLeft">
-          <div className="checkBox">
-            <input
-              type="checkbox"
-              className="checkHide"
-              name={id}
-              onClick={totalSum}
-              value={total}
-            ></input>
-          </div>
-          <img className="itemImg" src={itemImg} alt="item"></img>
+          <img className="itemImg" src={itemImg} alt="item" />
           <div className="itemText">
             <div className="itemName">{itemName}</div>
             <div className="itemOption">
               수량:{' '}
-              <button name={id} onClick={minusBtn}>
+              <button
+                className="quantityBtn"
+                name={id}
+                onClick={itemNum === 1 ? null : minusBtn}
+              >
                 -
               </button>{' '}
               {itemNum}개
-              <button name={id} onClick={plusBtn}>
+              <button className="quantityBtn" name={id} onClick={plusBtn}>
                 +
               </button>
             </div>

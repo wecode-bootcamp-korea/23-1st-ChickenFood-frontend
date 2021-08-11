@@ -8,8 +8,6 @@ class Cart extends React.Component {
 
     this.state = {
       items: [],
-      totalPrice: 0,
-      isChecked: false,
     };
   }
 
@@ -23,110 +21,38 @@ class Cart extends React.Component {
       });
   }
 
-  // totalSum = e => {
-  //   const { totalPrice } = this.state;
-  //   const value = Number(e.target.value);
-  //   let tp;
-  //   console.log(e.target.checked);
-  //   if (e.target.checked) {
-  //     tp = totalPrice + value;
-  //   } else {
-  //     tp = totalPrice - value;
-  //   }
-  //   this.setState({
-  //     totalPrice: tp,
-  //   });
-  // };
-
-  totalSum = e => {
-    const { totalPrice, isChecked } = this.state;
-    const value = Number(e.target.value);
-    let tp;
-    console.log(e.target.name);
-    if (e.target.checked) {
-      tp = totalPrice + value;
-    } else {
-      tp = totalPrice - value;
-    }
+  plusBtn = e => {
+    const { items } = this.state;
+    const changeList = items.map(item => {
+      if (Number(e.target.name) === item.id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      } else {
+        return item;
+      }
+    });
     this.setState({
-      totalPrice: tp,
-      isChecked: !isChecked,
+      items: changeList,
     });
   };
 
-  plusBtn = e => {
-    const { items, isChecked } = this.state;
-    const changeList = [...items];
-    let sumPrice;
-    console.log(e.target.name);
-    if (isChecked) {
-      changeList.map(el => {
-        if (Number(e.target.name) === el.id) {
-          el.quantity = el.quantity + 1;
-          sumPrice = el.price * el.quantity;
-          console.log(sumPrice);
-        }
-      });
-      this.setState({
-        items: changeList,
-        totalPrice: sumPrice,
-      });
-      console.log(e.target);
-    } else {
-      changeList.map(el => {
-        if (Number(e.target.name) === el.id) {
-          el.quantity = el.quantity + 1;
-        }
-      });
-      this.setState({
-        items: changeList,
-      });
-    }
-  };
-
   minusBtn = e => {
-    const { items, isChecked } = this.state;
-    const changeList = [...items];
-    let sumPrice;
-    if (isChecked) {
-      changeList.map(el => {
-        if (Number(e.target.name) === el.id) {
-          el.quantity = el.quantity - 1;
-          sumPrice = el.price * el.quantity;
-          if (el.quantity < 1) {
-            el.quantity = 1;
-            sumPrice = el.price * el.quantity;
-          }
+    const { items } = this.state;
+    const changeList = items.map(item => {
+      if (Number(e.target.name) === item.id) {
+        if (item.quantity < 2) {
+          return { ...item, quantity: 1 };
+        } else {
+          return { ...item, quantity: item.quantity - 1 };
         }
-      });
-      console.log(sumPrice);
-      this.setState({
-        items: changeList,
-        totalPrice: sumPrice,
-      });
-    } else {
-      changeList.map(el => {
-        if (Number(e.target.name) === el.id) {
-          el.quantity = el.quantity - 1;
-          if (el.quantity < 1) {
-            el.quantity = 1;
-          }
-        }
-      });
-      this.setState({
-        items: changeList,
-      });
-    }
-  };
-
-  allCheck = e => {
-    const { items, isChecked } = this.state;
-    const changeList = [...items];
-    if (e.target.name === 'all') {
-      changeList.map(el => {});
-    }
+      } else {
+        return item;
+      }
+    });
     this.setState({
-      isChecked: !this.state.isChecked,
+      items: changeList,
     });
   };
 
@@ -141,13 +67,28 @@ class Cart extends React.Component {
   goToBest = () => {
     this.props.history.push('/best');
   };
-  render() {
-    const { items, totalPrice } = this.state;
-    const { plusBtn, minusBtn, totalSum, check, deleteList, goToBest } = this;
-    let shippingFee = 2500;
-    if (totalPrice > 20000 || totalPrice === 0) {
-      shippingFee = 0;
+
+  buyItem = () => {
+    alert('구매가 완료되었습니다.');
+    this.setState({
+      items: [],
+    });
+  };
+
+  getTotalPrice = items => {
+    let total = 0;
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].price * items[i].quantity;
     }
+    return total;
+  };
+
+  render() {
+    const { items } = this.state;
+    const { plusBtn, minusBtn, deleteList, goToBest, buyItem, getTotalPrice } =
+      this;
+    const shippingFee =
+      getTotalPrice(items) > 20000 || getTotalPrice(items) === 0 ? 0 : 2500;
     return (
       <div className="cartContainer">
         <div className="cartLayout">
@@ -170,46 +111,36 @@ class Cart extends React.Component {
           )}
           {items.length > 0 && (
             <div className="cartBody">
-              <div className="leftContainer">
-                <span className="leftTitle">일반 상품</span>
+              <div className="orderContainer">
+                <span className="orderBoxTitle">일반 상품</span>
                 <div className="orderBox">
                   <div className="orderTop">
-                    <div className="orderTopLeft">
-                      <div className="checkBox">
-                        <input
-                          type="checkbox"
-                          className="checkHide"
-                          name="all"
-                        ></input>
-                      </div>
-                      <div>전체 선택</div>
-                    </div>
-                    <div className="orderTopRight">선택 삭제</div>
+                    <div className="orderTopSelect">상품 목록</div>
                   </div>
-                  {items.map(el => (
+                  {items.map(item => (
                     <OrderItems
-                      id={el.id}
-                      itemName={el.name}
-                      itemImg={el.thumbnail}
-                      itemPrice={el.price}
-                      itemNum={el.quantity}
+                      key={item.id}
+                      id={item.id}
+                      itemName={item.name}
+                      itemImg={item.thumbnail}
+                      itemPrice={item.price}
+                      itemNum={item.quantity}
+                      total={item.price * item.quantity}
                       plusBtn={plusBtn}
                       minusBtn={minusBtn}
-                      total={el.price * el.quantity}
-                      totalSum={totalSum}
                       deleteList={deleteList}
                     />
                   ))}
                 </div>
               </div>
-              <div className="rightContainer">
+              <div className="billContainer">
                 <div className="billBox">
                   <div className="billTitle">결제 예정 내역</div>
                   <div className="billContents">
                     <div className="billContentsTitle">일반 상품</div>
                     <div className="price item">
                       <div>총 상품 금액</div>
-                      <div className="priceNum">\{totalPrice}</div>
+                      <div className="priceNum">\{getTotalPrice(items)}</div>
                     </div>
                     <div className="price shipping">
                       <div>
@@ -225,12 +156,14 @@ class Cart extends React.Component {
                   <div className="price total">
                     <div>결제 예정 금액</div>
                     <div className="priceNum">
-                      \{Number(totalPrice) + shippingFee}
+                      \{getTotalPrice(items) + shippingFee}
                     </div>
                   </div>
                 </div>
                 <div className="buyBtnBox">
-                  <button className="buyBtn">구매하기</button>
+                  <button className="buyBtn" onClick={buyItem}>
+                    구매하기
+                  </button>
                 </div>
               </div>
             </div>

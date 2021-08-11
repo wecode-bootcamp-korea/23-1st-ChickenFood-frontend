@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import imgData_list from './imgData';
 import navAuthData_list from './navAuthData';
 import subCategory_list from './subCategoryData';
@@ -38,6 +39,11 @@ class Nav extends React.Component {
     this.setState({ subCategoryMode: 'layoutSubCategoryActive' });
   };
 
+  handlePage = path => {
+    console.log('ppppp', path);
+    this.props.history.push(`/products/${path}`);
+  };
+
   render() {
     return (
       <header className="layoutHeader">
@@ -48,6 +54,11 @@ class Nav extends React.Component {
                 <ListComponent key={el.id} data={el.name} path={el.path} />
               );
             })}
+            {/* {navAuthData_list.map(el => {
+              return (
+                <ListComponent key={el.id} data={el.name} path={} />
+              );
+            })} */}
           </ul>
         </div>
         <nav className="navFlexBox" onMouseEnter={this.modeActive}>
@@ -87,11 +98,17 @@ class Nav extends React.Component {
           <div className={this.state.subCategoryMode}>
             <nav className="sub Category" onMouseLeave={this.modeDefault}>
               <div className="sub imgBox">
-                <img src="images/test_welcome.png" />
+                <img src="./images/test_welcome.png" alt="welecome" />
               </div>
               <div className="sub listBox">
                 {subCategory_list.map((el, index) => {
-                  return <SubLiComponent key={index} category={el} />;
+                  return (
+                    <SubLiComponent
+                      key={index}
+                      category={el}
+                      handlePage={this.handlePage}
+                    />
+                  );
                 })}
               </div>
             </nav>
@@ -102,4 +119,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

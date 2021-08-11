@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import OneProduct from '../OneProduct/OneProduct';
 import './ProductList.scss';
-import '../../../config.js';
+import { PRODUCTS } from '../../../config.js';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class ProductList extends React.Component {
   moreProduct = () => {
     const { products, viewProduct, moreView } = this.state;
     const remainProduct = [];
-    const moreViewProduct = [];
+    let moreViewProduct = [];
     if (products.length - viewProduct.length > 4) {
       for (let i = viewProduct.length; i < viewProduct.length + moreView; i++) {
         remainProduct.push(products[i]);
@@ -44,14 +45,30 @@ class ProductList extends React.Component {
   };
 
   getData = () => {
-    fetch('./data/data.json')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          products: data.items,
-          viewProduct: data.items.slice(0, 4),
-        });
-      });
+    let id = 1;
+    console.log(`${PRODUCTS}${this.props.match.params.pathId}${id}`);
+
+    console.log(this.props.match.params);
+
+    // fetch(`${PRODUCTS}${this.props.match.params.pathId}${id}`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     this.setState({
+    //       products: data.items,
+    //       viewProduct: data.items.slice(0, 4),
+    //     });
+    //   });
+
+    // fetch('./data/data.json')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     this.setState({
+    //       products: data.items,
+    //       viewProduct: data.items.slice(0, 4),
+    //     });
+    //   });
   };
 
   handleSorting = api => {
@@ -157,4 +174,4 @@ class ProductList extends React.Component {
   }
 }
 
-export default ProductList;
+export default withRouter(ProductList);

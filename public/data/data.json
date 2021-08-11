@@ -3,70 +3,70 @@
     {
       "id": 1,
       "name": "로열허니 프로폴리스 인리치 크림 미스트 (120ml)",
-      "thumbnail": "/images/product.jpg",
+      "thumbnail": "./images/product.jpg",
       "price": "22000",
       "quantity": 1
     },
     {
       "id": 2,
       "name": "캐롯 카로틴 핸드메이드솝 (100g)+gift 캐롯 카로틴 비누망키트 증정",
-      "thumbnail": "/images/product2.jpg",
+      "thumbnail": "./images/product2.jpg",
       "price": "12000",
       "quantity": 1
     },
     {
       "id": 3,
       "name": "수비드 마스크 시트 3+3",
-      "thumbnail": "/images/product3.jpg",
+      "thumbnail": "./images/product3.jpg",
       "price": "32000",
       "quantity": 1
     },
     {
       "id": 4,
       "name": "시어버터 퍼퓸드 핸드크림 1+1",
-      "thumbnail": "/images/product4.jpg",
+      "thumbnail": "./images/product4.jpg",
       "price": "10000",
       "quantity": 1
     },
     {
       "id": 5,
       "name": "가든빈 젠틀 버블 폼 클렌저 (200ml)",
-      "thumbnail": "/images/product5.jpg",
+      "thumbnail": "./images/product5.jpg",
       "price": "24000",
       "quantity": 1
     },
     {
       "id": 6,
       "name": "가든빈 젠틀 세럼 클렌저 (190g)",
-      "thumbnail": "/images/product1.jpg",
+      "thumbnail": "./images/product.jpg",
       "price": "24000",
       "quantity": 1
     },
     {
       "id": 7,
       "name": "가든빈 젠틀 밤 클렌저 (100ml)",
-      "thumbnail": "/images/product2.jpg",
+      "thumbnail": "./images/product2.jpg",
       "price": "28000",
       "quantity": 1
     },
     {
       "id": 8,
       "name": "이지 드레싱 마스크 시트, 코코넛 젤리 (37g)",
-      "thumbnail": "/images/product3.jpg",
+      "thumbnail": "./images/product3.jpg",
       "price": "2000",
       "quantity": 1
     },
     {
       "id": 9,
       "name": "캐롯 카로틴 핸드메이드솝 (100g)+gift 캐롯 카로틴 비누망키트 증정",
-      "thumbnail": "/images/product4.jpg",
+      "thumbnail": "./images/product4.jpg",
       "price": "16000",
       "quantity": 1
     },
     {
       "id": 10,
       "name": "판토테닉 워터 파슬리 마일드폼 (150ml)",
-      "thumbnail": "/images/product5.jpg",
+      "thumbnail": "./images/product5.jpg",
       "price": "12000",
       "quantity": 1
     }

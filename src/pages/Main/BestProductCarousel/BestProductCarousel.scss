@@ -1,0 +1,35 @@
+.productCarousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  overflow: hidden;
+
+  .productWrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1020px;
+    transition: 0.5s;
+  }
+}
+
+.left,
+.right {
+  position: absolute;
+  width: 70px;
+  height: 68px;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+}
+
+.left {
+  background-image: url(../../../assets/images/left.png);
+  left: 0px;
+}
+
+.right {
+  background-image: url(../../../assets/images/right.png);
+  right: 0px;
+}

@@ -1,8 +1,4 @@
-@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
-  display: flex;
-  justify-content: $JCdefault;
-  align-items: $AIdefault;
-}
+@import '../../styles/common.scss';
 
 .layoutConfig {
   @include flexCenterBox(center, start);

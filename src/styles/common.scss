@@ -1,3 +1,9 @@
+@mixin flexCenterBox($JCdefault: center, $AIdefault: center) {
+  display: flex;
+  justify-content: $JCdefault;
+  align-items: $AIdefault;
+}
+
 * {
   box-sizing: border-box;
 }

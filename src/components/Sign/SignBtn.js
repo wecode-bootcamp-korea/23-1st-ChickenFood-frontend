@@ -5,11 +5,9 @@ class SignBtn extends React.Component {
   render() {
     const { type, classname, submit, text } = this.props;
     return (
-      <>
-        <button type={type} className={classname} onClick={submit}>
-          {text}
-        </button>
-      </>
+      <button type={type} className={classname} onClick={submit}>
+        {text}
+      </button>
     );
   }
 }

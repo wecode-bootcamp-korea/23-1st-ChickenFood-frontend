@@ -1,4 +1,4 @@
-const parkIP = 'http://10.58.2.158:8000';
+const parkIP = 'http://10.58.5.122:8000';
 const sonIP = 'http://10.58.2.249:8000';
 
 /** 

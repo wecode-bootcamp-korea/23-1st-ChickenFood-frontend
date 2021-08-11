@@ -7,11 +7,14 @@ class WishProduct extends React.Component {
     return (
       <div className="wishCard">
         <img className="wishCardImage" src={image} alt="wishlist" />
-        <button onClick={() => deleteButton(id)}>X</button>
         <div className="wishCardText">
           <p className="wishCardName">{name}</p>
           <p className="wishCardPrice">{price}</p>
         </div>
+        <span
+          className="wishCardDelete"
+          onClick={() => deleteButton(id)}
+        ></span>
       </div>
     );
   }

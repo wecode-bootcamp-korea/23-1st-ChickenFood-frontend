@@ -14,36 +14,43 @@ class Wishlist extends React.Component {
   }
 
   componentDidMount() {
-    // console.log('api 주소', LIKES_MYPAGE);
-    // fetch(LIKES_MYPAGE, {
-    //   method: 'GET',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
-    //   },
-    // })
+    console.log('api 주소', LIKES_MYPAGE);
+    fetch(LIKES_MYPAGE, {
+      method: 'GET',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
+      },
+    })
+      .then(res => res.json())
+      .then(data =>
+        this.setState({
+          wishItem: data.ITEMS,
+        })
+      );
 
     localStorage.setItem('token', 'fjeawiojfioweaf');
 
-    fetch('./data/data.json')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          wishItem: data.items,
-        });
-      });
+    // fetch('./data/data.json')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     this.setState({
+    //       wishItem: data.items,
+    //     });
+    //   });
   }
 
   handleDelete = id => {
-    // fetch(`${LIKES_DELETE_MYPAGE}${id}}`, {
-    //   method: 'DELETE',
-    //   headers: {
-    //     Authorization: localStorage.getItem('token'),
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {});
+    fetch(`http://10.58.5.122:8000/likes/${id}}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {});
     console.log('아이템 삭제!!!', id);
   };
 
@@ -72,10 +79,6 @@ class Wishlist extends React.Component {
           </div>
         )}
         <div className="cardContainer">
-          <div className="cardTop">
-            <button>전체 선택</button>
-            <button>선택 삭제</button>
-          </div>
           <div className="cardList">
             <div className="cardtop"></div>
             {wishItem.map((item, index) => {

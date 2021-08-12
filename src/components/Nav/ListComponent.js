@@ -3,6 +3,10 @@ import { withRouter } from 'react-router-dom';
 import './nav.scss';
 
 class ListComponent extends React.Component {
+  handlePage = () => {
+    const { path } = this.props;
+    this.props.handlePage(path);
+  };
   render() {
     const TOKEN = localStorage.getItem('TOKEN');
     const { path, classname, imgClassName, src, data } = this.props;

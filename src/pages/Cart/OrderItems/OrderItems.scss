@@ -27,6 +27,12 @@
       .itemOption {
         margin-top: 25px;
         color: #888888;
+
+        .quantityBtn {
+          width: 25px;
+          margin-left: 5px;
+          cursor: pointer;
+        }
       }
     }
   }

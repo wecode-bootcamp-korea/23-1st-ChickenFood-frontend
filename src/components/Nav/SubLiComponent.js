@@ -10,7 +10,13 @@ class SubLiComponent extends React.Component {
       <ul className={categoryKey}>
         {category[categoryKey].map(el => {
           return (
-            <ListComponent key={el.id} data={el.subCategory} path={el.path} />
+            <ListComponent
+              key={el.id}
+              data={el.subCategory}
+              path={el.path}
+              handlePage={this.props.handlePage}
+              id={el.id}
+            />
           );
         })}
       </ul>

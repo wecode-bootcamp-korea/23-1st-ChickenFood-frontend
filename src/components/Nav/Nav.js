@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import imgData_list from './imgData';
 import navAuthData_list from './navAuthData';
 import subCategory_list from './subCategoryData';
@@ -37,6 +38,11 @@ class Nav extends React.Component {
 
   modeActive = () => {
     this.setState({ subCategoryMode: 'layoutSubCategoryActive' });
+  };
+
+  handlePage = path => {
+    console.log('path다', path);
+    this.props.history.push(`/products/${path}`);
   };
 
   render() {
@@ -105,11 +111,21 @@ class Nav extends React.Component {
           <div className={this.state.subCategoryMode}>
             <nav className="sub Category" onMouseLeave={this.modeDefault}>
               <div className="sub imgBox">
+<<<<<<< HEAD
                 <img src="images/main_banner.jpg" />
+=======
+                <img src="./images/test_welcome.png" alt="welecome" />
+>>>>>>> master
               </div>
               <div className="sub listBox">
                 {subCategory_list.map((el, index) => {
-                  return <SubLiComponent key={index} category={el} />;
+                  return (
+                    <SubLiComponent
+                      key={index}
+                      category={el}
+                      handlePage={this.handlePage}
+                    />
+                  );
                 })}
               </div>
             </nav>
@@ -120,4 +136,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

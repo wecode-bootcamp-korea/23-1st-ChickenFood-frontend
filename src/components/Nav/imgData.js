@@ -2,7 +2,8 @@ const imgData_list = {
   logoImage: [
     {
       id: 1,
-      classname: 'logoImage',
+      imgClassName: 'logoImage',
+      classname: 'pageMove',
       path: '/',
       src: 'images/chickenfood_logo.png',
     },
@@ -10,14 +11,22 @@ const imgData_list = {
   navIconImage: [
     {
       id: 2,
-      classname: 'youtubeIcon',
+      imgClassName: 'youtubeIcon',
+      classname: 'pageMove',
       path: '#',
       src: 'images/video-player.png',
     },
-    { id: 3, classname: 'searchIcon', path: '#', src: 'images/search.png' },
+    {
+      id: 3,
+      imgClassName: 'searchIcon',
+      classname: 'pageMove',
+      path: '#',
+      src: 'images/search.png',
+    },
     {
       id: 4,
-      classname: 'shoppingListIcon',
+      imgClassName: 'shoppingListIcon',
+      classname: 'pageMove',
       path: '#',
       src: 'images/cart.png',
     },

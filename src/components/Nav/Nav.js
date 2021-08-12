@@ -48,12 +48,22 @@ class Nav extends React.Component {
             {TOKEN
               ? navAuthData_list.isLogin.map(el => {
                   return (
-                    <ListComponent key={el.id} data={el.name} path={el.path} />
+                    <ListComponent
+                      key={el.id}
+                      classname={el.classname}
+                      data={el.name}
+                      path={el.path}
+                    />
                   );
                 })
               : navAuthData_list.isNotLogin.map(el => {
                   return (
-                    <ListComponent key={el.id} data={el.name} path={el.path} />
+                    <ListComponent
+                      key={el.id}
+                      classname={el.classname}
+                      data={el.name}
+                      path={el.path}
+                    />
                   );
                 })}
           </ul>

@@ -3,24 +3,28 @@ const navAuthData_list = {
     {
       id: '1',
       name: '로그아웃',
+      classname: 'pageMove logout',
       path: '/',
     },
 
     {
       id: '2',
       name: '마이페이지',
+      classname: 'pageMove mypage',
       path: '',
     },
 
     {
       id: '3',
       name: '멤버십',
+      classname: 'pageMove membership',
       path: '',
     },
 
     {
       id: '4',
       name: '고객센터',
+      classname: 'pageMove cs',
       path: '',
     },
   ],

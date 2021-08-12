@@ -36,11 +36,8 @@ class Cart extends React.Component {
       body: JSON.stringify({
         quantity: itemNum + 1,
       }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+    });
+
     const { items } = this.state;
 
     const changeList = items.map(item => {
@@ -53,15 +50,12 @@ class Cart extends React.Component {
         return item;
       }
     });
-    console.log('quantity=', changeList[0].quantity);
     this.setState({
       items: changeList,
     });
   };
 
   minusBtn = (itemNum, id) => {
-    console.log('상품수확인', itemNum, '아이디확인', id);
-
     fetch(`http://10.58.2.249:8000/inventorys?id=${id}`, {
       method: 'PATCH',
       headers: {
@@ -72,6 +66,7 @@ class Cart extends React.Component {
         quantity: itemNum - 1,
       }),
     });
+
     const { items } = this.state;
     const changeList = items.map(item => {
       if (Number(id) === item.id) {

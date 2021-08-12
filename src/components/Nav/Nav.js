@@ -40,7 +40,7 @@ class Nav extends React.Component {
   };
 
   handlePage = path => {
-    console.log('ppppp', path);
+    console.log('path다', path);
     this.props.history.push(`/products/${path}`);
   };
 

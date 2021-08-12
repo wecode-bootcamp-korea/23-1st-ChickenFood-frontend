@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import BestProductCarousel from '../BestProductCarousel/BestProductCarousel';
 import './BestItem.scss';
 
@@ -34,12 +35,20 @@ class BestItem extends React.Component {
     });
   };
 
+  goToBest = () => {
+    this.props.history.push('/products');
+  };
+
   render() {
     const { circle, productNum } = this.state;
-    const { isBtnClick } = this;
+    const { isBtnClick, goToBest } = this;
     return (
       <div className="bestContainer">
-        <div className="bestTitle">{/* <a href="">이번주 베스트</a> */}</div>
+        <div className="bestTitle">
+          <div className="bestTitleLink" onClick={goToBest}>
+            이번주 <span>베스트</span>
+          </div>
+        </div>
         <div className="bestProducts">
           <ul className="catalogs">
             {circle.map(el => (
@@ -58,4 +67,4 @@ class BestItem extends React.Component {
   }
 }
 
-export default BestItem;
+export default withRouter(BestItem);

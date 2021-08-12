@@ -9,7 +9,6 @@
 
   .bannerBox {
     display: flex;
-    flex-direction: row;
     transition: 0.5s;
   }
 
@@ -25,6 +24,7 @@
       width: 84px;
       height: 81px;
       background-repeat: no-repeat;
+      cursor: pointer;
     }
 
     .left {

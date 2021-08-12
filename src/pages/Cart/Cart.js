@@ -27,8 +27,6 @@ class Cart extends React.Component {
   }
 
   plusBtn = (itemNum, id) => {
-    console.log('상품수확인', itemNum, '아이디확인', id);
-
     fetch(`http://10.58.2.249:8000/inventorys?id=${id}`, {
       method: 'PATCH',
       headers: {

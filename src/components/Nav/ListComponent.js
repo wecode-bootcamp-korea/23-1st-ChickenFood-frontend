@@ -14,7 +14,7 @@ class ListComponent extends React.Component {
     const test = e => {
       const btnClassName = e.target.className;
       if (btnClassName === 'pageMove logout') {
-        return console.log('good') && localStorage.removeItem('TOKEN');
+        return localStorage.removeItem('TOKEN');
       } else {
         return this.props.history.push(path);
       }

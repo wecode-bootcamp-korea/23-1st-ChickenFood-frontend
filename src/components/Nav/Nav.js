@@ -111,11 +111,7 @@ class Nav extends React.Component {
           <div className={this.state.subCategoryMode}>
             <nav className="sub Category" onMouseLeave={this.modeDefault}>
               <div className="sub imgBox">
-<<<<<<< HEAD
                 <img src="images/main_banner.jpg" />
-=======
-                <img src="./images/test_welcome.png" alt="welecome" />
->>>>>>> master
               </div>
               <div className="sub listBox">
                 {subCategory_list.map((el, index) => {

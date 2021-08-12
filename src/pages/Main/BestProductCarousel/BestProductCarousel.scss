@@ -1,8 +1,8 @@
+@import '../../../styles/common.scss';
+
 .productCarousel {
-  display: flex;
+  @include flexCenterBox;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 60px;
   overflow: hidden;
 
@@ -22,6 +22,7 @@
   height: 68px;
   background-repeat: no-repeat;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .left {

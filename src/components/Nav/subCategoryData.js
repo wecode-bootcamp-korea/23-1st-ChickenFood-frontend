@@ -4,17 +4,17 @@ const subCategoryData_list = [
       {
         id: 1,
         subCategory: '베스트',
-        path: '/bestitem',
+        path: '',
       },
       {
         id: 2,
         subCategory: '브랜드',
-        path: '',
+        path: 'brand=',
       },
       {
         id: 3,
         subCategory: '유형별',
-        path: '/productlist',
+        path: 'type=',
       },
     ],
   },

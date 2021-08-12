@@ -1,0 +1,26 @@
+.productImgWrap {
+  width: 240px;
+  height: 356px;
+  margin: 20px 0 0 15px;
+
+  .productImgBox {
+    width: 240px;
+    height: 240px;
+    cursor: pointer;
+
+    .productImg {
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  .productName {
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .productPrice {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,154 @@
+.cartContainer {
+  display: flex;
+  justify-content: center;
+
+  .cartLayout {
+    width: 1140px;
+
+    .smallTitle {
+      margin-bottom: 50px;
+      padding-top: 10px;
+      color: #888888;
+      font-size: 12px;
+    }
+
+    .cartTitle {
+      margin-bottom: 21px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .emptyCart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 108px;
+
+      .emptyCartTitle {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .emptyCartBody {
+        margin-top: 5px;
+        font-size: 15px;
+        line-height: 24px;
+        letter-spacing: -0.15px;
+
+        span {
+          font-weight: bold;
+        }
+      }
+
+      .goToBest {
+        width: 265px;
+        margin-top: 40px;
+        border: 1px solid black;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .cartBody {
+    display: flex;
+
+    .orderBoxTitle {
+      padding: 0 7px;
+      background: linear-gradient(to top, #fdb812 50%, transparent 50%);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .orderBox {
+      margin-top: 28px;
+      padding-bottom: 8px;
+      border: 1px solid #eeeeee;
+      width: 740px;
+
+      .orderTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 28px;
+        font-size: 15px;
+
+        .orderTopSelect {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .orderTopDelete {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .billContainer {
+      width: 360px;
+      margin-left: 40px;
+
+      .billBox {
+        margin-top: 49px;
+        border: 1px solid #eeeeee;
+
+        .billTitle {
+          padding: 23px 28px;
+          border-bottom: 1px solid #eeeeee;
+          font-size: 21px;
+          font-weight: bold;
+        }
+        .billContents {
+          padding: 23px 28px;
+          border-bottom: 1px solid #eeeeee;
+
+          .billContentsTitle {
+            font-size: 18px;
+            font-weight: bold;
+          }
+          .price {
+            margin-top: 14px;
+            font-size: 15px;
+          }
+          span {
+            font-size: 12px;
+          }
+
+          .priceNum {
+            font-weight: bold;
+          }
+        }
+
+        .price {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .total {
+          padding: 23px 28px;
+          font-weight: bold;
+        }
+      }
+
+      .buyBtnBox {
+        margin-top: 15px;
+        text-align: center;
+
+        .buyBtn {
+          width: 100%;
+          height: 60px;
+          background-color: #fdb812;
+          border: none;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

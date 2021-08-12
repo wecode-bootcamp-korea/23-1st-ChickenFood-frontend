@@ -4,6 +4,7 @@ import './nav.scss';
 
 class ListComponent extends React.Component {
   render() {
+    const TOKEN = localStorage.getItem('TOKEN');
     const { path, classname, src, data } = this.props;
 
     return (

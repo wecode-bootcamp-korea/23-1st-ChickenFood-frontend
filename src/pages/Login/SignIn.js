@@ -30,11 +30,10 @@ class SignIn extends Component {
       .then(res => res.json())
       .then(response => {
         if (response.message === 'SUCCESS') {
-          alert('로그인되었습니다.');
-          console.log(response);
+          localStorage.setItem('TOKEN', response.access_token);
+          this.props.history.push('/main');
         } else {
           alert('아이디와 비밀번호를 확인해주세요!');
-          console.log(response);
         }
       });
   };

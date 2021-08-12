@@ -36,6 +36,11 @@
 
           .pageMove {
             color: #888;
+            &:hover {
+              color: black;
+              background: linear-gradient(to top, #fdb812 50%, transparent 50%);
+              font-weight: bold;
+            }
           }
         }
       }

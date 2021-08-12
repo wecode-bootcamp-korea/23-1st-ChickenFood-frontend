@@ -16,6 +16,8 @@ URI에 id없으면 첫번째 브랜드 상품 리스트 호출
 price : type => decimal(실수)
 상품 리스트 : Method = GET Response : { items: [ {name, price, image}]}
 **/
+export const PRODUCTS = `${parkIP}/products/`;
+
 export const ALL_PRODUCTS_LIST = `${parkIP}/products/catalog`;
 export const MAIN_PAGE_PRODUCTS_LIST = `${parkIP}/products/catalog?filter=main`;
 export const BEST_PRODUCTS_LIST = `${parkIP}/products/catalog?filter=best`;

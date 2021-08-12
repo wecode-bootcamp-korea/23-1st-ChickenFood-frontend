@@ -1,0 +1,11 @@
+{
+  "items": {
+    "id": 5,
+    "name": "시어버터 퍼퓸드 핸드크림",
+    "price": 4500,
+    "thumbnail": "",
+    "brand_name": "스킨푸드",
+    "type_name": ["석류향", "자몽향", "로즈향"],
+    "detail_image": "../images/loyal_honey.png"
+  }
+}

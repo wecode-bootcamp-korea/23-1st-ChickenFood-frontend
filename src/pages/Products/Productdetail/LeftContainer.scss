@@ -1,0 +1,18 @@
+.productLeft {
+  margin: 70px 0;
+
+  .imageWrapper {
+    display: flex;
+    width: 450px;
+    height: 480px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+
+    .sampleImage {
+      width: 350px;
+      height: 350px;
+      background-color: rgb(255, 206, 82);
+    }
+  }
+}

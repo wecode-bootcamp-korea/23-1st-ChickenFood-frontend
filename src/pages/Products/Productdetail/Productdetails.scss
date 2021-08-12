@@ -1,0 +1,27 @@
+.productDetail {
+  display: flex;
+  background-color: #f6f6f6;
+  justify-content: center;
+}
+
+.contentsTitle {
+  margin-right: 50px;
+  font-weight: bolder;
+}
+
+.productRight {
+  .sections {
+    padding: 10px 0px;
+    border-bottom: 1px solid #e4e4e4;
+  }
+
+  margin-top: 50px;
+  width: 500px;
+  height: 100%;
+  background-color: #f6f6f6;
+  justify-content: left;
+
+  .sectionsWrapper {
+    margin: 20px;
+  }
+}

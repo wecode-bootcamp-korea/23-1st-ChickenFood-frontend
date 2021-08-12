@@ -13,6 +13,7 @@ class Nav extends React.Component {
   constructor() {
     super();
     this.state = {
+      loginMode: '',
       subCategoryMode: 'layoutSubCategoryDefault',
       // navAuthData: '',
     };
@@ -45,20 +46,32 @@ class Nav extends React.Component {
   };
 
   render() {
+    const TOKEN = localStorage.getItem('TOKEN');
     return (
       <header className="layoutHeader">
         <div className="headerFlexBox" onMouseEnter={this.modeDefault}>
           <ul className="authFlexBox">
-            {navAuthData_list.map(el => {
-              return (
-                <ListComponent key={el.id} data={el.name} path={el.path} />
-              );
-            })}
-            {/* {navAuthData_list.map(el => {
-              return (
-                <ListComponent key={el.id} data={el.name} path={} />
-              );
-            })} */}
+            {TOKEN
+              ? navAuthData_list.isLogin.map(el => {
+                  return (
+                    <ListComponent
+                      key={el.id}
+                      classname={el.classname}
+                      data={el.name}
+                      path={el.path}
+                    />
+                  );
+                })
+              : navAuthData_list.isNotLogin.map(el => {
+                  return (
+                    <ListComponent
+                      key={el.id}
+                      classname={el.classname}
+                      data={el.name}
+                      path={el.path}
+                    />
+                  );
+                })}
           </ul>
         </div>
         <nav className="navFlexBox" onMouseEnter={this.modeActive}>
@@ -98,7 +111,7 @@ class Nav extends React.Component {
           <div className={this.state.subCategoryMode}>
             <nav className="sub Category" onMouseLeave={this.modeDefault}>
               <div className="sub imgBox">
-                <img src="./images/test_welcome.png" alt="welecome" />
+                <img src="images/main_banner.jpg" />
               </div>
               <div className="sub listBox">
                 {subCategory_list.map((el, index) => {

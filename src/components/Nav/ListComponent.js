@@ -8,17 +8,22 @@ class ListComponent extends React.Component {
     this.props.handlePage(path);
   };
   render() {
-    const { classname, src, data } = this.props;
-    // console.log(this.props); // history, location 확인
+    const TOKEN = localStorage.getItem('TOKEN');
+    const { path, classname, imgClassName, src, data } = this.props;
+
+    const test = e => {
+      const btnClassName = e.target.className;
+      if (btnClassName === 'pageMove logout') {
+        return localStorage.removeItem('TOKEN');
+      } else {
+        return this.props.history.push(path);
+      }
+    };
+
     return (
       <li>
-        <div
-          className="pageMove"
-          id={this.props.id}
-          onClick={this.handlePage}
-          path={this.props.path}
-        >
-          <img className={classname} src={src} />
+        <div className={classname} onClick={test}>
+          <img className={imgClassName} src={src} />
           {data}
         </div>
       </li>

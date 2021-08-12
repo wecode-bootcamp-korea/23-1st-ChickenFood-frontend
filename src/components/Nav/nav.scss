@@ -34,8 +34,15 @@
           padding: 10px;
           font-size: 13px;
 
-          .pageMove {
+          div {
             color: #888;
+            cursor: pointer;
+
+            &:hover {
+              color: black;
+              background: linear-gradient(to top, #fdb812 50%, transparent 50%);
+              font-weight: bold;
+            }
           }
         }
       }
@@ -76,10 +83,11 @@
       li {
         margin-right: 20px;
 
-        .pageMove {
+        div {
           padding: 4px 10px;
           color: #888;
           font-size: 0.8rem;
+          cursor: pointer;
         }
       }
     }
@@ -96,10 +104,11 @@
       li {
         padding: 0 15px;
 
-        .pageMove {
+        div {
           padding: 33px 10px;
           font-size: 1.1rem;
           font-weight: bold;
+          cursor: pointer;
         }
       }
     }
@@ -107,9 +116,10 @@
     .navIconWrap {
       @include flexCenterBox(center, center);
 
-      .pageMove {
+      div {
         padding: 0 10px;
         font-size: 5px;
+        cursor: pointer;
 
         img {
           width: 22px;
@@ -129,9 +139,5 @@
     .layoutSubCategoryActive {
       @include subCatgoryModal(block);
     }
-  }
-
-  .pageMove {
-    cursor: pointer;
   }
 }

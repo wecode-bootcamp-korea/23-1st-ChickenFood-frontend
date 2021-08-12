@@ -5,6 +5,14 @@
     margin: 0 60px 0 60px;
     padding: 30px 10px 20px 10px;
     font-size: 32px;
+
+    .bestTitleLink {
+      cursor: pointer;
+
+      span {
+        font-weight: bold;
+      }
+    }
   }
 
   .bestProducts {
@@ -15,7 +23,6 @@
 
     .catalogs {
       display: flex;
-      flex-direction: row;
       justify-content: space-around;
       width: 1040px;
       margin: 0 47.5px 0 47.5px;

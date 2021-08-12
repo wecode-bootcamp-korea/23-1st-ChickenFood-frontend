@@ -3,7 +3,7 @@ import './BestProduct.scss';
 
 class BestProduct extends React.Component {
   render() {
-    const { id, imgsrc, product, price } = this.props;
+    const { imgsrc, product, price } = this.props;
     return (
       <li className="productImgWrap">
         <div className="productImgBox">

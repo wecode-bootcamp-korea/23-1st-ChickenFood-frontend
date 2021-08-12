@@ -5,6 +5,8 @@ import Main from './pages/Main/Main';
 import SignIn from './pages/Login/SignIn';
 import SignUp from './pages/Login/SignUp';
 import Products from './pages/Products/Products';
+// import Productdetail from './pages/Products/Productdetail/Productdetail';
+import Cart from './pages/Cart/Cart';
 import BestItem from './pages/Products/BestItem/BestItem';
 import Footer from './components/Footer/Footer';
 

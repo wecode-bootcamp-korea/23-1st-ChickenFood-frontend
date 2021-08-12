@@ -6,16 +6,6 @@ import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
 import SectionFour from './SectionFour';
 
-// deleteList =d  => {
-//   const { items } = this.state;
-//   const filteredList = items.filter(product => product.id !== id);
-//   this.setState({
-//     items: filteredList,
-//   });
-// };
-// 14:11
-// <button className="closeBtn" onClick={() => deleteList(id)}></button>
-
 class Productdetail extends React.Component {
   constructor() {
     super();
@@ -36,8 +26,6 @@ class Productdetail extends React.Component {
       .then(res => {
         this.setState({ data: res.items });
       });
-
-    // http://10.58.7.206:8000/options
 
     fetch('data/mockData_detail_page_second.json', {
       method: 'GET',
@@ -62,25 +50,37 @@ class Productdetail extends React.Component {
   };
 
   // 상품 수량 조절 함수
-  count = () => {
-    this.setState({
-      quantity: this.state.quantity + 1,
+  count = e => {
+    const btnId = e.target.id;
+    const emptyList = [...this.state.emptyList];
+
+    emptyList.map(el => {
+      if (btnId === el.id) {
+        el.quantity += 1;
+        this.setState({
+          emptyList,
+          quantity: el.quantity,
+        });
+      }
     });
   };
 
-  countMinus = () => {
-    if (this.state.quantity === 1) {
-      this.setState({ quantity: 1 });
-    } else {
-      this.setState({
-        quantity: this.state.quantity - 1,
-      });
-    }
+  countMinus = e => {
+    const btnId = e.target.id;
+    const emptyList = [...this.state.emptyList];
+
+    emptyList.map(el => {
+      if (btnId === el.id && el.quantity > 1) {
+        el.quantity -= 1;
+        this.setState({
+          emptyList,
+          quantity: el.quantity,
+        });
+      }
+    });
   };
 
   deleteList = id => {
-    console.log(id);
-    console.log(this.state.type);
     const filteredList = this.state.emptyList.filter(
       product => product.id !== id
     );
@@ -90,6 +90,7 @@ class Productdetail extends React.Component {
   };
 
   render() {
+    const emptyList = this.state.emptyList;
     const { name, price } = this.state.data;
     const { quantity } = this.state;
     return (
@@ -117,7 +118,6 @@ class Productdetail extends React.Component {
             <SectionFour
               emptyList={this.state.emptyList}
               typeId={this.state.type.id}
-              quantity={this.state.quantity}
               countMinus={this.countMinus}
               count={this.count}
               price={this.state.data.price}

@@ -2,21 +2,25 @@ import React, { Component } from 'react';
 import './SectionFour.scss';
 
 export class SectionFour extends Component {
-  test = e => {
-    console.log(e.target.id);
-  };
+  constructor() {
+    super();
+    this.state = {
+      quantity: '',
+    };
+  }
+
   render() {
-    // console.log('typeId', this.props.emptyList);
+    let { quantity } = this.state;
     return (
       <div>
         <div className="sectionFour section">
           {this.props.emptyList.map((item, index) => {
+            quantity = item.quantity;
             return (
               <div className="selectedProduct" key={index}>
                 <div className="selectedProductName">
                   <span className="contentsTitle">{item.type}</span>
                   <img
-                    // onClick={this.test}
                     onClick={() => this.props.deleteList(item.id)}
                     className="close"
                     src="./images/close-cross-symbol-in-a-circle.png"
@@ -28,15 +32,17 @@ export class SectionFour extends Component {
                 <div className="plusAndMinusWrapper">
                   <span className="plusAndMinuss">
                     <img
+                      id={item.id}
                       onClick={this.props.countMinus}
                       className="plusAndMinus"
                       src="./images/minus.png"
                       alt="minus"
                     />
                     <span id={this.props.typeId} className="quantity">
-                      {this.props.quantity}
+                      {item.quantity}
                     </span>
                     <img
+                      id={item.id}
                       onClick={this.props.count}
                       className="plusAndMinus"
                       src="./images/plus.png"
@@ -59,10 +65,7 @@ export class SectionFour extends Component {
               <span className="contentsTitle">합계</span>
             </span>
             <span className="totalAmount">
-              ₩
-              {Math.floor(
-                this.props.price * this.props.quantity
-              ).toLocaleString('ko-KR')}
+              ₩{Math.floor(this.props.price * quantity).toLocaleString('ko-KR')}
             </span>
           </div>
           <div className="BtnsWrapper">

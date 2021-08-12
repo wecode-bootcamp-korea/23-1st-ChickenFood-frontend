@@ -6,7 +6,7 @@ class WishButton extends React.Component {
     super(props);
 
     this.state = {
-      isCheckLike: true,
+      isCheckLike: false,
     };
   }
 
@@ -23,15 +23,25 @@ class WishButton extends React.Component {
     //   });
   };
 
-  handleLike = id => {
-    console.log(id);
-    fetch(`http://10.58.2.249:8000/likes/${id}`, {
-      method: 'POST',
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
-      },
-    });
+  handleLike = event => {
+    // 찜하기
+    if (event.target.name === 'like_red') {
+      // fetch('');
+      console.log(event.target.id, event.target.name);
+    }
+    // 찜해제
+    else if (event.target.name === 'like_white') {
+      // fetch('');
+      console.log(event.target.id, event.target.name);
+      // fetch('');
+    }
+    // fetch(`http://10.58.2.249:8000/likes/${id}`, {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization:
+    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+    //   },
+    // });
     this.setState({
       isCheckLike: !this.state.isCheckLike,
     });
@@ -43,20 +53,25 @@ class WishButton extends React.Component {
     return (
       <div className="icon">
         {isCheckLike ? (
-          <img
-            className="wishIcon"
-            src="./images/heart.png"
-            alt="like"
-            onClick={() => this.handleLike(id)}
-          />
+          <div onClick={this.handleLike}>
+            <img
+              className="wishIcon"
+              name="like_red"
+              src="./images/heart_red.png"
+              alt="like"
+              id={id}
+            />
+          </div>
         ) : (
-          <img
-            className="wishIcon"
-            src="./images/heart_red.png"
-            alt="like"
-            // onClick={this.disLike(id)}
-            style={{ width: '30px', height: '30px' }}
-          />
+          <div onClick={this.handleLike}>
+            <img
+              className="wishIcon"
+              name="like_white"
+              src="./images/heart.png"
+              alt="like"
+              id={id}
+            />
+          </div>
         )}
       </div>
     );

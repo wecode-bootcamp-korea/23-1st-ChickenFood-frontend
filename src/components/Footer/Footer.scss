@@ -2,8 +2,10 @@
   height: 412px;
   color: white;
   background-image: url('../../assets/images/bg_footer.png');
-  background-color: #f3efe8;
+  background-repeat: no-repeat;
   font-size: 18px;
+
+  margin-top: 50px;
 
   .footerNavList {
     display: flex;

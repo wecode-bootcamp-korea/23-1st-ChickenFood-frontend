@@ -62,6 +62,7 @@ class Wishlist extends React.Component {
         quantity: 1,
       }),
     });
+    this.handleDelete(id);
   };
 
   render() {

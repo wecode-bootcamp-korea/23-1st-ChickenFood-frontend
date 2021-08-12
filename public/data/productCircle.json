@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "image": "/images/circle.png",
+    "name": "스킨케어"
+  },
+  {
+    "id": 2,
+    "image": "/images/circle.png",
+    "name": "마스크"
+  },
+  {
+    "id": 3,
+    "image": "/images/circle.png",
+    "name": "선"
+  },
+  {
+    "id": 4,
+    "image": "/images/circle.png",
+    "name": "클렌징"
+  },
+  {
+    "id": 5,
+    "image": "/images/circle.png",
+    "name": "바디"
+  },
+  {
+    "id": 6,
+    "image": "/images/circle.png",
+    "name": "헤어"
+  },
+  {
+    "id": 7,
+    "image": "/images/circle.png",
+    "name": "남성"
+  },
+  {
+    "id": 8,
+    "image": "/images/circle.png",
+    "name": "베이스 메이크업"
+  },
+  {
+    "id": 9,
+    "image": "/images/circle.png",
+    "name": "컬러 메이크업"
+  },
+  {
+    "id": 10,
+    "image": "/images/circle.png",
+    "name": "미용 부자재"
+  }
+]

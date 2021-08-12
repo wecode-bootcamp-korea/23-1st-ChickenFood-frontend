@@ -1,0 +1,40 @@
+@import '../../styles/common.scss';
+
+.layoutConfig {
+  @include flexCenterBox(center, start);
+  background-color: rgb(246, 246, 246);
+
+  .configFlexBox {
+    @include flexCenterBox(start, center);
+    flex-direction: column;
+    width: 1140px;
+
+    .signUpFlexBox {
+      @include flexCenterBox(start, center);
+      flex-direction: column;
+      margin: 0 300px;
+
+      h1 {
+        margin: 70px auto 10px;
+        font-size: 2rem;
+      }
+
+      .layoutInput {
+        min-width: 600px;
+        margin: 10px auto 15px;
+        text-align: center;
+
+        h4 {
+          margin-bottom: 20px;
+          padding: 0 7px;
+          font-size: 1.4rem;
+          text-align: left;
+        }
+
+        .idInput {
+          @include flexCenterBox(flex-start, center);
+        }
+      }
+    }
+  }
+}

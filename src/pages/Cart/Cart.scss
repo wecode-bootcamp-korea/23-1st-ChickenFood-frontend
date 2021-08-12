@@ -1,0 +1,134 @@
+.cartContainer {
+  display: flex;
+  justify-content: center;
+
+  .cartLayout {
+    width: 1140px;
+
+    .smallTitle {
+      margin-bottom: 50px;
+      padding-top: 10px;
+      font-size: 12px;
+    }
+
+    .cartTitle {
+      margin-bottom: 21px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+
+  .cartBody {
+    display: flex;
+    flex-direction: row;
+
+    .leftContainer {
+      width: 740px;
+
+      .leftTitle {
+        padding: 0 7px;
+        font-size: 21px;
+        font-weight: bold;
+      }
+
+      .orderBox {
+        margin-top: 28px;
+        padding-bottom: 8px;
+        border: 1px solid #eeeeee;
+
+        .orderTop {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 20px 28px;
+          font-size: 15px;
+
+          .orderTopLeft {
+            display: flex;
+            flex-direction: row;
+          }
+
+          .orderTopRight {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .rightContainer {
+      width: 360px;
+      margin-left: 40px;
+
+      .billBox {
+        margin-top: 49px;
+        border: 1px solid #eeeeee;
+
+        .billTitle {
+          padding: 23px 28px;
+          border-bottom: 1px solid #eeeeee;
+          font-size: 21px;
+          font-weight: bold;
+        }
+        .billContents {
+          padding: 23px 28px;
+          border-bottom: 1px solid #eeeeee;
+
+          .billContentsTitle {
+            font-size: 18px;
+            font-weight: bold;
+          }
+          .price {
+            margin-top: 14px;
+            font-size: 15px;
+          }
+          .shipping {
+            span {
+              font-size: 12px;
+            }
+          }
+
+          .priceNum {
+            font-weight: bold;
+          }
+        }
+
+        .price {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .total {
+          padding: 23px 28px;
+          font-weight: bold;
+        }
+      }
+
+      .buyBtnBox {
+        margin-top: 15px;
+        text-align: center;
+
+        .buyBtn {
+          width: 100%;
+          height: 60px;
+          background-color: #fdb812;
+          border: none;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.checkBox {
+  width: 21px;
+  height: 21px;
+  margin-right: 12px;
+  background-image: url(../../assets/images/checkOff.png);
+}
+
+.checkHide {
+  opacity: 1;
+}

@@ -1,11 +1,14 @@
 import React from 'react';
-import Wishlist from '../../components/Wishlist/Wishlist';
+import Banner from './Banner/Banner';
+import BestItem from './BestItem/BestItem';
+import './Main.scss';
 
 class Main extends React.Component {
   render() {
     return (
-      <div>
-        <Wishlist />
+      <div className="mainPage">
+        <Banner />
+        <BestItem />
       </div>
     );
   }

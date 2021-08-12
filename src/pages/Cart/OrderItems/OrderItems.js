@@ -24,12 +24,16 @@ class OrderItems extends React.Component {
               <button
                 className="quantityBtn"
                 name={id}
-                onClick={itemNum === 1 ? null : minusBtn}
+                onClick={itemNum === 1 ? null : e => minusBtn(itemNum, id)}
               >
                 -
               </button>{' '}
               {itemNum}개
-              <button className="quantityBtn" name={id} onClick={plusBtn}>
+              <button
+                className="quantityBtn"
+                name={id}
+                onClick={e => plusBtn(itemNum, id)}
+              >
                 +
               </button>
             </div>

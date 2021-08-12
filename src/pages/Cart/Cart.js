@@ -12,7 +12,12 @@ class Cart extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/item.json')
+    fetch('http://10.58.2.249:8000/inventorys', {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -21,10 +26,27 @@ class Cart extends React.Component {
       });
   }
 
-  plusBtn = e => {
+  plusBtn = (itemNum, id) => {
+    console.log('상품수확인', itemNum, '아이디확인', id);
+
+    fetch(`http://10.58.2.249:8000/inventorys?id=${id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+      body: JSON.stringify({
+        quantity: itemNum + 1,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
     const { items } = this.state;
+
     const changeList = items.map(item => {
-      if (Number(e.target.name) === item.id) {
+      if (Number(id) === item.id) {
         return {
           ...item,
           quantity: item.quantity + 1,
@@ -33,15 +55,28 @@ class Cart extends React.Component {
         return item;
       }
     });
+    console.log('quantity=', changeList[0].quantity);
     this.setState({
       items: changeList,
     });
   };
 
-  minusBtn = e => {
+  minusBtn = (itemNum, id) => {
+    console.log('상품수확인', itemNum, '아이디확인', id);
+
+    fetch(`http://10.58.2.249:8000/inventorys?id=${id}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+      body: JSON.stringify({
+        quantity: itemNum - 1,
+      }),
+    });
     const { items } = this.state;
     const changeList = items.map(item => {
-      if (Number(e.target.name) === item.id) {
+      if (Number(id) === item.id) {
         if (item.quantity < 2) {
           return { ...item, quantity: 1 };
         } else {
@@ -57,6 +92,17 @@ class Cart extends React.Component {
   };
 
   deleteList = id => {
+    fetch(`http://10.58.2.249:8000/inventorys?id=${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
     const { items } = this.state;
     const filteredList = items.filter(product => product.id !== id);
     this.setState({
@@ -65,10 +111,21 @@ class Cart extends React.Component {
   };
 
   goToBest = () => {
-    this.props.history.push('/best');
+    this.props.history.push('/bestitem');
   };
 
   buyItem = () => {
+    fetch(`http://10.58.2.249:8000/inventorys`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
     alert('구매가 완료되었습니다.');
     this.setState({
       items: [],

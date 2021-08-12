@@ -67,16 +67,15 @@ class Wishlist extends React.Component {
 
   render() {
     const { isEmptyWishlist, wishItem } = this.state;
-    let emptyWishlist = isEmptyWishlist;
-    if (wishItem.length === 0) {
-      emptyWishlist = true;
+    if (wishItem.length) {
+      isEmptyWishlist = true;
     } else {
-      emptyWishlist = false;
+      isEmptyWishlist = false;
     }
     return (
       <div className="wishlistWraper">
         <h1 className="wishlistTitle">위시리스트</h1>
-        {emptyWishlist === true ? (
+        {!isEmptyWishlist ? (
           <div className="wishlistContainer">
             <img
               className="nowishimg"

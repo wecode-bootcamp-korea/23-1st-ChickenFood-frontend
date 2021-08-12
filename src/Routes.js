@@ -9,6 +9,7 @@ import Products from './pages/Products/Products';
 import Cart from './pages/Cart/Cart';
 import BestItem from './pages/Products/BestItem/BestItem';
 import Footer from './components/Footer/Footer';
+import Wishlist from './components/Wishlist/Wishlist';
 
 class Routes extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class Routes extends React.Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/products/:pathId" component={Products} />
           <Route exact path="/bestitem" component={BestItem} />
+          <Route exact path="/wishlist" component={Wishlist} />
         </Switch>
         <Footer />
       </Router>

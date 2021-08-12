@@ -36,18 +36,19 @@ class Wishlist extends React.Component {
   }
 
   handleDelete = id => {
-    // fetch(`http://10.58.5.122:8000/likes/${id}`, {
-    //   method: 'DELETE',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.HoiaDvN9zT9u7eQ7szsnORfIMqs6oByJ5eoXjFoztqc',
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.getData();
-    //   });
-    // console.log('아이템 삭제!!!', id);
+    console.log('tttt');
+    fetch(`http://10.58.2.249:8000/likes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.getData();
+      });
+    console.log('아이템 삭제!!!', id);
   };
 
   handleCart = id => {
@@ -66,16 +67,16 @@ class Wishlist extends React.Component {
   };
 
   render() {
-    const { isEmptyWishlist, wishItem } = this.state;
-    if (wishItem.length) {
-      isEmptyWishlist = true;
-    } else {
-      isEmptyWishlist = false;
-    }
+    const { wishItem } = this.state;
+    // if (wishItem.length) {
+    //   isEmptyWishlist = true;
+    // } else {
+    //   isEmptyWishlist = false;
+    // }
     return (
       <div className="wishlistWraper">
         <h1 className="wishlistTitle">위시리스트</h1>
-        {!isEmptyWishlist ? (
+        {!wishItem.length ? (
           <div className="wishlistContainer">
             <img
               className="nowishimg"

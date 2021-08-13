@@ -45,8 +45,14 @@ class ProductList extends React.Component {
   };
 
   getData = () => {
-    const url = this.props.location.state;
-    console.log('주소', url);
+    fetch('http://10.58.2.134:8000/products')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          products: data.items,
+          viewProduct: data.items.slice(0, 4),
+        });
+      });
     // let id = 1;
     // console.log(
     //   '클릭한 곳',

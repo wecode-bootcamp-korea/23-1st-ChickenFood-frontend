@@ -3,18 +3,22 @@ import { withRouter } from 'react-router-dom';
 import './nav.scss';
 
 class ListComponent extends React.Component {
-  handlePage = () => {
-    const { path } = this.props;
-    this.props.handlePage(path);
-  };
   render() {
     const TOKEN = localStorage.getItem('TOKEN');
     const { path, classname, imgClassName, src, data } = this.props;
 
     const test = e => {
+      const { id } = e.target;
       const btnClassName = e.target.className;
+
+      if (id) {
+        this.props.handlePath(id);
+      } else {
+        console.log('error');
+      }
+
       if (btnClassName === 'pageMove logout') {
-        return localStorage.removeItem('TOKEN');
+        return localStorage.removeItem(TOKEN);
       } else {
         return this.props.history.push(path);
       }
@@ -22,7 +26,7 @@ class ListComponent extends React.Component {
 
     return (
       <li>
-        <div className={classname} onClick={test}>
+        <div className={classname} id={this.props.name} onClick={test}>
           <img className={imgClassName} src={src} />
           {data}
         </div>

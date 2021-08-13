@@ -14,7 +14,6 @@ class SubLiComponent extends React.Component {
               key={el.id}
               data={el.subCategory}
               path={el.path}
-              handlePage={this.props.handlePage}
               id={el.id}
             />
           );

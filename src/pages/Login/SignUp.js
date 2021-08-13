@@ -31,7 +31,7 @@ class SignUp extends React.Component {
   };
 
   idValidationCheck = () => {
-    fetch('http://10.58.2.249:8000/members/membercheck', {
+    fetch('http://10.58.2.134:8000/members/membercheck', {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
@@ -46,7 +46,7 @@ class SignUp extends React.Component {
   };
 
   submitUserInfo = e => {
-    fetch('http://10.58.2.249:8000/members/signup', {
+    fetch('http://10.58.2.134:8000/members/signup', {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
@@ -55,7 +55,7 @@ class SignUp extends React.Component {
         if (response.message === 'SUCCESS') {
           alert('회원가입에 성공했습니다. 환영합니다.');
           // localStorage.setItem('token', response.access_token);
-          // this.props.history.push('/main');
+          this.props.history.push('/signin');
         } else if (response.message === 'INVALID_RECOMMEND') {
           alert('존재하지 않는 추천인 아이디입니다!');
         } else {
@@ -63,18 +63,6 @@ class SignUp extends React.Component {
         }
       });
   };
-
-  // fetch('UPDATE_CART_API', {
-  //   method: 'POST',
-  //   headers: {
-  //     Authorization: localStorage.getItem('token'),
-  //   }
-  //   body: JSON.stringify({
-  //     cartId: this.state.cartId,
-  //   })
-  // })
-  // .then()
-  // .then()
 
   render() {
     return (

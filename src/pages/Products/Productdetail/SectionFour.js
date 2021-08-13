@@ -9,6 +9,14 @@ export class SectionFour extends Component {
     };
   }
 
+  productBuy = () => {
+    alert('구매 되었습니다!');
+  };
+
+  putInCart = () => {
+    alert('장바구니에 담겼습니다.');
+  };
+
   render() {
     let { quantity } = this.state;
     return (
@@ -23,7 +31,8 @@ export class SectionFour extends Component {
                   <img
                     onClick={() => this.props.deleteList(item.id)}
                     className="close"
-                    src="./images/close-cross-symbol-in-a-circle.png"
+                    src="/images/close-cross-symbol-in-a-circle.png"
+                    // src="/images/close-cross-symbol-in-a-circle.png"
                     alt="close"
                     value={item.type}
                   />
@@ -35,7 +44,7 @@ export class SectionFour extends Component {
                       id={item.id}
                       onClick={this.props.countMinus}
                       className="plusAndMinus"
-                      src="./images/minus.png"
+                      src="/images/minus.png"
                       alt="minus"
                     />
                     <span id={this.props.typeId} className="quantity">
@@ -45,7 +54,7 @@ export class SectionFour extends Component {
                       id={item.id}
                       onClick={this.props.count}
                       className="plusAndMinus"
-                      src="./images/plus.png"
+                      src="/images/plus.png"
                       alt="plus"
                     />
                   </span>
@@ -69,8 +78,12 @@ export class SectionFour extends Component {
             </span>
           </div>
           <div className="BtnsWrapper">
-            <button className="putInCart">장바구니 담기</button>
-            <button className="olderNow">바로구매</button>
+            <button className="putInCart" onClick={this.putInCart}>
+              장바구니 담기
+            </button>
+            <button className="olderNow" onClick={this.productBuy}>
+              바로구매
+            </button>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ const navAuthData_list = {
       id: '2',
       name: '마이페이지',
       classname: 'pageMove mypage',
-      path: '',
+      path: '/mypage',
     },
 
     {

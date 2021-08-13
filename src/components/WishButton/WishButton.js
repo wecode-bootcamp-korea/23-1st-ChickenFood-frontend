@@ -6,42 +6,31 @@ class WishButton extends React.Component {
     super(props);
 
     this.state = {
-      isCheckLike: false,
+      isCheckLike: true,
     };
   }
 
-  componentDidMount() {
-    // this.getData();
-  }
-  getData = () => {
-    // fetch()
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({
-    //       likeCheck: data.items,
-    //     });
-    //   });
-  };
-
-  handleLike = event => {
+  handleLike = (id, event) => {
     // 찜하기
-    if (event.target.name === 'like_red') {
-      // fetch('');
-      console.log(event.target.id, event.target.name);
+    if (event.target.name === 'like_white') {
+      fetch(`http://10.58.2.134:8000/likes/${id}`, {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('TOKEN'),
+        },
+      });
     }
+
     // 찜해제
-    else if (event.target.name === 'like_white') {
-      // fetch('');
-      console.log(event.target.id, event.target.name);
-      // fetch('');
+    else if (event.target.name === 'like_red') {
+      fetch(`http://10.58.2.134:8000/likes/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: localStorage.getItem('TOKEN'),
+        },
+      });
     }
-    // fetch(`http://10.58.2.249:8000/likes/${id}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6N30.dER8tPLi9IvzpsZ_4uxCeTDRHbzBNhSA8dDAVppBayw',
-    //   },
-    // });
+
     this.setState({
       isCheckLike: !this.state.isCheckLike,
     });
@@ -53,21 +42,21 @@ class WishButton extends React.Component {
     return (
       <div className="icon">
         {isCheckLike ? (
-          <div onClick={this.handleLike}>
+          <div onClick={event => this.handleLike(id, event)}>
             <img
               className="wishIcon"
-              name="like_red"
-              src="./images/heart_red.png"
+              name="like_white"
+              src="/images/heart.png"
               alt="like"
               id={id}
             />
           </div>
         ) : (
-          <div onClick={this.handleLike}>
+          <div onClick={event => this.handleLike(id, event)}>
             <img
               className="wishIcon"
-              name="like_white"
-              src="./images/heart.png"
+              name="like_red"
+              src="/images/heart_red.png"
               alt="like"
               id={id}
             />

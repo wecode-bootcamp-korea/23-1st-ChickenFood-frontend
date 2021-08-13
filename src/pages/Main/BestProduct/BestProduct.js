@@ -10,7 +10,7 @@ class BestProduct extends React.Component {
           <img src={imgsrc} alt="product" className="productImg" />
         </div>
         <div className="productName">{product}</div>
-        <div className="productPrice">{Number(price).toLocaleString()}</div>
+        <div className="productPrice">₩{Number(price).toLocaleString()}</div>
       </li>
     );
   }

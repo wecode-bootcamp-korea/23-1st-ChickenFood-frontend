@@ -186,13 +186,17 @@ class Cart extends React.Component {
                     <div className="billContentsTitle">일반 상품</div>
                     <div className="price item">
                       <div>총 상품 금액</div>
-                      <div className="priceNum">{getTotalPrice(items)}</div>
+                      <div className="priceNum">
+                        ₩{getTotalPrice(items).toLocaleString()}
+                      </div>
                     </div>
                     <div className="price shipping">
                       <div>
                         배송비 <span>(20,000원 이상 결제시 무료배송)</span>
                       </div>
-                      <div className="priceNum">(+) {shippingFee}</div>
+                      <div className="priceNum">
+                        (+) ₩{shippingFee.toLocaleString()}
+                      </div>
                     </div>
                     <div className="price discount">
                       <div>할인 금액</div>
@@ -202,7 +206,7 @@ class Cart extends React.Component {
                   <div className="price total">
                     <div>결제 예정 금액</div>
                     <div className="priceNum">
-                      {getTotalPrice(items) + shippingFee}
+                      ₩{(getTotalPrice(items) + shippingFee).toLocaleString()}
                     </div>
                   </div>
                 </div>

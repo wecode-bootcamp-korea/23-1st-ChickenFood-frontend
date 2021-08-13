@@ -19,14 +19,21 @@ class Productdetail extends React.Component {
   }
 
   componentDidMount() {
+    //ip주소 /url/{this.props.location.state}
+    //ip주소 //url/{this.props.match.params}
+
+    //fetch
+    // 'products//private'
     fetch('http://localhost:3000/data/mockData_detail_page.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
-        this.setState({ data: res.items });
+        this.setState({ data: res.item });
       });
 
+    //fetch
+    // options
     fetch('data/mockData_detail_page_second.json', {
       method: 'GET',
     })
@@ -90,9 +97,9 @@ class Productdetail extends React.Component {
   };
 
   render() {
-    const emptyList = this.state.emptyList;
-    const { name, price } = this.state.data;
-    const { quantity } = this.state;
+    // const emptyList = this.state.emptyList;
+    // const { name, price } = this.state.data;
+    // const { quantity } = this.state;
     return (
       <div className="productDetail">
         {/* 왼쪽 */}

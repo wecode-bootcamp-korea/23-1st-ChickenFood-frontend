@@ -1,7 +1,6 @@
 import React from 'react';
 import './BestItem.scss';
 import OneProduct from '../OneProduct/OneProduct';
-// import ImageSlider from '../../../components/ImageSlider/ImageSlider';
 
 class BestItem extends React.Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class BestItem extends React.Component {
     this.getData();
   }
   getData = () => {
-    fetch('./data/data.json')
+    fetch('http://10.58.2.134:8000/products?filter=best')
       .then(response => response.json())
       .then(data => {
         let bestItems = [];

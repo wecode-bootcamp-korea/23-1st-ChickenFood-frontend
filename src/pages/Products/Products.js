@@ -5,7 +5,6 @@ import './Products.scss';
 
 class Products extends React.Component {
   render() {
-    console.log(this.props.match.params);
     return (
       <div className="wrapper">
         <BestItem />

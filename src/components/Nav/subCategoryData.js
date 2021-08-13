@@ -1,23 +1,23 @@
 const subCategoryData_list = [
-  {
-    productList: [
-      {
-        id: 1,
-        subCategory: '베스트',
-        path: '',
-      },
-      {
-        id: 2,
-        subCategory: '브랜드',
-        path: 'brand=',
-      },
-      {
-        id: 3,
-        subCategory: '유형별',
-        path: 'type=',
-      },
-    ],
-  },
+  // {
+  //   productList: [
+  //     {
+  //       id: 1,
+  //       subCategory: '베스트',
+  //       path: '',
+  //     },
+  //     {
+  //       id: 2,
+  //       subCategory: '브랜드',
+  //       path: 'brand=',
+  //     },
+  //     {
+  //       id: 3,
+  //       subCategory: '유형별',
+  //       path: 'type=',
+  //     },
+  //   ],
+  // },
 
   {
     event: [

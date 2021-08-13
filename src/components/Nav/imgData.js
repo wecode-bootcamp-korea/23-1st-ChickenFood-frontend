@@ -23,13 +23,6 @@ const imgData_list = {
       path: '#',
       src: 'images/search.png',
     },
-    {
-      id: 4,
-      imgClassName: 'shoppingListIcon',
-      classname: 'pageMove',
-      path: '#',
-      src: 'images/cart.png',
-    },
   ],
 };
 

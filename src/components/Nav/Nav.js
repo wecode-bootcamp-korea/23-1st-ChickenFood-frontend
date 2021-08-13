@@ -19,19 +19,6 @@ class Nav extends React.Component {
     };
   }
 
-  // Mock데이터로 추후 변경 예정
-  // componentDidMount = () => {
-  //   fetch('http://localhost:3000/data/navAuthData.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       this.setState({
-  //         navAuthData: res,
-  //       });
-  //     });
-  // }
-
   modeDefault = () => {
     this.setState({ subCategoryMode: 'layoutSubCategoryDefault' });
   };
@@ -40,9 +27,14 @@ class Nav extends React.Component {
     this.setState({ subCategoryMode: 'layoutSubCategoryActive' });
   };
 
-  handlePage = path => {
-    console.log('path다', path);
-    this.props.history.push(`/products/${path}`);
+  goCart = () => {
+    this.props.history.push('/cart', 'dksf');
+  };
+
+  handlePath = path => {
+    this.props.history.push('products', path);
+
+    console.log('selected path', path);
   };
 
   render() {
@@ -105,15 +97,44 @@ class Nav extends React.Component {
                 />
               );
             })}
+            <li>
+              <div className="pageMove" onClick={this.goCart}>
+                <img
+                  className="shoppingListIcon"
+                  src="images/cart.png"
+                  alt="cart"
+                />
+              </div>
+            </li>
           </ul>
         </nav>
         <div className="subCatgoryContainer">
           <div className={this.state.subCategoryMode}>
             <nav className="sub Category" onMouseLeave={this.modeDefault}>
               <div className="sub imgBox">
-                <img src="images/main_banner.jpg" />
+                <img src="images/main_banner.jpg" alt="" />
               </div>
               <div className="sub listBox">
+                <ul className="productList">
+                  <ListComponent
+                    data="베스트"
+                    name="/products"
+                    id="1"
+                    handlePath={this.handlePath}
+                  />
+                  <ListComponent
+                    data="브랜드"
+                    name="/products/brand="
+                    id="2"
+                    handlePath={this.handlePath}
+                  />
+                  <ListComponent
+                    data="유형별"
+                    name="/products/type="
+                    id="3"
+                    handlePath={this.handlePath}
+                  />
+                </ul>
                 {subCategory_list.map((el, index) => {
                   return (
                     <SubLiComponent

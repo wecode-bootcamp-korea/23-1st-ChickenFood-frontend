@@ -23,14 +23,15 @@ class SignIn extends Component {
   };
 
   submitUserInfo = e => {
-    fetch('http://10.58.2.122:8000/members/login', {
+    console.log(this.state.userInfo);
+    fetch('http://10.58.2.134:8000/members/signin', {
       method: 'POST',
       body: JSON.stringify(this.state.userInfo),
     })
       .then(res => res.json())
       .then(response => {
         if (response.message === 'SUCCESS') {
-          localStorage.setItem('TOKEN', response.access_token);
+          localStorage.setItem('TOKEN', response.token);
           this.props.history.push('/main');
         } else {
           alert('아이디와 비밀번호를 확인해주세요!');
@@ -40,50 +41,48 @@ class SignIn extends Component {
 
   render() {
     return (
-      <>
-        <section className="layoutLogin">
-          <div className="loginFlexBox">
-            <h1>로그인</h1>
-            <div className="loginForm">
-              <div className="loginInputBox">
-                {signInData_list.inputData.map(el => {
-                  return (
-                    <SignInput
-                      key={el.id}
-                      label={el.label}
-                      name={el.name}
-                      type={el.type}
-                      noti={el.noti}
-                      necessary={el.necessary}
-                      onChange={this.getValue}
-                    />
-                  );
-                })}
-              </div>
-              <div className="loginBtnBox">
-                <SignBtn
-                  type="submit"
-                  classname="id loginBtn"
-                  text="아이디 로그인"
-                  submit={this.submitUserInfo}
-                />
-                <SignBtn
-                  type="submit"
-                  classname="phone loginBtn"
-                  text="휴대폰 로그인"
-                />
-              </div>
-              <ul className="signUpFindIdPw">
-                {signInData_list.listData.map(el => {
-                  return (
-                    <ListComponent key={el.id} path={el.path} data={el.data} />
-                  );
-                })}
-              </ul>
+      <section className="layoutLogin">
+        <div className="loginFlexBox">
+          <h1>로그인</h1>
+          <div className="loginForm">
+            <div className="loginInputBox">
+              {signInData_list.inputData.map(el => {
+                return (
+                  <SignInput
+                    key={el.id}
+                    label={el.label}
+                    name={el.name}
+                    type={el.type}
+                    noti={el.noti}
+                    necessary={el.necessary}
+                    getValue={this.getValue}
+                  />
+                );
+              })}
             </div>
+            <div className="loginBtnBox">
+              <SignBtn
+                type="submit"
+                classname="id loginBtn"
+                text="아이디 로그인"
+                submit={this.submitUserInfo}
+              />
+              <SignBtn
+                type="submit"
+                classname="phone loginBtn"
+                text="휴대폰 로그인"
+              />
+            </div>
+            <ul className="signUpFindIdPw">
+              {signInData_list.listData.map(el => {
+                return (
+                  <ListComponent key={el.id} path={el.path} data={el.data} />
+                );
+              })}
+            </ul>
           </div>
-        </section>
-      </>
+        </div>
+      </section>
     );
   }
 }

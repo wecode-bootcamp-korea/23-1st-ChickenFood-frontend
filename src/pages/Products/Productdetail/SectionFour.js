@@ -9,6 +9,14 @@ export class SectionFour extends Component {
     };
   }
 
+  productBuy = () => {
+    alert('구매 되었습니다!');
+  };
+
+  putInCart = () => {
+    alert('장바구니에 담겼습니다.');
+  };
+
   render() {
     let { quantity } = this.state;
     return (
@@ -69,8 +77,12 @@ export class SectionFour extends Component {
             </span>
           </div>
           <div className="BtnsWrapper">
-            <button className="putInCart">장바구니 담기</button>
-            <button className="olderNow">바로구매</button>
+            <button className="putInCart" onClick={this.putInCart}>
+              장바구니 담기
+            </button>
+            <button className="olderNow" onClick={this.productBuy}>
+              바로구매
+            </button>
           </div>
         </div>
       </div>

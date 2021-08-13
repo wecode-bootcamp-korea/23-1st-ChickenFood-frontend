@@ -27,12 +27,13 @@ class BestProductCarousel extends React.Component {
   }
 
   getCarouselData = () => {
+    console.log('메인 블러오기');
     const { id } = this.props;
-    fetch(`/data/${id}.json`)
+    fetch(`http://10.58.2.134:8000/products?filter=best&brand=${id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({
-          bestProduct: res,
+          bestProduct: res.items,
         });
       });
   };

@@ -6,14 +6,14 @@ class WishButton extends React.Component {
     super(props);
 
     this.state = {
-      isCheckLike: false,
+      isCheckLike: true,
     };
   }
 
   handleLike = (id, event) => {
     // 찜하기
     if (event.target.name === 'like_white') {
-      fetch(`http://10.58.2.249:8000/likes/${id}`, {
+      fetch(`http://10.58.2.134:8000/likes/${id}`, {
         method: 'POST',
         headers: {
           Authorization: localStorage.getItem('TOKEN'),
@@ -23,7 +23,7 @@ class WishButton extends React.Component {
 
     // 찜해제
     else if (event.target.name === 'like_red') {
-      fetch(`http://10.58.2.249:8000/likes/${id}`, {
+      fetch(`http://10.58.2.134:8000/likes/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: localStorage.getItem('TOKEN'),
@@ -46,7 +46,7 @@ class WishButton extends React.Component {
             <img
               className="wishIcon"
               name="like_white"
-              src="./images/heart.png"
+              src="/images/heart.png"
               alt="like"
               id={id}
             />
@@ -56,7 +56,7 @@ class WishButton extends React.Component {
             <img
               className="wishIcon"
               name="like_red"
-              src="./images/heart_red.png"
+              src="/images/heart_red.png"
               alt="like"
               id={id}
             />

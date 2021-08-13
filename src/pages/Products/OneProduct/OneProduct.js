@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class OneProduct extends React.Component {
   goDetail = id => {
@@ -21,4 +22,4 @@ class OneProduct extends React.Component {
   }
 }
 
-export default OneProduct;
+export default withRouter(OneProduct);

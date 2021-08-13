@@ -18,7 +18,7 @@ export class SectionOne extends Component {
               <div className="wishBtnWrapper">
                 <WishButton id={id} />
               </div>
-              <img className="share" alt="share" src="./images/share.png" />
+              <img className="share" alt="share" src="/images/share.png" />
             </div>
           </div>
           <div className="productPrice">

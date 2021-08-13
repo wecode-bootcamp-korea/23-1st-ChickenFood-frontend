@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import OneProduct from '../OneProduct/OneProduct';
 import './ProductList.scss';
 import { PRODUCTS } from '../../../config.js';
@@ -19,7 +19,6 @@ class ProductList extends React.Component {
 
   componentDidMount() {
     this.getData();
-    // console.log('나와랑');
   }
 
   moreProduct = () => {
@@ -46,6 +45,8 @@ class ProductList extends React.Component {
   };
 
   getData = () => {
+    const url = this.props.location.state;
+    console.log('주소', url);
     // let id = 1;
     // console.log(
     //   '클릭한 곳',

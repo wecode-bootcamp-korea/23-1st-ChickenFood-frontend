@@ -19,29 +19,36 @@ class Productdetail extends React.Component {
   }
 
   componentDidMount() {
+    this.getData();
+  }
+  getData = () => {
     //ip주소 /url/{this.props.location.state}
     //ip주소 //url/{this.props.match.params}
 
     //fetch
     // 'products//private'
-    fetch('http://localhost:3000/data/mockData_detail_page.json', {
+    const { id } = this.props.match.params;
+    console.log('match params', this.props.match.params);
+    fetch(`http://10.58.2.134:8000/products/${id}/public`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
-        this.setState({ data: res.item });
+        // console.log('디테일 페이지 상품 정보 ', res.item[0]);
+        this.setState({ data: res.item[0] });
       });
 
     //fetch
     // options
-    fetch('data/mockData_detail_page_second.json', {
+    fetch('http://10.58.2.134:8000/options', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(res => {
-        this.setState({ type: res.option });
+        console.log('옵션 정보!!!', res);
+        this.setState({ type: res.options });
       });
-  }
+  };
 
   select = e => {
     const type = this.state.type[e.target.value].name;
@@ -97,13 +104,14 @@ class Productdetail extends React.Component {
   };
 
   render() {
-    // const emptyList = this.state.emptyList;
-    // const { name, price } = this.state.data;
-    // const { quantity } = this.state;
+    // console.log('상품 데이터', this.state.data);
+    const emptyList = this.state.emptyList;
+    const { name, price } = this.state.data;
+    const { quantity } = this.state;
     return (
       <div className="productDetail">
         {/* 왼쪽 */}
-        <LeftContainer />
+        <LeftContainer thumbnail={this.state.data.thumbnail} />
         {/* 오른쪽 */}
         <section className="productRight">
           <div className="sectionsWrapper">

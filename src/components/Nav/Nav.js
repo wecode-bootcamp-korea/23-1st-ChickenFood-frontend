@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import imgData_list from './imgData';
 import navAuthData_list from './navAuthData';
 import subCategory_list from './subCategoryData';
@@ -28,12 +28,11 @@ class Nav extends React.Component {
   };
 
   goCart = () => {
-    this.props.history.push('/cart', 'dksf');
+    this.props.history.push('/cart');
   };
 
   handlePath = path => {
-    this.props.history.push('products', path);
-
+    this.props.history.push(path);
     console.log('selected path', path);
   };
 
@@ -124,13 +123,13 @@ class Nav extends React.Component {
                   />
                   <ListComponent
                     data="브랜드"
-                    name="/products/brand="
+                    name="/products/brand/1"
                     id="2"
                     handlePath={this.handlePath}
                   />
                   <ListComponent
                     data="유형별"
-                    name="/products/type="
+                    name="/products/type/1"
                     id="3"
                     handlePath={this.handlePath}
                   />

@@ -98,6 +98,10 @@
     width: 1140px;
     margin-bottom: 10px;
 
+    .imgBox {
+      cursor: pointer;
+    }
+
     .layoutNav {
       @include flexCenterBox(center, center);
 

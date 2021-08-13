@@ -32,7 +32,7 @@ class SignIn extends Component {
       .then(response => {
         if (response.message === 'SUCCESS') {
           localStorage.setItem('TOKEN', response.token);
-          this.props.history.push('/main');
+          this.props.history.push('/');
         } else {
           alert('아이디와 비밀번호를 확인해주세요!');
         }

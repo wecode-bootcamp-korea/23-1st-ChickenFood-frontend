@@ -13,7 +13,7 @@ export class SectionTwo extends Component {
               <img
                 className="download"
                 alt="download"
-                src="./images/down-arrow.png"
+                src="/images/down-arrow.png"
               />
             </button>
           </div>
@@ -35,11 +35,11 @@ export class SectionTwo extends Component {
           <div className="review">
             <span className="contentsTitle">리뷰</span>
             <span className="starWrapper">
-              <img className="star" src="./images/star.png" />
-              <img className="star" src="./images/star.png" />
-              <img className="star" src="./images/star.png" />
-              <img className="star" src="./images/star.png" />
-              <img className="star" src="./images/star.png" />
+              <img className="star" src="/images/star.png" />
+              <img className="star" src="/images/star.png" />
+              <img className="star" src="/images/star.png" />
+              <img className="star" src="/images/star.png" />
+              <img className="star" src="/images/star.png" />
             </span>
             <span className="reviewUnit">(7건)</span>
           </div>

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './SectionThree.scss';
 
 export class SectionThree extends Component {
-  sendId = e => {
-    console.log(e.target);
-  };
   render() {
     return (
       <div>

@@ -10,7 +10,7 @@ export class LeftContainer extends Component {
             <img
               className="sampleImage"
               alt="product"
-              src="./images/sheabutter_cream.png"
+              src={this.props.thumbnail}
             />
           </div>
         </section>

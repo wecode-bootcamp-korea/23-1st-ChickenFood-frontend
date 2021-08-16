@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import imgData_list from './imgData';
 import navAuthData_list from './navAuthData';
 import subCategory_list from './subCategoryData';
@@ -13,23 +13,11 @@ class Nav extends React.Component {
   constructor() {
     super();
     this.state = {
+      loginMode: '',
       subCategoryMode: 'layoutSubCategoryDefault',
       // navAuthData: '',
     };
   }
-
-  // Mock데이터로 추후 변경 예정
-  // componentDidMount = () => {
-  //   fetch('http://localhost:3000/data/navAuthData.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       this.setState({
-  //         navAuthData: res,
-  //       });
-  //     });
-  // }
 
   modeDefault = () => {
     this.setState({ subCategoryMode: 'layoutSubCategoryDefault' });
@@ -39,26 +27,42 @@ class Nav extends React.Component {
     this.setState({ subCategoryMode: 'layoutSubCategoryActive' });
   };
 
-  handlePage = path => {
-    console.log('path다', path);
-    this.props.history.push(`/products/${path}`);
+  goCart = () => {
+    this.props.history.push('/cart');
+  };
+
+  handlePath = path => {
+    this.props.history.push(path);
+    console.log('selected path', path);
   };
 
   render() {
+    const TOKEN = localStorage.getItem('TOKEN');
     return (
       <header className="layoutHeader">
         <div className="headerFlexBox" onMouseEnter={this.modeDefault}>
           <ul className="authFlexBox">
-            {navAuthData_list.map(el => {
-              return (
-                <ListComponent key={el.id} data={el.name} path={el.path} />
-              );
-            })}
-            {/* {navAuthData_list.map(el => {
-              return (
-                <ListComponent key={el.id} data={el.name} path={} />
-              );
-            })} */}
+            {TOKEN
+              ? navAuthData_list.isLogin.map(el => {
+                  return (
+                    <ListComponent
+                      key={el.id}
+                      classname={el.classname}
+                      data={el.name}
+                      path={el.path}
+                    />
+                  );
+                })
+              : navAuthData_list.isNotLogin.map(el => {
+                  return (
+                    <ListComponent
+                      key={el.id}
+                      classname={el.classname}
+                      data={el.name}
+                      path={el.path}
+                    />
+                  );
+                })}
           </ul>
         </div>
         <nav className="navFlexBox" onMouseEnter={this.modeActive}>
@@ -92,15 +96,44 @@ class Nav extends React.Component {
                 />
               );
             })}
+            <li>
+              <div className="pageMove" onClick={this.goCart}>
+                <img
+                  className="shoppingListIcon"
+                  src="images/cart.png"
+                  alt="cart"
+                />
+              </div>
+            </li>
           </ul>
         </nav>
         <div className="subCatgoryContainer">
           <div className={this.state.subCategoryMode}>
             <nav className="sub Category" onMouseLeave={this.modeDefault}>
               <div className="sub imgBox">
-                <img src="./images/test_welcome.png" alt="welecome" />
+                <img src="images/main_banner.jpg" alt="" />
               </div>
               <div className="sub listBox">
+                <ul className="productList">
+                  <ListComponent
+                    data="베스트"
+                    name="/products"
+                    id="1"
+                    handlePath={this.handlePath}
+                  />
+                  <ListComponent
+                    data="브랜드"
+                    name="/products/brand/1"
+                    id="2"
+                    handlePath={this.handlePath}
+                  />
+                  <ListComponent
+                    data="유형별"
+                    name="/products/type/1"
+                    id="3"
+                    handlePath={this.handlePath}
+                  />
+                </ul>
                 {subCategory_list.map((el, index) => {
                   return (
                     <SubLiComponent

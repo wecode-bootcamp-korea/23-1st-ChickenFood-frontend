@@ -41,7 +41,7 @@ class OrderItems extends React.Component {
         </div>
         <div className="orderItemsRight">
           <button className="closeBtn" onClick={() => deleteList(id)} />
-          <div className="itemPrice">\{total}</div>
+          <div className="itemPrice">₩{total.toLocaleString()}</div>
         </div>
       </div>
     );

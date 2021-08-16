@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import OneProduct from '../OneProduct/OneProduct';
 import './ProductList.scss';
 import { PRODUCTS } from '../../../config.js';
@@ -45,21 +45,31 @@ class ProductList extends React.Component {
   };
 
   getData = () => {
-    let id = 1;
-    console.log(`${PRODUCTS}${this.props.match.params.pathId}${id}`);
-
-    console.log(this.props.match.params);
-
-    // fetch(`${PRODUCTS}${this.props.match.params.pathId}${id}`)
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     console.log(data);
-    //     this.setState({
-    //       products: data.items,
-    //       viewProduct: data.items.slice(0, 4),
+    fetch('http://10.58.2.134:8000/products')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          products: data.items,
+          viewProduct: data.items.slice(0, 4),
+        });
+      });
+    // let id = 1;
+    // console.log(
+    //   '클릭한 곳',
+    //   `${PRODUCTS}${this.props.match.params.pathId}${id}`
+    // );
+    // console.log('location state', this.props.location);
+    // console.log('match params', this.props.match.params);
+    // if (this.props.match.params) {
+    //   fetch(`${PRODUCTS}?${this.props.match.params.pathId}${id}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       this.setState({
+    //         products: data.items,
+    //         viewProduct: data.items.slice(0, 4),
+    //       });
     //     });
-    //   });
-
+    // }
     // fetch('./data/data.json')
     //   .then(response => response.json())
     //   .then(data => {
@@ -72,25 +82,21 @@ class ProductList extends React.Component {
   };
 
   handleSorting = api => {
-    fetch('./data/data.json')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          products: data,
-        });
-      });
     if (api === 'bestProduct1') {
       console.log('추천순');
+      //products?filter=best
       this.setState({
         selectedSort: 1,
       });
     } else if (api === 'bestProduct2') {
       console.log('최신순');
+      //products?filter=recent
       this.setState({
         selectedSort: 2,
       });
     } else if (api === 'bestProduct3') {
       console.log('낮은가격순');
+
       this.setState({
         selectedSort: 3,
       });
@@ -105,6 +111,7 @@ class ProductList extends React.Component {
   render() {
     const { products, viewProduct, moreButtonHidden } = this.state;
     console.log(this.state.selectedSort);
+    console.log(this.props.location);
     return (
       <div className="bottomBackground">
         <div className="bottomContents">

@@ -13,17 +13,16 @@ class BestItem extends React.Component {
     };
   }
   componentDidMount() {
-    {
-      this.getProductList();
-    }
+    this.getProductList();
   }
 
   getProductList = () => {
-    fetch('/data/productCircle.json')
+    fetch('http://10.58.2.134:8000/brands')
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         this.setState({
-          circle: res,
+          circle: res.catalog,
         });
       });
   };
@@ -60,7 +59,7 @@ class BestItem extends React.Component {
               </li>
             ))}
           </ul>
-          <BestProductCarousel id={productNum ? productNum : 1} />
+          <BestProductCarousel id={productNum ? productNum : 17} />
         </div>
       </div>
     );
